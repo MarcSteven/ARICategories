@@ -8,7 +8,6 @@
 
 #import "UIView+MSCHerarchySupport.h"
 
-#import <AppKit/AppKit.h>
 
 
 @implementation UIView (MSCHerarchySupport)

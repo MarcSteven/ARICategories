@@ -9,6 +9,9 @@
 #import "UITextField+Extended.h"
 
 @implementation UITextField (Extended)
+
+/// 给textField添加下划线
+/// @param color  下划线颜色
 - (void)addBottomLineWithColor:(UIColor *)color {
     CALayer *borderLayer = [CALayer layer];
     CGFloat borderWidth = 2;
@@ -20,6 +23,8 @@
     self.layer.masksToBounds = YES;
     
 }
+
+/// 移除底部线
 - (void)removeBottomLine {
     [[self.layer.sublayers copy] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         CALayer *subLayer = obj;
