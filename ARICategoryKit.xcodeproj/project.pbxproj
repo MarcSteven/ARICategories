@@ -103,6 +103,7 @@
 		A6947C0C27F45A8F00A4DC1D /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C0B27F45A8F00A4DC1D /* UIApplicationExtension.swift */; };
 		A6947C1027F45D9000A4DC1D /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C0F27F45D9000A4DC1D /* UICollectionView+Extension.swift */; };
 		A6947C1227F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C1127F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift */; };
+		A6947C1427F45FED00A4DC1D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C1327F45FED00A4DC1D /* UIButton+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +214,7 @@
 		A6947C0B27F45A8F00A4DC1D /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		A6947C0F27F45D9000A4DC1D /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		A6947C1127F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+TapAttributedTextInLabel.swift"; sourceTree = "<group>"; };
+		A6947C1327F45FED00A4DC1D /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +365,7 @@
 				A6947C0927F4599900A4DC1D /* UINavigationControllerExtension.swift */,
 				A6947B2127F4377D00A4DC1D /* UIScreen+Helper.h */,
 				A6947BFF27F456CD00A4DC1D /* UIViewController+Common.h */,
+				A6947C1327F45FED00A4DC1D /* UIButton+Extension.swift */,
 				A6947C0027F456CD00A4DC1D /* UIViewController+Common.m */,
 				A6947C0727F4593D00A4DC1D /* UIWindowExtension.swift */,
 				A6947C0527F4590D00A4DC1D /* UITableView+Extension.swift */,
@@ -565,6 +568,7 @@
 				A6947BDB27F43B0B00A4DC1D /* NSDictionary+JSON.m in Sources */,
 				A6947C0627F4590D00A4DC1D /* UITableView+Extension.swift in Sources */,
 				A6947BDE27F43B0B00A4DC1D /* NSURL+Exception.m in Sources */,
+				A6947C1427F45FED00A4DC1D /* UIButton+Extension.swift in Sources */,
 				A6947BD927F43B0B00A4DC1D /* NSString+Hashing.m in Sources */,
 				A6947BFE27F4567400A4DC1D /* UIBarButtonItem+Badge.m in Sources */,
 				A6947C0827F4593D00A4DC1D /* UIWindowExtension.swift in Sources */,
