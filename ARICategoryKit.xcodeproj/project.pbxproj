@@ -101,6 +101,7 @@
 		A6947C0827F4593D00A4DC1D /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C0727F4593D00A4DC1D /* UIWindowExtension.swift */; };
 		A6947C0A27F4599900A4DC1D /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C0927F4599900A4DC1D /* UINavigationControllerExtension.swift */; };
 		A6947C0C27F45A8F00A4DC1D /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C0B27F45A8F00A4DC1D /* UIApplicationExtension.swift */; };
+		A6947C1027F45D9000A4DC1D /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C0F27F45D9000A4DC1D /* UICollectionView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +210,7 @@
 		A6947C0727F4593D00A4DC1D /* UIWindowExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		A6947C0927F4599900A4DC1D /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		A6947C0B27F45A8F00A4DC1D /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		A6947C0F27F45D9000A4DC1D /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +349,7 @@
 				A6947B3F27F4377E00A4DC1D /* UILabel+VerticalAlignment.h */,
 				A6947B2B27F4377D00A4DC1D /* UILabel+VerticalAlignment.m */,
 				A6947B5827F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.h */,
+				A6947C0F27F45D9000A4DC1D /* UICollectionView+Extension.swift */,
 				A6947B9A27F43ABB00A4DC1D /* MSFileManager.h */,
 				A6947BFB27F4567400A4DC1D /* UIBarButtonItem+Badge.h */,
 				A6947BFC27F4567400A4DC1D /* UIBarButtonItem+Badge.m */,
@@ -575,6 +578,7 @@
 				A6947BE927F43B0B00A4DC1D /* NSUserDefaults+Timing.m in Sources */,
 				A6947B6D27F4378000A4DC1D /* UIButton+MSTouch.m in Sources */,
 				A6947BC827F43B0B00A4DC1D /* NSData+UTF8.m in Sources */,
+				A6947C1027F45D9000A4DC1D /* UICollectionView+Extension.swift in Sources */,
 				A6947BE627F43B0B00A4DC1D /* UIView+MSCHierarchySupport.m in Sources */,
 				A6947B9827F4378000A4DC1D /* NSString+SubstringSearch.m in Sources */,
 				A6947B7D27F4378000A4DC1D /* UIColor+HexString.m in Sources */,
