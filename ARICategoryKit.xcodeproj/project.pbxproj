@@ -104,6 +104,7 @@
 		A6947C0627F4590D00A4DC1D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C0527F4590D00A4DC1D /* UITableView+Extension.swift */; };
 		A6947C0827F4593D00A4DC1D /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C0727F4593D00A4DC1D /* UIWindowExtension.swift */; };
 		A6947C0A27F4599900A4DC1D /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C0927F4599900A4DC1D /* UINavigationControllerExtension.swift */; };
+		A6947C0C27F45A8F00A4DC1D /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C0B27F45A8F00A4DC1D /* UIApplicationExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +216,7 @@
 		A6947C0527F4590D00A4DC1D /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		A6947C0727F4593D00A4DC1D /* UIWindowExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		A6947C0927F4599900A4DC1D /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
+		A6947C0B27F45A8F00A4DC1D /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +360,7 @@
 				A6947B9A27F43ABB00A4DC1D /* MSFileManager.h */,
 				A6947BFB27F4567400A4DC1D /* UIBarButtonItem+Badge.h */,
 				A6947BFC27F4567400A4DC1D /* UIBarButtonItem+Badge.m */,
+				A6947C0B27F45A8F00A4DC1D /* UIApplicationExtension.swift */,
 				A6947BF327F4405900A4DC1D /* UITableView+ReloadAnimation.h */,
 				A6947BF427F4405900A4DC1D /* UITableView+ReloadAnimation.m */,
 				A6947B9B27F43ABB00A4DC1D /* MSFileManager.m */,
@@ -562,6 +565,7 @@
 				A6947BCD27F43B0B00A4DC1D /* NSDate+MSTransform.m in Sources */,
 				A6947BD327F43B0B00A4DC1D /* UIView+Border.m in Sources */,
 				A6947BEB27F43B0B00A4DC1D /* NSArray+Exception.m in Sources */,
+				A6947C0C27F45A8F00A4DC1D /* UIApplicationExtension.swift in Sources */,
 				A6947B6627F4378000A4DC1D /* UIDevice+IOSDevice.m in Sources */,
 				A6947B0227F4342300A4DC1D /* ARICategoryKit.docc in Sources */,
 				A6947B6E27F4378000A4DC1D /* MSCPopoverBackgroundView.m in Sources */,
