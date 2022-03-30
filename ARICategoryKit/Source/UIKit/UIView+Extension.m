@@ -1,13 +1,109 @@
 //
-//  UIView+MSCAnimationType.m
+//  UIView+Extension.m
 //  MSKit
 //
-//  Created by Marc Zhao on 2019/11/29.
-//  Copyright © 2019 Memory Chain network technology (Shenzhen) co. LTD. All rights reserved.
+//  Created by Marc Zhao on 2019/10/24.
+//  Copyright © 2019 Marc Zhao. All rights reserved.
 //
 
-#import "UIView+MSCAnimationType.h"
+#import "UIView+Extension.h"
+#import "NSObject+MSCNameTag.h"
+#import "MSCCommon.h"
 
+
+
+@implementation UIView (MSSize)
+#pragma mark -setter method
+- (void)setX:(CGFloat)x {
+    CGRect frame = self.frame;
+    frame.origin.x = x;
+    self.frame = frame;
+    
+}
+-(void)setY:(CGFloat)y {
+    CGRect frame = self.frame;
+    frame.origin.y = y;
+    self.frame = frame;
+}
+
+
+- (void)setCenterX:(CGFloat)centerX {
+    CGPoint center = self.center;
+    center.x = centerX;
+    self.center = center;
+}
+- (void)setCenterY:(CGFloat)centerY {
+    CGPoint center = self.center;
+    center.y = centerY;
+    self.center = center;
+}
+- (void)setWidth:(CGFloat)width {
+    CGRect frame = self.frame;
+    frame.size.width = width;
+    self.frame = frame;
+}
+- (void)setHeight:(CGFloat)height {
+    CGRect frame = self.frame;
+    frame.size.height = height;
+    self.frame = frame;
+}
+- (void)setOrigin:(CGPoint)origin {
+    CGRect frame = self.frame;
+    frame.origin = origin;
+    self.frame = frame;
+}
+#pragma mark - getter method
+-(CGFloat)x {
+    return self.frame.origin.x;
+}
+-(CGFloat)y {
+    return self.frame.origin.y;
+}
+-(CGFloat)centerX {
+    return self.center.x;
+}
+- (CGFloat)centerY {
+    return self.center.y;
+}
+-(CGFloat)width {
+    return self.frame.size.width;
+}
+- (CGFloat)height {
+    return self.frame.size.height;
+}
+- (CGPoint)origin {
+    return self.frame.origin;
+}
+@end
+
+
+@implementation UIView (AutoLayoutDebugging)
++(void)leftAlignAndVerticallySpaceOutviews:(NSArray *)views distance:(CGFloat)distance {
+    for (NSInteger i = 1;i < views.count ; i ++) {
+        UIView *firstView = views[i -1];
+        UIView *secondView = views[i];
+        firstView.translatesAutoresizingMaskIntoConstraints = NO;
+        secondView.translatesAutoresizingMaskIntoConstraints = NO;
+        NSLayoutConstraint *constraint1 = [NSLayoutConstraint constraintWithItem:firstView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:secondView attribute:NSLayoutAttributeTop multiplier:1 constant:distance];
+        NSLayoutConstraint *constraint2 = [NSLayoutConstraint constraintWithItem:firstView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:secondView attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
+        [firstView.superview addConstraints:@[constraint1,constraint2]];
+        
+    }
+}
+- (void)exerciseAmbiguityInLayoutRepeatedly:(BOOL)recursive {
+    #ifdef DEBUG
+        if(self.hasAmbiguousLayout) {
+            [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(exerciseAmbiguityInLayout) userInfo:nil repeats:YES];
+        }
+        if(recursive) {
+            for(UIView *subview in self.subviews) {
+                [subview exerciseAmbiguityInLayoutRepeatedly:YES];
+            }
+            
+        }
+    #endif
+}
+@end
 
 
 @implementation UIView (MSCAnimationType)
@@ -116,4 +212,54 @@
     anima.removedOnCompletion = NO;
     [self.layer addAnimation:anima forKey:@"shadowColor"];
 }
+@end
+
+
+
+
+
+@implementation UIView (MSCNamedConstraintSupport)
+- (NSLayoutConstraint *)constraintNamed:(NSString *)aName {
+    if (!aName) {
+        return nil;
+    }
+    for (NSLayoutConstraint *constraint in self.constraints) {
+        if (constraint.nameTag && [constraint.nameTag isEqualToString:aName]) {
+            return constraint;
+        }
+        
+    }
+    if (self.superview) {
+        return [self.superview constraintNamed:aName];
+    }
+    return nil;
+}
+- (NSLayoutConstraint *)constraintNamed:(NSString *)aName matchingView:(UIView *)theView {
+    if(!aName ) return nil;
+    for (NSLayoutConstraint *constraint in self.constraints) {
+        if (constraint.nameTag && [constraint.nameTag isEqualToString:aName]) {
+            if(constraint.firstItem == theView) return constraint;
+            if (constraint.secondItem && constraint.secondItem == theView) return constraint;
+        }
+        if (self.superview) return [self.superview constraintNamed:aName matchingView:theView];
+    }
+    return nil;
+}
+-(NSArray *)constraintsNamed:(NSString *)aName {
+    //for this ,all constraints match a nil item
+    if (!aName) return self.constraints;
+    //Howerve, constraints have to have a name to match a non-nil name
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSLayoutConstraint *constraint in self.constraints)
+        if (constraint.nameTag && [constraint.nameTag isEqualToString:aName])
+            [array addObject:constraint];
+           // recurse upwords
+    if (self.superview) {
+        [array addObjectsFromArray:[self.superview constraintsNamed:aName]];
+    }
+    return array;
+        
+    
+}
+
 @end
