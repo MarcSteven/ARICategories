@@ -319,15 +319,8 @@ static inline CGFloat DegreesToRadians(CGFloat degrees)
 
 #pragma mark OS X
 
-// Content Hugging
-#define HUG_H(VIEW, PRIORITY) [VIEW setContentHuggingPriority:(PRIORITY) forOrientation:NSLayoutConstraintOrientationHorizontal]
-#define HUG_V(VIEW, PRIORITY) [VIEW setContentHuggingPriority:(PRIORITY) forOrientation:NSLayoutConstraintOrientationVertical]
-#define HUG(VIEW, PRIORITY) {HUG_H(VIEW, PRIORITY); HUG_V(VIEW, PRIORITY);}
 
-// Compression Resistance
-#define RESIST_H(VIEW, PRIORITY) [VIEW setContentCompressionResistancePriority:(PRIORITY) forOrientation:NSLayoutConstraintOrientationHorizontal]
-#define RESIST_V(VIEW, PRIORITY) [VIEW setContentCompressionResistancePriority:(PRIORITY) forOrientation:NSLayoutConstraintOrientationVertical]
-#define RESIST(VIEW, PRIORITY) {RESIST_H(VIEW, PRIORITY); RESIST_V(VIEW, PRIORITY);}
+
 
 
 #define weakify(...) \\
