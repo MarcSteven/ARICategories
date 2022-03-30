@@ -1,0 +1,682 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A6947B0227F4342300A4DC1D /* ARICategoryKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = A6947B0127F4342300A4DC1D /* ARICategoryKit.docc */; };
+		A6947B0827F4342300A4DC1D /* ARICategoryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6947AFD27F4342300A4DC1D /* ARICategoryKit.framework */; };
+		A6947B0D27F4342300A4DC1D /* ARICategoryKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B0C27F4342300A4DC1D /* ARICategoryKitTests.m */; };
+		A6947B0E27F4342300A4DC1D /* ARICategoryKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B0027F4342300A4DC1D /* ARICategoryKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6947B5D27F4378000A4DC1D /* UITextField+MSLimits.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B2027F4377D00A4DC1D /* UITextField+MSLimits.m */; };
+		A6947B5E27F4378000A4DC1D /* UIScreen+Helper.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B2127F4377D00A4DC1D /* UIScreen+Helper.h */; };
+		A6947B5F27F4378000A4DC1D /* UIImage+Color.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B2227F4377D00A4DC1D /* UIImage+Color.h */; };
+		A6947B6027F4378000A4DC1D /* UIView+MSSize.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B2327F4377D00A4DC1D /* UIView+MSSize.h */; };
+		A6947B6227F4378000A4DC1D /* UITextField+Extended.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B2527F4377D00A4DC1D /* UITextField+Extended.m */; };
+		A6947B6327F4378000A4DC1D /* UIWindow+MSCSafeArea.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B2627F4377D00A4DC1D /* UIWindow+MSCSafeArea.h */; };
+		A6947B6427F4378000A4DC1D /* UIViewController+SmallScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B2727F4377D00A4DC1D /* UIViewController+SmallScreen.h */; };
+		A6947B6527F4378000A4DC1D /* UIScreen+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B2827F4377D00A4DC1D /* UIScreen+Helper.m */; };
+		A6947B6627F4378000A4DC1D /* UIDevice+IOSDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B2927F4377D00A4DC1D /* UIDevice+IOSDevice.m */; };
+		A6947B6727F4378000A4DC1D /* UIView+MSCHerarchySupport.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B2A27F4377D00A4DC1D /* UIView+MSCHerarchySupport.h */; };
+		A6947B6827F4378000A4DC1D /* UILabel+VerticalAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B2B27F4377D00A4DC1D /* UILabel+VerticalAlignment.m */; };
+		A6947B6927F4378000A4DC1D /* UIView+MSCNamedConstraintSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B2C27F4377D00A4DC1D /* UIView+MSCNamedConstraintSupport.h */; };
+		A6947B6A27F4378000A4DC1D /* UIView+AutoLayoutDebugging.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B2D27F4377E00A4DC1D /* UIView+AutoLayoutDebugging.h */; };
+		A6947B6B27F4378000A4DC1D /* UIImage+Scale.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B2E27F4377E00A4DC1D /* UIImage+Scale.h */; };
+		A6947B6C27F4378000A4DC1D /* UIView+MSCNamedConstraintSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B2F27F4377E00A4DC1D /* UIView+MSCNamedConstraintSupport.m */; };
+		A6947B6D27F4378000A4DC1D /* UIButton+MSTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B3027F4377E00A4DC1D /* UIButton+MSTouch.m */; };
+		A6947B6E27F4378000A4DC1D /* MSCPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B3127F4377E00A4DC1D /* MSCPopoverBackgroundView.m */; };
+		A6947B6F27F4378000A4DC1D /* UITextField+Extended.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B3227F4377E00A4DC1D /* UITextField+Extended.h */; };
+		A6947B7027F4378000A4DC1D /* UIView+MSCConstraintMatching.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B3327F4377E00A4DC1D /* UIView+MSCConstraintMatching.h */; };
+		A6947B7127F4378000A4DC1D /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B3427F4377E00A4DC1D /* UIViewController+Tracking.m */; };
+		A6947B7227F4378000A4DC1D /* UIView+MSCAnimationType.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B3527F4377E00A4DC1D /* UIView+MSCAnimationType.m */; };
+		A6947B7327F4378000A4DC1D /* UITextField+MSLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B3627F4377E00A4DC1D /* UITextField+MSLimits.h */; };
+		A6947B7427F4378000A4DC1D /* UIScrollView+isScrollable.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B3727F4377E00A4DC1D /* UIScrollView+isScrollable.m */; };
+		A6947B7627F4378000A4DC1D /* UIPopoverController+Configure.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B3927F4377E00A4DC1D /* UIPopoverController+Configure.h */; };
+		A6947B7727F4378000A4DC1D /* UIView+AutoLayoutDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B3A27F4377E00A4DC1D /* UIView+AutoLayoutDebugging.m */; };
+		A6947B7827F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B3B27F4377E00A4DC1D /* NSLayoutConstraint+ListConstraint.h */; };
+		A6947B7B27F4378000A4DC1D /* UIColor+HexString.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B3E27F4377E00A4DC1D /* UIColor+HexString.h */; };
+		A6947B7C27F4378000A4DC1D /* UILabel+VerticalAlignment.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B3F27F4377E00A4DC1D /* UILabel+VerticalAlignment.h */; };
+		A6947B7D27F4378000A4DC1D /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B4027F4377E00A4DC1D /* UIColor+HexString.m */; };
+		A6947B8027F4378000A4DC1D /* UIColor+MSHex.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B4327F4377F00A4DC1D /* UIColor+MSHex.h */; };
+		A6947B8127F4378000A4DC1D /* UIView+MSCHerarchySupport.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B4427F4377F00A4DC1D /* UIView+MSCHerarchySupport.m */; };
+		A6947B8227F4378000A4DC1D /* UIView+MSCConstraintMatching.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B4527F4377F00A4DC1D /* UIView+MSCConstraintMatching.m */; };
+		A6947B8327F4378000A4DC1D /* NSLayoutConstraint+ViewHierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B4627F4377F00A4DC1D /* NSLayoutConstraint+ViewHierarchy.h */; };
+		A6947B8427F4378000A4DC1D /* NSString+SubstringSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B4727F4377F00A4DC1D /* NSString+SubstringSearch.h */; };
+		A6947B8527F4378000A4DC1D /* UIView+MSSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B4827F4377F00A4DC1D /* UIView+MSSize.m */; };
+		A6947B8627F4378000A4DC1D /* UIImage+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B4927F4377F00A4DC1D /* UIImage+Scale.m */; };
+		A6947B8727F4378000A4DC1D /* MSCPopoverBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B4A27F4377F00A4DC1D /* MSCPopoverBackgroundView.h */; };
+		A6947B8827F4378000A4DC1D /* UIColor+MSHex.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B4B27F4377F00A4DC1D /* UIColor+MSHex.m */; };
+		A6947B8927F4378000A4DC1D /* UIDevice+IOSDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B4C27F4377F00A4DC1D /* UIDevice+IOSDevice.h */; };
+		A6947B8B27F4378000A4DC1D /* UIViewController+Tracking.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B4E27F4377F00A4DC1D /* UIViewController+Tracking.h */; };
+		A6947B8C27F4378000A4DC1D /* UIWindow+MSCSafeArea.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B4F27F4377F00A4DC1D /* UIWindow+MSCSafeArea.m */; };
+		A6947B8D27F4378000A4DC1D /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B5027F4377F00A4DC1D /* UIImage+Color.m */; };
+		A6947B8E27F4378000A4DC1D /* NSLayoutConstraint+ViewHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B5127F4378000A4DC1D /* NSLayoutConstraint+ViewHierarchy.m */; };
+		A6947B8F27F4378000A4DC1D /* UIButton+MSRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B5227F4378000A4DC1D /* UIButton+MSRuntime.h */; };
+		A6947B9027F4378000A4DC1D /* UIViewController+SmallScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B5327F4378000A4DC1D /* UIViewController+SmallScreen.m */; };
+		A6947B9127F4378000A4DC1D /* UIButton+MSTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B5427F4378000A4DC1D /* UIButton+MSTouch.h */; };
+		A6947B9227F4378000A4DC1D /* UIScrollView+isScrollable.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B5527F4378000A4DC1D /* UIScrollView+isScrollable.h */; };
+		A6947B9327F4378000A4DC1D /* UIView+MSCAnimationType.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B5627F4378000A4DC1D /* UIView+MSCAnimationType.h */; };
+		A6947B9427F4378000A4DC1D /* UIButton+MSRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B5727F4378000A4DC1D /* UIButton+MSRuntime.m */; };
+		A6947B9527F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B5827F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.h */; };
+		A6947B9627F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B5927F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.m */; };
+		A6947B9727F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B5A27F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.m */; };
+		A6947B9827F4378000A4DC1D /* NSString+SubstringSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B5B27F4378000A4DC1D /* NSString+SubstringSearch.m */; };
+		A6947B9927F4378000A4DC1D /* UIPopoverController+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B5C27F4378000A4DC1D /* UIPopoverController+Configure.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A6947B0927F4342300A4DC1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6947AF427F4342300A4DC1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6947AFC27F4342300A4DC1D;
+			remoteInfo = ARICategoryKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A6947AFD27F4342300A4DC1D /* ARICategoryKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARICategoryKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6947B0027F4342300A4DC1D /* ARICategoryKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARICategoryKit.h; sourceTree = "<group>"; };
+		A6947B0127F4342300A4DC1D /* ARICategoryKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ARICategoryKit.docc; sourceTree = "<group>"; };
+		A6947B0727F4342300A4DC1D /* ARICategoryKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARICategoryKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6947B0C27F4342300A4DC1D /* ARICategoryKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARICategoryKitTests.m; sourceTree = "<group>"; };
+		A6947B2027F4377D00A4DC1D /* UITextField+MSLimits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+MSLimits.m"; sourceTree = "<group>"; };
+		A6947B2127F4377D00A4DC1D /* UIScreen+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+Helper.h"; sourceTree = "<group>"; };
+		A6947B2227F4377D00A4DC1D /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		A6947B2327F4377D00A4DC1D /* UIView+MSSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MSSize.h"; sourceTree = "<group>"; };
+		A6947B2527F4377D00A4DC1D /* UITextField+Extended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Extended.m"; sourceTree = "<group>"; };
+		A6947B2627F4377D00A4DC1D /* UIWindow+MSCSafeArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+MSCSafeArea.h"; sourceTree = "<group>"; };
+		A6947B2727F4377D00A4DC1D /* UIViewController+SmallScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SmallScreen.h"; sourceTree = "<group>"; };
+		A6947B2827F4377D00A4DC1D /* UIScreen+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+Helper.m"; sourceTree = "<group>"; };
+		A6947B2927F4377D00A4DC1D /* UIDevice+IOSDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IOSDevice.m"; sourceTree = "<group>"; };
+		A6947B2A27F4377D00A4DC1D /* UIView+MSCHerarchySupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MSCHerarchySupport.h"; sourceTree = "<group>"; };
+		A6947B2B27F4377D00A4DC1D /* UILabel+VerticalAlignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+VerticalAlignment.m"; sourceTree = "<group>"; };
+		A6947B2C27F4377D00A4DC1D /* UIView+MSCNamedConstraintSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MSCNamedConstraintSupport.h"; sourceTree = "<group>"; };
+		A6947B2D27F4377E00A4DC1D /* UIView+AutoLayoutDebugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayoutDebugging.h"; sourceTree = "<group>"; };
+		A6947B2E27F4377E00A4DC1D /* UIImage+Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Scale.h"; sourceTree = "<group>"; };
+		A6947B2F27F4377E00A4DC1D /* UIView+MSCNamedConstraintSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSCNamedConstraintSupport.m"; sourceTree = "<group>"; };
+		A6947B3027F4377E00A4DC1D /* UIButton+MSTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+MSTouch.m"; sourceTree = "<group>"; };
+		A6947B3127F4377E00A4DC1D /* MSCPopoverBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCPopoverBackgroundView.m; sourceTree = "<group>"; };
+		A6947B3227F4377E00A4DC1D /* UITextField+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extended.h"; sourceTree = "<group>"; };
+		A6947B3327F4377E00A4DC1D /* UIView+MSCConstraintMatching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MSCConstraintMatching.h"; sourceTree = "<group>"; };
+		A6947B3427F4377E00A4DC1D /* UIViewController+Tracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tracking.m"; sourceTree = "<group>"; };
+		A6947B3527F4377E00A4DC1D /* UIView+MSCAnimationType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSCAnimationType.m"; sourceTree = "<group>"; };
+		A6947B3627F4377E00A4DC1D /* UITextField+MSLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+MSLimits.h"; sourceTree = "<group>"; };
+		A6947B3727F4377E00A4DC1D /* UIScrollView+isScrollable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+isScrollable.m"; sourceTree = "<group>"; };
+		A6947B3927F4377E00A4DC1D /* UIPopoverController+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopoverController+Configure.h"; sourceTree = "<group>"; };
+		A6947B3A27F4377E00A4DC1D /* UIView+AutoLayoutDebugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayoutDebugging.m"; sourceTree = "<group>"; };
+		A6947B3B27F4377E00A4DC1D /* NSLayoutConstraint+ListConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+ListConstraint.h"; sourceTree = "<group>"; };
+		A6947B3E27F4377E00A4DC1D /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
+		A6947B3F27F4377E00A4DC1D /* UILabel+VerticalAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+VerticalAlignment.h"; sourceTree = "<group>"; };
+		A6947B4027F4377E00A4DC1D /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
+		A6947B4327F4377F00A4DC1D /* UIColor+MSHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MSHex.h"; sourceTree = "<group>"; };
+		A6947B4427F4377F00A4DC1D /* UIView+MSCHerarchySupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSCHerarchySupport.m"; sourceTree = "<group>"; };
+		A6947B4527F4377F00A4DC1D /* UIView+MSCConstraintMatching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSCConstraintMatching.m"; sourceTree = "<group>"; };
+		A6947B4627F4377F00A4DC1D /* NSLayoutConstraint+ViewHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+ViewHierarchy.h"; sourceTree = "<group>"; };
+		A6947B4727F4377F00A4DC1D /* NSString+SubstringSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SubstringSearch.h"; sourceTree = "<group>"; };
+		A6947B4827F4377F00A4DC1D /* UIView+MSSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSSize.m"; sourceTree = "<group>"; };
+		A6947B4927F4377F00A4DC1D /* UIImage+Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Scale.m"; sourceTree = "<group>"; };
+		A6947B4A27F4377F00A4DC1D /* MSCPopoverBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCPopoverBackgroundView.h; sourceTree = "<group>"; };
+		A6947B4B27F4377F00A4DC1D /* UIColor+MSHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MSHex.m"; sourceTree = "<group>"; };
+		A6947B4C27F4377F00A4DC1D /* UIDevice+IOSDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IOSDevice.h"; sourceTree = "<group>"; };
+		A6947B4E27F4377F00A4DC1D /* UIViewController+Tracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tracking.h"; sourceTree = "<group>"; };
+		A6947B4F27F4377F00A4DC1D /* UIWindow+MSCSafeArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+MSCSafeArea.m"; sourceTree = "<group>"; };
+		A6947B5027F4377F00A4DC1D /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		A6947B5127F4378000A4DC1D /* NSLayoutConstraint+ViewHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+ViewHierarchy.m"; sourceTree = "<group>"; };
+		A6947B5227F4378000A4DC1D /* UIButton+MSRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+MSRuntime.h"; sourceTree = "<group>"; };
+		A6947B5327F4378000A4DC1D /* UIViewController+SmallScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SmallScreen.m"; sourceTree = "<group>"; };
+		A6947B5427F4378000A4DC1D /* UIButton+MSTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+MSTouch.h"; sourceTree = "<group>"; };
+		A6947B5527F4378000A4DC1D /* UIScrollView+isScrollable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+isScrollable.h"; sourceTree = "<group>"; };
+		A6947B5627F4378000A4DC1D /* UIView+MSCAnimationType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MSCAnimationType.h"; sourceTree = "<group>"; };
+		A6947B5727F4378000A4DC1D /* UIButton+MSRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+MSRuntime.m"; sourceTree = "<group>"; };
+		A6947B5827F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MSCConstraintMatching.h"; sourceTree = "<group>"; };
+		A6947B5927F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+ListConstraint.m"; sourceTree = "<group>"; };
+		A6947B5A27F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MSCConstraintMatching.m"; sourceTree = "<group>"; };
+		A6947B5B27F4378000A4DC1D /* NSString+SubstringSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SubstringSearch.m"; sourceTree = "<group>"; };
+		A6947B5C27F4378000A4DC1D /* UIPopoverController+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopoverController+Configure.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A6947AFA27F4342300A4DC1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6947B0427F4342300A4DC1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6947B0827F4342300A4DC1D /* ARICategoryKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A6947AF327F4342300A4DC1D = {
+			isa = PBXGroup;
+			children = (
+				A6947AFF27F4342300A4DC1D /* ARICategoryKit */,
+				A6947B0B27F4342300A4DC1D /* ARICategoryKitTests */,
+				A6947AFE27F4342300A4DC1D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A6947AFE27F4342300A4DC1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A6947AFD27F4342300A4DC1D /* ARICategoryKit.framework */,
+				A6947B0727F4342300A4DC1D /* ARICategoryKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A6947AFF27F4342300A4DC1D /* ARICategoryKit */ = {
+			isa = PBXGroup;
+			children = (
+				A6947B1727F4342C00A4DC1D /* Source */,
+				A6947B0027F4342300A4DC1D /* ARICategoryKit.h */,
+				A6947B0127F4342300A4DC1D /* ARICategoryKit.docc */,
+			);
+			path = ARICategoryKit;
+			sourceTree = "<group>";
+		};
+		A6947B0B27F4342300A4DC1D /* ARICategoryKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				A6947B0C27F4342300A4DC1D /* ARICategoryKitTests.m */,
+			);
+			path = ARICategoryKitTests;
+			sourceTree = "<group>";
+		};
+		A6947B1727F4342C00A4DC1D /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A6947B4A27F4377F00A4DC1D /* MSCPopoverBackgroundView.h */,
+				A6947B3127F4377E00A4DC1D /* MSCPopoverBackgroundView.m */,
+				A6947B3B27F4377E00A4DC1D /* NSLayoutConstraint+ListConstraint.h */,
+				A6947B5927F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.m */,
+				A6947B5827F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.h */,
+				A6947B5A27F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.m */,
+				A6947B4627F4377F00A4DC1D /* NSLayoutConstraint+ViewHierarchy.h */,
+				A6947B5127F4378000A4DC1D /* NSLayoutConstraint+ViewHierarchy.m */,
+				A6947B4727F4377F00A4DC1D /* NSString+SubstringSearch.h */,
+				A6947B5B27F4378000A4DC1D /* NSString+SubstringSearch.m */,
+				A6947B5227F4378000A4DC1D /* UIButton+MSRuntime.h */,
+				A6947B5727F4378000A4DC1D /* UIButton+MSRuntime.m */,
+				A6947B5427F4378000A4DC1D /* UIButton+MSTouch.h */,
+				A6947B3027F4377E00A4DC1D /* UIButton+MSTouch.m */,
+				A6947B3E27F4377E00A4DC1D /* UIColor+HexString.h */,
+				A6947B4027F4377E00A4DC1D /* UIColor+HexString.m */,
+				A6947B4327F4377F00A4DC1D /* UIColor+MSHex.h */,
+				A6947B4B27F4377F00A4DC1D /* UIColor+MSHex.m */,
+				A6947B4C27F4377F00A4DC1D /* UIDevice+IOSDevice.h */,
+				A6947B2927F4377D00A4DC1D /* UIDevice+IOSDevice.m */,
+				A6947B2227F4377D00A4DC1D /* UIImage+Color.h */,
+				A6947B5027F4377F00A4DC1D /* UIImage+Color.m */,
+				A6947B2E27F4377E00A4DC1D /* UIImage+Scale.h */,
+				A6947B4927F4377F00A4DC1D /* UIImage+Scale.m */,
+				A6947B3F27F4377E00A4DC1D /* UILabel+VerticalAlignment.h */,
+				A6947B2B27F4377D00A4DC1D /* UILabel+VerticalAlignment.m */,
+				A6947B3927F4377E00A4DC1D /* UIPopoverController+Configure.h */,
+				A6947B5C27F4378000A4DC1D /* UIPopoverController+Configure.m */,
+				A6947B2127F4377D00A4DC1D /* UIScreen+Helper.h */,
+				A6947B2827F4377D00A4DC1D /* UIScreen+Helper.m */,
+				A6947B5527F4378000A4DC1D /* UIScrollView+isScrollable.h */,
+				A6947B3727F4377E00A4DC1D /* UIScrollView+isScrollable.m */,
+				A6947B3227F4377E00A4DC1D /* UITextField+Extended.h */,
+				A6947B2527F4377D00A4DC1D /* UITextField+Extended.m */,
+				A6947B3627F4377E00A4DC1D /* UITextField+MSLimits.h */,
+				A6947B2027F4377D00A4DC1D /* UITextField+MSLimits.m */,
+				A6947B2D27F4377E00A4DC1D /* UIView+AutoLayoutDebugging.h */,
+				A6947B3A27F4377E00A4DC1D /* UIView+AutoLayoutDebugging.m */,
+				A6947B5627F4378000A4DC1D /* UIView+MSCAnimationType.h */,
+				A6947B3527F4377E00A4DC1D /* UIView+MSCAnimationType.m */,
+				A6947B3327F4377E00A4DC1D /* UIView+MSCConstraintMatching.h */,
+				A6947B4527F4377F00A4DC1D /* UIView+MSCConstraintMatching.m */,
+				A6947B2A27F4377D00A4DC1D /* UIView+MSCHerarchySupport.h */,
+				A6947B4427F4377F00A4DC1D /* UIView+MSCHerarchySupport.m */,
+				A6947B2C27F4377D00A4DC1D /* UIView+MSCNamedConstraintSupport.h */,
+				A6947B2F27F4377E00A4DC1D /* UIView+MSCNamedConstraintSupport.m */,
+				A6947B2327F4377D00A4DC1D /* UIView+MSSize.h */,
+				A6947B4827F4377F00A4DC1D /* UIView+MSSize.m */,
+				A6947B2727F4377D00A4DC1D /* UIViewController+SmallScreen.h */,
+				A6947B5327F4378000A4DC1D /* UIViewController+SmallScreen.m */,
+				A6947B4E27F4377F00A4DC1D /* UIViewController+Tracking.h */,
+				A6947B3427F4377E00A4DC1D /* UIViewController+Tracking.m */,
+				A6947B2627F4377D00A4DC1D /* UIWindow+MSCSafeArea.h */,
+				A6947B4F27F4377F00A4DC1D /* UIWindow+MSCSafeArea.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A6947AF827F4342300A4DC1D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6947B5E27F4378000A4DC1D /* UIScreen+Helper.h in Headers */,
+				A6947B6B27F4378000A4DC1D /* UIImage+Scale.h in Headers */,
+				A6947B8027F4378000A4DC1D /* UIColor+MSHex.h in Headers */,
+				A6947B7C27F4378000A4DC1D /* UILabel+VerticalAlignment.h in Headers */,
+				A6947B8927F4378000A4DC1D /* UIDevice+IOSDevice.h in Headers */,
+				A6947B6F27F4378000A4DC1D /* UITextField+Extended.h in Headers */,
+				A6947B7627F4378000A4DC1D /* UIPopoverController+Configure.h in Headers */,
+				A6947B9527F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.h in Headers */,
+				A6947B7027F4378000A4DC1D /* UIView+MSCConstraintMatching.h in Headers */,
+				A6947B7B27F4378000A4DC1D /* UIColor+HexString.h in Headers */,
+				A6947B9127F4378000A4DC1D /* UIButton+MSTouch.h in Headers */,
+				A6947B6327F4378000A4DC1D /* UIWindow+MSCSafeArea.h in Headers */,
+				A6947B9227F4378000A4DC1D /* UIScrollView+isScrollable.h in Headers */,
+				A6947B5F27F4378000A4DC1D /* UIImage+Color.h in Headers */,
+				A6947B0E27F4342300A4DC1D /* ARICategoryKit.h in Headers */,
+				A6947B8327F4378000A4DC1D /* NSLayoutConstraint+ViewHierarchy.h in Headers */,
+				A6947B7327F4378000A4DC1D /* UITextField+MSLimits.h in Headers */,
+				A6947B8B27F4378000A4DC1D /* UIViewController+Tracking.h in Headers */,
+				A6947B8427F4378000A4DC1D /* NSString+SubstringSearch.h in Headers */,
+				A6947B6727F4378000A4DC1D /* UIView+MSCHerarchySupport.h in Headers */,
+				A6947B6427F4378000A4DC1D /* UIViewController+SmallScreen.h in Headers */,
+				A6947B6027F4378000A4DC1D /* UIView+MSSize.h in Headers */,
+				A6947B9327F4378000A4DC1D /* UIView+MSCAnimationType.h in Headers */,
+				A6947B6A27F4378000A4DC1D /* UIView+AutoLayoutDebugging.h in Headers */,
+				A6947B8F27F4378000A4DC1D /* UIButton+MSRuntime.h in Headers */,
+				A6947B6927F4378000A4DC1D /* UIView+MSCNamedConstraintSupport.h in Headers */,
+				A6947B7827F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.h in Headers */,
+				A6947B8727F4378000A4DC1D /* MSCPopoverBackgroundView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A6947AFC27F4342300A4DC1D /* ARICategoryKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6947B1127F4342300A4DC1D /* Build configuration list for PBXNativeTarget "ARICategoryKit" */;
+			buildPhases = (
+				A6947AF827F4342300A4DC1D /* Headers */,
+				A6947AF927F4342300A4DC1D /* Sources */,
+				A6947AFA27F4342300A4DC1D /* Frameworks */,
+				A6947AFB27F4342300A4DC1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARICategoryKit;
+			productName = ARICategoryKit;
+			productReference = A6947AFD27F4342300A4DC1D /* ARICategoryKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A6947B0627F4342300A4DC1D /* ARICategoryKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6947B1427F4342300A4DC1D /* Build configuration list for PBXNativeTarget "ARICategoryKitTests" */;
+			buildPhases = (
+				A6947B0327F4342300A4DC1D /* Sources */,
+				A6947B0427F4342300A4DC1D /* Frameworks */,
+				A6947B0527F4342300A4DC1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6947B0A27F4342300A4DC1D /* PBXTargetDependency */,
+			);
+			name = ARICategoryKitTests;
+			productName = ARICategoryKitTests;
+			productReference = A6947B0727F4342300A4DC1D /* ARICategoryKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A6947AF427F4342300A4DC1D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					A6947AFC27F4342300A4DC1D = {
+						CreatedOnToolsVersion = 13.3;
+						LastSwiftMigration = 1330;
+					};
+					A6947B0627F4342300A4DC1D = {
+						CreatedOnToolsVersion = 13.3;
+					};
+				};
+			};
+			buildConfigurationList = A6947AF727F4342300A4DC1D /* Build configuration list for PBXProject "ARICategoryKit" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A6947AF327F4342300A4DC1D;
+			productRefGroup = A6947AFE27F4342300A4DC1D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A6947AFC27F4342300A4DC1D /* ARICategoryKit */,
+				A6947B0627F4342300A4DC1D /* ARICategoryKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A6947AFB27F4342300A4DC1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6947B0527F4342300A4DC1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A6947AF927F4342300A4DC1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6947B6227F4378000A4DC1D /* UITextField+Extended.m in Sources */,
+				A6947B9927F4378000A4DC1D /* UIPopoverController+Configure.m in Sources */,
+				A6947B8E27F4378000A4DC1D /* NSLayoutConstraint+ViewHierarchy.m in Sources */,
+				A6947B6527F4378000A4DC1D /* UIScreen+Helper.m in Sources */,
+				A6947B7227F4378000A4DC1D /* UIView+MSCAnimationType.m in Sources */,
+				A6947B7127F4378000A4DC1D /* UIViewController+Tracking.m in Sources */,
+				A6947B6C27F4378000A4DC1D /* UIView+MSCNamedConstraintSupport.m in Sources */,
+				A6947B9727F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.m in Sources */,
+				A6947B8627F4378000A4DC1D /* UIImage+Scale.m in Sources */,
+				A6947B8227F4378000A4DC1D /* UIView+MSCConstraintMatching.m in Sources */,
+				A6947B6627F4378000A4DC1D /* UIDevice+IOSDevice.m in Sources */,
+				A6947B0227F4342300A4DC1D /* ARICategoryKit.docc in Sources */,
+				A6947B6E27F4378000A4DC1D /* MSCPopoverBackgroundView.m in Sources */,
+				A6947B9627F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.m in Sources */,
+				A6947B8527F4378000A4DC1D /* UIView+MSSize.m in Sources */,
+				A6947B6827F4378000A4DC1D /* UILabel+VerticalAlignment.m in Sources */,
+				A6947B8D27F4378000A4DC1D /* UIImage+Color.m in Sources */,
+				A6947B5D27F4378000A4DC1D /* UITextField+MSLimits.m in Sources */,
+				A6947B9027F4378000A4DC1D /* UIViewController+SmallScreen.m in Sources */,
+				A6947B8127F4378000A4DC1D /* UIView+MSCHerarchySupport.m in Sources */,
+				A6947B6D27F4378000A4DC1D /* UIButton+MSTouch.m in Sources */,
+				A6947B9827F4378000A4DC1D /* NSString+SubstringSearch.m in Sources */,
+				A6947B7D27F4378000A4DC1D /* UIColor+HexString.m in Sources */,
+				A6947B8C27F4378000A4DC1D /* UIWindow+MSCSafeArea.m in Sources */,
+				A6947B7427F4378000A4DC1D /* UIScrollView+isScrollable.m in Sources */,
+				A6947B7727F4378000A4DC1D /* UIView+AutoLayoutDebugging.m in Sources */,
+				A6947B9427F4378000A4DC1D /* UIButton+MSRuntime.m in Sources */,
+				A6947B8827F4378000A4DC1D /* UIColor+MSHex.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6947B0327F4342300A4DC1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6947B0D27F4342300A4DC1D /* ARICategoryKitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A6947B0A27F4342300A4DC1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A6947AFC27F4342300A4DC1D /* ARICategoryKit */;
+			targetProxy = A6947B0927F4342300A4DC1D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A6947B0F27F4342300A4DC1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A6947B1027F4342300A4DC1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A6947B1227F4342300A4DC1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = NGJVXQWTLX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ari.ARICategoryKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A6947B1327F4342300A4DC1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = NGJVXQWTLX;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ari.ARICategoryKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A6947B1527F4342300A4DC1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NGJVXQWTLX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ari.ARICategoryKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A6947B1627F4342300A4DC1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NGJVXQWTLX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ari.ARICategoryKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A6947AF727F4342300A4DC1D /* Build configuration list for PBXProject "ARICategoryKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6947B0F27F4342300A4DC1D /* Debug */,
+				A6947B1027F4342300A4DC1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6947B1127F4342300A4DC1D /* Build configuration list for PBXNativeTarget "ARICategoryKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6947B1227F4342300A4DC1D /* Debug */,
+				A6947B1327F4342300A4DC1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6947B1427F4342300A4DC1D /* Build configuration list for PBXNativeTarget "ARICategoryKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6947B1527F4342300A4DC1D /* Debug */,
+				A6947B1627F4342300A4DC1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A6947AF427F4342300A4DC1D /* Project object */;
+}
