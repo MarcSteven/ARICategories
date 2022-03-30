@@ -85,51 +85,51 @@ public extension UIButton {
         }
     }
 }
-extension UIButton {
+public extension UIButton {
     /// The image used for the normal state.
-       open var image: UIImage? {
+        var image: UIImage? {
            get { image(for: .normal) }
            set { setImage(newValue, for: .normal) }
        }
 
        /// The image used for the highlighted state.
-       open var highlightedImage: UIImage? {
+        var highlightedImage: UIImage? {
            get { image(for: .highlighted) }
            set { setImage(newValue, for: .highlighted) }
        }
 
        /// The text used for the normal state.
-       open var text: String? {
+        var text: String? {
            get { title(for: .normal) }
            set { setTitle(newValue, for: .normal) }
        }
 
        /// The text used for the highlighted state.
-       open var highlightedText: String? {
+        var highlightedText: String? {
            get { title(for: .highlighted) }
            set { setTitle(newValue, for: .highlighted) }
        }
 
        /// The attributed text used for the normal state.
-       open var attributedText: NSAttributedString? {
+        var attributedText: NSAttributedString? {
            get { attributedTitle(for: .normal) }
            set { setAttributedTitle(newValue, for: .normal) }
        }
 
        /// The attributed text used for the highlighted state.
-       open var highlightedAttributedText: NSAttributedString? {
+        var highlightedAttributedText: NSAttributedString? {
            get { attributedTitle(for: .highlighted) }
            set { setAttributedTitle(newValue, for: .highlighted) }
        }
 
        /// The color of the title used for the normal state.
-       open var textColor: UIColor? {
+        var textColor: UIColor? {
            get { titleColor(for: .normal) }
            set { setTitleColor(newValue, for: .normal) }
        }
 
        /// The color of the title used for the highlighted state.
-       open var highlightedTextColor: UIColor? {
+        var highlightedTextColor: UIColor? {
            get { titleColor(for: .highlighted) }
            set { setTitleColor(newValue, for: .highlighted) }
        }
@@ -137,7 +137,7 @@ extension UIButton {
 
        /// Add space between `text` and `image` while preserving the `intrinsicContentSize` and respecting `sizeToFit`.
        @IBInspectable
-       public var textImageSpacing: CGFloat {
+        var textImageSpacing: CGFloat {
            get {
                let (left, right) = (imageEdgeInsets.left, imageEdgeInsets.right)
 
