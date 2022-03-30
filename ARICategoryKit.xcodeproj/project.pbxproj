@@ -104,6 +104,7 @@
 		A6947C1027F45D9000A4DC1D /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C0F27F45D9000A4DC1D /* UICollectionView+Extension.swift */; };
 		A6947C1227F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C1127F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift */; };
 		A6947C1427F45FED00A4DC1D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C1327F45FED00A4DC1D /* UIButton+Extension.swift */; };
+		A6947C1627F461C500A4DC1D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C1527F461C500A4DC1D /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +216,7 @@
 		A6947C0F27F45D9000A4DC1D /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		A6947C1127F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+TapAttributedTextInLabel.swift"; sourceTree = "<group>"; };
 		A6947C1327F45FED00A4DC1D /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		A6947C1527F461C500A4DC1D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +355,7 @@
 				A6947B3F27F4377E00A4DC1D /* UILabel+VerticalAlignment.h */,
 				A6947B2B27F4377D00A4DC1D /* UILabel+VerticalAlignment.m */,
 				A6947B5827F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.h */,
+				A6947C1527F461C500A4DC1D /* UIViewControllerExtension.swift */,
 				A6947C0F27F45D9000A4DC1D /* UICollectionView+Extension.swift */,
 				A6947B9A27F43ABB00A4DC1D /* MSFileManager.h */,
 				A6947C1127F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift */,
@@ -596,6 +599,7 @@
 				A6947B9427F4378000A4DC1D /* UIButton+MSRuntime.m in Sources */,
 				A6947BED27F43B0B00A4DC1D /* NSObject+Associate.m in Sources */,
 				A6947BE327F43B0B00A4DC1D /* UIViewController+MSCLifecycleMonitor.m in Sources */,
+				A6947C1627F461C500A4DC1D /* UIViewControllerExtension.swift in Sources */,
 				A6947BC727F43B0B00A4DC1D /* UIScrollView+MSCGesture.m in Sources */,
 				A6947C0227F456CD00A4DC1D /* UIViewController+Common.m in Sources */,
 				A6947BEC27F43B0B00A4DC1D /* NSDictionary+Safe.m in Sources */,
