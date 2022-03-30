@@ -39,14 +39,12 @@
 		A6947B7B27F4378000A4DC1D /* UIColor+HexString.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B3E27F4377E00A4DC1D /* UIColor+HexString.h */; };
 		A6947B7C27F4378000A4DC1D /* UILabel+VerticalAlignment.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B3F27F4377E00A4DC1D /* UILabel+VerticalAlignment.h */; };
 		A6947B7D27F4378000A4DC1D /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B4027F4377E00A4DC1D /* UIColor+HexString.m */; };
-		A6947B8027F4378000A4DC1D /* UIColor+MSHex.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B4327F4377F00A4DC1D /* UIColor+MSHex.h */; };
 		A6947B8127F4378000A4DC1D /* UIView+MSCHerarchySupport.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B4427F4377F00A4DC1D /* UIView+MSCHerarchySupport.m */; };
 		A6947B8227F4378000A4DC1D /* UIView+MSCConstraintMatching.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B4527F4377F00A4DC1D /* UIView+MSCConstraintMatching.m */; };
 		A6947B8327F4378000A4DC1D /* NSLayoutConstraint+ViewHierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B4627F4377F00A4DC1D /* NSLayoutConstraint+ViewHierarchy.h */; };
 		A6947B8427F4378000A4DC1D /* NSString+SubstringSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B4727F4377F00A4DC1D /* NSString+SubstringSearch.h */; };
 		A6947B8527F4378000A4DC1D /* UIView+MSSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B4827F4377F00A4DC1D /* UIView+MSSize.m */; };
 		A6947B8727F4378000A4DC1D /* MSCPopoverBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B4A27F4377F00A4DC1D /* MSCPopoverBackgroundView.h */; };
-		A6947B8827F4378000A4DC1D /* UIColor+MSHex.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B4B27F4377F00A4DC1D /* UIColor+MSHex.m */; };
 		A6947B8927F4378000A4DC1D /* UIDevice+IOSDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B4C27F4377F00A4DC1D /* UIDevice+IOSDevice.h */; };
 		A6947B8B27F4378000A4DC1D /* UIViewController+Tracking.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B4E27F4377F00A4DC1D /* UIViewController+Tracking.h */; };
 		A6947B8C27F4378000A4DC1D /* UIWindow+MSCSafeArea.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B4F27F4377F00A4DC1D /* UIWindow+MSCSafeArea.m */; };
@@ -154,14 +152,12 @@
 		A6947B3E27F4377E00A4DC1D /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
 		A6947B3F27F4377E00A4DC1D /* UILabel+VerticalAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+VerticalAlignment.h"; sourceTree = "<group>"; };
 		A6947B4027F4377E00A4DC1D /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
-		A6947B4327F4377F00A4DC1D /* UIColor+MSHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MSHex.h"; sourceTree = "<group>"; };
 		A6947B4427F4377F00A4DC1D /* UIView+MSCHerarchySupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSCHerarchySupport.m"; sourceTree = "<group>"; };
 		A6947B4527F4377F00A4DC1D /* UIView+MSCConstraintMatching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSCConstraintMatching.m"; sourceTree = "<group>"; };
 		A6947B4627F4377F00A4DC1D /* NSLayoutConstraint+ViewHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+ViewHierarchy.h"; sourceTree = "<group>"; };
 		A6947B4727F4377F00A4DC1D /* NSString+SubstringSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SubstringSearch.h"; sourceTree = "<group>"; };
 		A6947B4827F4377F00A4DC1D /* UIView+MSSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSSize.m"; sourceTree = "<group>"; };
 		A6947B4A27F4377F00A4DC1D /* MSCPopoverBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCPopoverBackgroundView.h; sourceTree = "<group>"; };
-		A6947B4B27F4377F00A4DC1D /* UIColor+MSHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MSHex.m"; sourceTree = "<group>"; };
 		A6947B4C27F4377F00A4DC1D /* UIDevice+IOSDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IOSDevice.h"; sourceTree = "<group>"; };
 		A6947B4E27F4377F00A4DC1D /* UIViewController+Tracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tracking.h"; sourceTree = "<group>"; };
 		A6947B4F27F4377F00A4DC1D /* UIWindow+MSCSafeArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+MSCSafeArea.m"; sourceTree = "<group>"; };
@@ -350,8 +346,6 @@
 				A6947B3027F4377E00A4DC1D /* UIButton+MSTouch.m */,
 				A6947B3E27F4377E00A4DC1D /* UIColor+HexString.h */,
 				A6947B4027F4377E00A4DC1D /* UIColor+HexString.m */,
-				A6947B4327F4377F00A4DC1D /* UIColor+MSHex.h */,
-				A6947B4B27F4377F00A4DC1D /* UIColor+MSHex.m */,
 				A6947B4C27F4377F00A4DC1D /* UIDevice+IOSDevice.h */,
 				A6947B2927F4377D00A4DC1D /* UIDevice+IOSDevice.m */,
 				A6947B2227F4377D00A4DC1D /* UIImage+Extension.h */,
@@ -416,7 +410,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6947B5E27F4378000A4DC1D /* UIScreen+Helper.h in Headers */,
-				A6947B8027F4378000A4DC1D /* UIColor+MSHex.h in Headers */,
 				A6947B7C27F4378000A4DC1D /* UILabel+VerticalAlignment.h in Headers */,
 				A6947BD227F43B0B00A4DC1D /* NSString+Additions.h in Headers */,
 				A6947BCB27F43B0B00A4DC1D /* NSDictionary+JSON.h in Headers */,
@@ -611,7 +604,6 @@
 				A6947B7727F4378000A4DC1D /* UIView+AutoLayoutDebugging.m in Sources */,
 				A6947B9427F4378000A4DC1D /* UIButton+MSRuntime.m in Sources */,
 				A6947BED27F43B0B00A4DC1D /* NSObject+Associate.m in Sources */,
-				A6947B8827F4378000A4DC1D /* UIColor+MSHex.m in Sources */,
 				A6947BE327F43B0B00A4DC1D /* UIViewController+MSCLifecycleMonitor.m in Sources */,
 				A6947BC727F43B0B00A4DC1D /* UIScrollView+MSCGesture.m in Sources */,
 				A6947BEC27F43B0B00A4DC1D /* NSDictionary+Safe.m in Sources */,
