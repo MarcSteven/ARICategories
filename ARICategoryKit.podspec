@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name             = "ARICategories"
+  s.name             = "ARICategoryKit"
   s.version          = "0.0.1"
   s.summary          = "iOS categories tool."
   s.homepage         = "https://github.com/artsy/ARICategories"
