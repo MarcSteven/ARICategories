@@ -106,6 +106,8 @@
 		A6947BED27F43B0B00A4DC1D /* NSObject+Associate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947BC527F43B0B00A4DC1D /* NSObject+Associate.m */; };
 		A6947BEE27F43B0B00A4DC1D /* NSString+MSEmoji.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947BC627F43B0B00A4DC1D /* NSString+MSEmoji.h */; };
 		A6947BF027F43B3500A4DC1D /* MSCCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947BEF27F43B3500A4DC1D /* MSCCommon.h */; };
+		A6947BF527F4405900A4DC1D /* UITableView+ReloadAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947BF327F4405900A4DC1D /* UITableView+ReloadAnimation.h */; };
+		A6947BF627F4405900A4DC1D /* UITableView+ReloadAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947BF427F4405900A4DC1D /* UITableView+ReloadAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +221,8 @@
 		A6947BC527F43B0B00A4DC1D /* NSObject+Associate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Associate.m"; sourceTree = "<group>"; };
 		A6947BC627F43B0B00A4DC1D /* NSString+MSEmoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MSEmoji.h"; sourceTree = "<group>"; };
 		A6947BEF27F43B3500A4DC1D /* MSCCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCCommon.h; sourceTree = "<group>"; };
+		A6947BF327F4405900A4DC1D /* UITableView+ReloadAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+ReloadAnimation.h"; sourceTree = "<group>"; };
+		A6947BF427F4405900A4DC1D /* UITableView+ReloadAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+ReloadAnimation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +366,8 @@
 				A6947B3927F4377E00A4DC1D /* UIPopoverController+Configure.h */,
 				A6947B5C27F4378000A4DC1D /* UIPopoverController+Configure.m */,
 				A6947B9A27F43ABB00A4DC1D /* MSFileManager.h */,
+				A6947BF327F4405900A4DC1D /* UITableView+ReloadAnimation.h */,
+				A6947BF427F4405900A4DC1D /* UITableView+ReloadAnimation.m */,
 				A6947B9B27F43ABB00A4DC1D /* MSFileManager.m */,
 				A6947B2127F4377D00A4DC1D /* UIScreen+Helper.h */,
 				A6947B2827F4377D00A4DC1D /* UIScreen+Helper.m */,
@@ -444,6 +450,7 @@
 				A6947B6727F4378000A4DC1D /* UIView+MSCHerarchySupport.h in Headers */,
 				A6947BDC27F43B0B00A4DC1D /* NSDate+MSTransform.h in Headers */,
 				A6947BF027F43B3500A4DC1D /* MSCCommon.h in Headers */,
+				A6947BF527F4405900A4DC1D /* UITableView+ReloadAnimation.h in Headers */,
 				A6947BD727F43B0B00A4DC1D /* NSString+Hashing.h in Headers */,
 				A6947BD627F43B0B00A4DC1D /* UIScrollView+MSCGesture.h in Headers */,
 				A6947B6427F4378000A4DC1D /* UIViewController+SmallScreen.h in Headers */,
@@ -599,6 +606,7 @@
 				A6947B9827F4378000A4DC1D /* NSString+SubstringSearch.m in Sources */,
 				A6947B7D27F4378000A4DC1D /* UIColor+HexString.m in Sources */,
 				A6947B8C27F4378000A4DC1D /* UIWindow+MSCSafeArea.m in Sources */,
+				A6947BF627F4405900A4DC1D /* UITableView+ReloadAnimation.m in Sources */,
 				A6947B7427F4378000A4DC1D /* UIScrollView+isScrollable.m in Sources */,
 				A6947B7727F4378000A4DC1D /* UIView+AutoLayoutDebugging.m in Sources */,
 				A6947B9427F4378000A4DC1D /* UIButton+MSRuntime.m in Sources */,
