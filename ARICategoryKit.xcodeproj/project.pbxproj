@@ -102,6 +102,7 @@
 		A6947C0A27F4599900A4DC1D /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C0927F4599900A4DC1D /* UINavigationControllerExtension.swift */; };
 		A6947C0C27F45A8F00A4DC1D /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C0B27F45A8F00A4DC1D /* UIApplicationExtension.swift */; };
 		A6947C1027F45D9000A4DC1D /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C0F27F45D9000A4DC1D /* UICollectionView+Extension.swift */; };
+		A6947C1227F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C1127F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +212,7 @@
 		A6947C0927F4599900A4DC1D /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		A6947C0B27F45A8F00A4DC1D /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		A6947C0F27F45D9000A4DC1D /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		A6947C1127F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+TapAttributedTextInLabel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +353,7 @@
 				A6947B5827F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.h */,
 				A6947C0F27F45D9000A4DC1D /* UICollectionView+Extension.swift */,
 				A6947B9A27F43ABB00A4DC1D /* MSFileManager.h */,
+				A6947C1127F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift */,
 				A6947BFB27F4567400A4DC1D /* UIBarButtonItem+Badge.h */,
 				A6947BFC27F4567400A4DC1D /* UIBarButtonItem+Badge.m */,
 				A6947C0B27F45A8F00A4DC1D /* UIApplicationExtension.swift */,
@@ -554,6 +557,7 @@
 				A6947BD327F43B0B00A4DC1D /* UIView+Border.m in Sources */,
 				A6947BEB27F43B0B00A4DC1D /* NSArray+Exception.m in Sources */,
 				A6947C0C27F45A8F00A4DC1D /* UIApplicationExtension.swift in Sources */,
+				A6947C1227F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift in Sources */,
 				A6947B6627F4378000A4DC1D /* UIDevice+IOSDevice.m in Sources */,
 				A6947B0227F4342300A4DC1D /* ARICategoryKit.docc in Sources */,
 				A6947B6E27F4378000A4DC1D /* MSCPopoverBackgroundView.m in Sources */,
