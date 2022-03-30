@@ -31,7 +31,10 @@
     id objc = [self safeObjectForKey:key];
     return [objc doubleValue];
 }
-
+-(NSString *)stringValueForKey:(id)key {
+    id objc = [self safeObjectForKey:key];
+    return [objc stringValue];
+}
 
 
 @end
