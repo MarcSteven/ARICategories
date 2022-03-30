@@ -20,3 +20,10 @@
  */
 - (void)removeBottomLine;
 @end
+
+
+
+@interface UITextField (MSLimits)
+- (void)limitBlankInput;
+
+@end
