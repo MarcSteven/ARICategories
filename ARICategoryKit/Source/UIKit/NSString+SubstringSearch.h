@@ -13,6 +13,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (SubstringSearch)
+
+/// 判断字符串是否包含子字符串
+/// @param substring 子字符串
 - (BOOL)containString:(NSString *)substring;
 @end
 

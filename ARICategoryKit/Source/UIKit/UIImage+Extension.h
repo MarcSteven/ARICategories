@@ -1,5 +1,5 @@
 //
-//  UIImage+Color.h
+//  UIImage+Extension.h
 //  MSKit
 //
 //  Created by Marc Zhao on 2019/11/10.
@@ -25,6 +25,18 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIImage *)backgroundButtonImageWithColor:(UIColor *)backgroundColor
                                  barMetrics:(UIBarMetrics)metrics
                                cornerRadius:(CGFloat)cornerRadius;
+@end
+
+
+
+@interface UIImage (scale)
+#pragma mark - UIImage scale method to deal with the related image
+- (UIImage*)scaleToSize:(CGSize)size;
+- (UIImage*)cropToRect:(CGRect)rect;
+- (UIImage *) resampleWidth:(CGFloat) w;
+- (UIImage *) resampleHeight:(CGFloat) h;
+- (UIImage *) resampleCropCenter:(CGSize ) size;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -12,6 +12,9 @@
 
 
 @implementation NSString (SubstringSearch)
+
+/// judge the string contains substring
+/// @param substring substring 
 -(BOOL)containString:(NSString *)substring {
     NSRange range = [self rangeOfString:substring];
     BOOL found = (range.location != NSNotFound);

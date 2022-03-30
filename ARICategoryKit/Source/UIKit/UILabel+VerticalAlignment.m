@@ -7,12 +7,10 @@
 
 #import "UILabel+VerticalAlignment.h"
 
-
-
-
 @implementation UILabel (VerticalAlignment)
 - (void)alignToTop {
     CGSize fontSize = [self.text sizeWithFont:self.font];
+    
     double finalHeight = fontSize.height * self.numberOfLines;
     double finalWidth = self.frame.size.width;    //expected width of label
     CGSize theStringSize = [self.text sizeWithFont:self.font constrainedToSize:CGSizeMake(finalWidth, finalHeight) lineBreakMode:self.lineBreakMode];
