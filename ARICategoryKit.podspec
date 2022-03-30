@@ -1,5 +1,5 @@
-od::Spec.new do |s|
-  s.name             = "ARICategoryKit"
+Pod::Spec.new do |s|
+  s.name             = "ARICategories"
   s.version          = "0.0.1"
   s.summary          = "iOS categories tool."
   s.homepage         = "https://github.com/artsy/ARICategories"
@@ -12,7 +12,7 @@ od::Spec.new do |s|
   s.ios.deployment_target = '10.0'
 
 
-  s.source_files = 'ARICategoryKit/Source/*.{h,m}'
+  s.source_files = 'ARICategoryKit/Source/**/*.{h,m}'
   
 
   s.frameworks = 'UIKit', 'Foundation'
