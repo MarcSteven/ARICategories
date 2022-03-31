@@ -115,6 +115,10 @@
 		A6B5B10927F529D60011BFA3 /* UIScrollView+PanBack.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B10727F529D60011BFA3 /* UIScrollView+PanBack.h */; };
 		A6B5B10C27F52BB00011BFA3 /* UIImageView+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B10A27F52BB00011BFA3 /* UIImageView+Common.h */; };
 		A6B5B10D27F52BB00011BFA3 /* UIImageView+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B10B27F52BB00011BFA3 /* UIImageView+Common.m */; };
+		A6B5B11227F52C8D0011BFA3 /* CIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B10E27F52C8D0011BFA3 /* CIImage+Common.m */; };
+		A6B5B11327F52C8D0011BFA3 /* CIImage+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B10F27F52C8D0011BFA3 /* CIImage+Common.h */; };
+		A6B5B11427F52C8D0011BFA3 /* UIImage+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B11027F52C8D0011BFA3 /* UIImage+Common.h */; };
+		A6B5B11527F52C8D0011BFA3 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B11127F52C8D0011BFA3 /* UIImage+Common.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +241,10 @@
 		A6B5B10727F529D60011BFA3 /* UIScrollView+PanBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+PanBack.h"; sourceTree = "<group>"; };
 		A6B5B10A27F52BB00011BFA3 /* UIImageView+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Common.h"; sourceTree = "<group>"; };
 		A6B5B10B27F52BB00011BFA3 /* UIImageView+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Common.m"; sourceTree = "<group>"; };
+		A6B5B10E27F52C8D0011BFA3 /* CIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CIImage+Common.m"; sourceTree = "<group>"; };
+		A6B5B10F27F52C8D0011BFA3 /* CIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIImage+Common.h"; sourceTree = "<group>"; };
+		A6B5B11027F52C8D0011BFA3 /* UIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
+		A6B5B11127F52C8D0011BFA3 /* UIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,6 +389,10 @@
 				A6947B3B27F4377E00A4DC1D /* NSLayoutConstraint+ListConstraint.h */,
 				A6947B5927F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.m */,
 				A6947B3F27F4377E00A4DC1D /* UILabel+VerticalAlignment.h */,
+				A6B5B10F27F52C8D0011BFA3 /* CIImage+Common.h */,
+				A6B5B10E27F52C8D0011BFA3 /* CIImage+Common.m */,
+				A6B5B11027F52C8D0011BFA3 /* UIImage+Common.h */,
+				A6B5B11127F52C8D0011BFA3 /* UIImage+Common.m */,
 				A6B5B10A27F52BB00011BFA3 /* UIImageView+Common.h */,
 				A6B5B10B27F52BB00011BFA3 /* UIImageView+Common.m */,
 				A6947B2B27F4377D00A4DC1D /* UILabel+VerticalAlignment.m */,
@@ -477,6 +489,8 @@
 				A6B5B10227F528790011BFA3 /* UINavigationItem+Common.h in Headers */,
 				A6947B6027F4378000A4DC1D /* UIView+Extension.h in Headers */,
 				A6947B8F27F4378000A4DC1D /* UIButton+MSRuntime.h in Headers */,
+				A6B5B11327F52C8D0011BFA3 /* CIImage+Common.h in Headers */,
+				A6B5B11427F52C8D0011BFA3 /* UIImage+Common.h in Headers */,
 				A6947BEA27F43B0B00A4DC1D /* NSObject+MSCDescription.h in Headers */,
 				A6947BFD27F4567400A4DC1D /* UIBarButtonItem+Badge.h in Headers */,
 				A6947B7827F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.h in Headers */,
@@ -625,6 +639,7 @@
 				A6947B9027F4378000A4DC1D /* UIViewController+SmallScreen.m in Sources */,
 				A6B5B10827F529D60011BFA3 /* UIScrollView+PanBack.m in Sources */,
 				A6B5B10527F528790011BFA3 /* UINavigationItem+Common.m in Sources */,
+				A6B5B11527F52C8D0011BFA3 /* UIImage+Common.m in Sources */,
 				A6947BD827F43B0B00A4DC1D /* NSString+MSEmoji.m in Sources */,
 				A6947BE927F43B0B00A4DC1D /* NSUserDefaults+Timing.m in Sources */,
 				A6947B6D27F4378000A4DC1D /* UIButton+MSTouch.m in Sources */,
@@ -642,6 +657,7 @@
 				A6947C1627F461C500A4DC1D /* UIViewControllerExtension.swift in Sources */,
 				A6947BC727F43B0B00A4DC1D /* UIScrollView+MSCGesture.m in Sources */,
 				A6947C0227F456CD00A4DC1D /* UIViewController+Common.m in Sources */,
+				A6B5B11227F52C8D0011BFA3 /* CIImage+Common.m in Sources */,
 				A6947BEC27F43B0B00A4DC1D /* NSDictionary+Safe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
