@@ -111,6 +111,8 @@
 		A6B5B10327F528790011BFA3 /* UINavigationController+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B0FD27F528780011BFA3 /* UINavigationController+Common.h */; };
 		A6B5B10427F528790011BFA3 /* UINavigationItem+Margin.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B0FE27F528780011BFA3 /* UINavigationItem+Margin.m */; };
 		A6B5B10527F528790011BFA3 /* UINavigationItem+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B0FF27F528780011BFA3 /* UINavigationItem+Common.m */; };
+		A6B5B10827F529D60011BFA3 /* UIScrollView+PanBack.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B10627F529D60011BFA3 /* UIScrollView+PanBack.m */; };
+		A6B5B10927F529D60011BFA3 /* UIScrollView+PanBack.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B10727F529D60011BFA3 /* UIScrollView+PanBack.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,6 +231,8 @@
 		A6B5B0FD27F528780011BFA3 /* UINavigationController+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Common.h"; sourceTree = "<group>"; };
 		A6B5B0FE27F528780011BFA3 /* UINavigationItem+Margin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Margin.m"; sourceTree = "<group>"; };
 		A6B5B0FF27F528780011BFA3 /* UINavigationItem+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Common.m"; sourceTree = "<group>"; };
+		A6B5B10627F529D60011BFA3 /* UIScrollView+PanBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+PanBack.m"; sourceTree = "<group>"; };
+		A6B5B10727F529D60011BFA3 /* UIScrollView+PanBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+PanBack.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +359,8 @@
 				A6B5B0FB27F528780011BFA3 /* UINavigationController+Common.m */,
 				A6B5B0FC27F528780011BFA3 /* UINavigationItem+Common.h */,
 				A6B5B0FF27F528780011BFA3 /* UINavigationItem+Common.m */,
+				A6B5B10727F529D60011BFA3 /* UIScrollView+PanBack.h */,
+				A6B5B10627F529D60011BFA3 /* UIScrollView+PanBack.m */,
 				A6B5B0FA27F528780011BFA3 /* UINavigationItem+Margin.h */,
 				A6B5B0FE27F528780011BFA3 /* UINavigationItem+Margin.m */,
 				A6947B5727F4378000A4DC1D /* UIButton+MSRuntime.m */,
@@ -471,6 +477,7 @@
 				A6947BDF27F43B0B00A4DC1D /* NSData+Conversion.h in Headers */,
 				A6947BCC27F43B0B00A4DC1D /* UIViewController+MSCLifecycleMonitor.h in Headers */,
 				A6947BE427F43B0B00A4DC1D /* NSArray+Exception.h in Headers */,
+				A6B5B10927F529D60011BFA3 /* UIScrollView+PanBack.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +615,7 @@
 				A6947BC927F43B0B00A4DC1D /* NSString+Additions.m in Sources */,
 				A6947B8D27F4378000A4DC1D /* UIImage+Extension.m in Sources */,
 				A6947B9027F4378000A4DC1D /* UIViewController+SmallScreen.m in Sources */,
+				A6B5B10827F529D60011BFA3 /* UIScrollView+PanBack.m in Sources */,
 				A6B5B10527F528790011BFA3 /* UINavigationItem+Common.m in Sources */,
 				A6947BD827F43B0B00A4DC1D /* NSString+MSEmoji.m in Sources */,
 				A6947BE927F43B0B00A4DC1D /* NSUserDefaults+Timing.m in Sources */,
