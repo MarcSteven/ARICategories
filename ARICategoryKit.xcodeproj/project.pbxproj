@@ -139,6 +139,10 @@
 		A6B5B13B27F52F030011BFA3 /* NSData+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B13727F52F030011BFA3 /* NSData+Common.m */; };
 		A6B5B13C27F52F030011BFA3 /* NSData+Encrypt.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B13827F52F030011BFA3 /* NSData+Encrypt.h */; };
 		A6B5B13D27F52F030011BFA3 /* NSData+Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B13927F52F030011BFA3 /* NSData+Encrypt.m */; };
+		A6B5B14227F52F640011BFA3 /* NSDate+BoolJudge.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B13E27F52F640011BFA3 /* NSDate+BoolJudge.h */; };
+		A6B5B14327F52F640011BFA3 /* NSDate+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B13F27F52F640011BFA3 /* NSDate+Common.m */; };
+		A6B5B14427F52F640011BFA3 /* NSDate+BoolJudge.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B14027F52F640011BFA3 /* NSDate+BoolJudge.m */; };
+		A6B5B14527F52F640011BFA3 /* NSDate+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B14127F52F640011BFA3 /* NSDate+Common.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -285,6 +289,10 @@
 		A6B5B13727F52F030011BFA3 /* NSData+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Common.m"; sourceTree = "<group>"; };
 		A6B5B13827F52F030011BFA3 /* NSData+Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Encrypt.h"; sourceTree = "<group>"; };
 		A6B5B13927F52F030011BFA3 /* NSData+Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Encrypt.m"; sourceTree = "<group>"; };
+		A6B5B13E27F52F640011BFA3 /* NSDate+BoolJudge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BoolJudge.h"; sourceTree = "<group>"; };
+		A6B5B13F27F52F640011BFA3 /* NSDate+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Common.m"; sourceTree = "<group>"; };
+		A6B5B14027F52F640011BFA3 /* NSDate+BoolJudge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BoolJudge.m"; sourceTree = "<group>"; };
+		A6B5B14127F52F640011BFA3 /* NSDate+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Common.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +371,10 @@
 				A6947BA027F43B0A00A4DC1D /* NSData+UTF8.m */,
 				A6947BB427F43B0B00A4DC1D /* NSDate+MSTransform.h */,
 				A6B5B13627F52F030011BFA3 /* NSData+Common.h */,
+				A6B5B13E27F52F640011BFA3 /* NSDate+BoolJudge.h */,
+				A6B5B14027F52F640011BFA3 /* NSDate+BoolJudge.m */,
+				A6B5B14127F52F640011BFA3 /* NSDate+Common.h */,
+				A6B5B13F27F52F640011BFA3 /* NSDate+Common.m */,
 				A6B5B13727F52F030011BFA3 /* NSData+Common.m */,
 				A6B5B13827F52F030011BFA3 /* NSData+Encrypt.h */,
 				A6B5B13927F52F030011BFA3 /* NSData+Encrypt.m */,
@@ -546,6 +558,7 @@
 				A6B5B11927F52E160011BFA3 /* UIDevice+Common.h in Headers */,
 				A6B5B12C27F52EE80011BFA3 /* NSString+BaseEncode.h in Headers */,
 				A6947BD527F43B0B00A4DC1D /* NSUserDefaults+Timing.h in Headers */,
+				A6B5B14527F52F640011BFA3 /* NSDate+Common.h in Headers */,
 				A6947BD427F43B0B00A4DC1D /* NSDictionary+Safe.h in Headers */,
 				A6947BDC27F43B0B00A4DC1D /* NSDate+MSTransform.h in Headers */,
 				A6947BF027F43B3500A4DC1D /* MSCCommon.h in Headers */,
@@ -563,6 +576,7 @@
 				A6947BEA27F43B0B00A4DC1D /* NSObject+MSCDescription.h in Headers */,
 				A6947BFD27F4567400A4DC1D /* UIBarButtonItem+Badge.h in Headers */,
 				A6947B7827F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.h in Headers */,
+				A6B5B14227F52F640011BFA3 /* NSDate+BoolJudge.h in Headers */,
 				A6B5B13427F52EE80011BFA3 /* NSString+Common.h in Headers */,
 				A6947B8727F4378000A4DC1D /* MSCPopoverBackgroundView.h in Headers */,
 				A6947BDF27F43B0B00A4DC1D /* NSData+Conversion.h in Headers */,
@@ -683,6 +697,7 @@
 				A6B5B12B27F52EE80011BFA3 /* NSString+Emoji.m in Sources */,
 				A6947BD327F43B0B00A4DC1D /* UIView+Border.m in Sources */,
 				A6B5B12A27F52EE80011BFA3 /* NSString+Common.m in Sources */,
+				A6B5B14327F52F640011BFA3 /* NSDate+Common.m in Sources */,
 				A6947BEB27F43B0B00A4DC1D /* NSArray+Exception.m in Sources */,
 				A6B5B13027F52EE80011BFA3 /* NSString+Encrypt.m in Sources */,
 				A6947C0C27F45A8F00A4DC1D /* UIApplicationExtension.swift in Sources */,
@@ -736,6 +751,7 @@
 				A6947C1627F461C500A4DC1D /* UIViewControllerExtension.swift in Sources */,
 				A6947BC727F43B0B00A4DC1D /* UIScrollView+MSCGesture.m in Sources */,
 				A6B5B12D27F52EE80011BFA3 /* NSString+BaseEncode.m in Sources */,
+				A6B5B14427F52F640011BFA3 /* NSDate+BoolJudge.m in Sources */,
 				A6947C0227F456CD00A4DC1D /* UIViewController+Common.m in Sources */,
 				A6B5B11227F52C8D0011BFA3 /* CIImage+Common.m in Sources */,
 				A6947BEC27F43B0B00A4DC1D /* NSDictionary+Safe.m in Sources */,
