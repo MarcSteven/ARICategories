@@ -47,8 +47,6 @@
 		A6947B9627F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B5927F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.m */; };
 		A6947B9727F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B5A27F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.m */; };
 		A6947B9827F4378000A4DC1D /* NSString+SubstringSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B5B27F4378000A4DC1D /* NSString+SubstringSearch.m */; };
-		A6947B9C27F43ABB00A4DC1D /* MSFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A6947B9A27F43ABB00A4DC1D /* MSFileManager.h */; };
-		A6947B9D27F43ABB00A4DC1D /* MSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B9B27F43ABB00A4DC1D /* MSFileManager.m */; };
 		A6947BC727F43B0B00A4DC1D /* UIScrollView+MSCGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947B9F27F43B0A00A4DC1D /* UIScrollView+MSCGesture.m */; };
 		A6947BC827F43B0B00A4DC1D /* NSData+UTF8.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947BA027F43B0A00A4DC1D /* NSData+UTF8.m */; };
 		A6947BC927F43B0B00A4DC1D /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A6947BA127F43B0A00A4DC1D /* NSString+Additions.m */; };
@@ -145,6 +143,8 @@
 		A6B5B14527F52F640011BFA3 /* NSDate+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B14127F52F640011BFA3 /* NSDate+Common.h */; };
 		A6B5B14827F52FF40011BFA3 /* NSAttributedString+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B14627F52FF40011BFA3 /* NSAttributedString+Common.h */; };
 		A6B5B14927F52FF40011BFA3 /* NSAttributedString+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B14727F52FF40011BFA3 /* NSAttributedString+Common.m */; };
+		A6B5B14C27F530420011BFA3 /* NSFileManager+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B14A27F530420011BFA3 /* NSFileManager+Common.h */; };
+		A6B5B14D27F530420011BFA3 /* NSFileManager+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B14B27F530420011BFA3 /* NSFileManager+Common.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,8 +199,6 @@
 		A6947B5927F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+ListConstraint.m"; sourceTree = "<group>"; };
 		A6947B5A27F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MSCConstraintMatching.m"; sourceTree = "<group>"; };
 		A6947B5B27F4378000A4DC1D /* NSString+SubstringSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SubstringSearch.m"; sourceTree = "<group>"; };
-		A6947B9A27F43ABB00A4DC1D /* MSFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFileManager.h; sourceTree = "<group>"; };
-		A6947B9B27F43ABB00A4DC1D /* MSFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFileManager.m; sourceTree = "<group>"; };
 		A6947B9F27F43B0A00A4DC1D /* UIScrollView+MSCGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MSCGesture.m"; sourceTree = "<group>"; };
 		A6947BA027F43B0A00A4DC1D /* NSData+UTF8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+UTF8.m"; sourceTree = "<group>"; };
 		A6947BA127F43B0A00A4DC1D /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
@@ -297,6 +295,8 @@
 		A6B5B14127F52F640011BFA3 /* NSDate+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Common.h"; sourceTree = "<group>"; };
 		A6B5B14627F52FF40011BFA3 /* NSAttributedString+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Common.h"; sourceTree = "<group>"; };
 		A6B5B14727F52FF40011BFA3 /* NSAttributedString+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Common.m"; sourceTree = "<group>"; };
+		A6B5B14A27F530420011BFA3 /* NSFileManager+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Common.h"; sourceTree = "<group>"; };
+		A6B5B14B27F530420011BFA3 /* NSFileManager+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Common.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +375,8 @@
 				A6947BA027F43B0A00A4DC1D /* NSData+UTF8.m */,
 				A6947BB427F43B0B00A4DC1D /* NSDate+MSTransform.h */,
 				A6B5B13627F52F030011BFA3 /* NSData+Common.h */,
+				A6B5B14A27F530420011BFA3 /* NSFileManager+Common.h */,
+				A6B5B14B27F530420011BFA3 /* NSFileManager+Common.m */,
 				A6B5B13E27F52F640011BFA3 /* NSDate+BoolJudge.h */,
 				A6B5B14027F52F640011BFA3 /* NSDate+BoolJudge.m */,
 				A6B5B14127F52F640011BFA3 /* NSDate+Common.h */,
@@ -475,7 +477,6 @@
 				A6947B5827F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.h */,
 				A6947C1527F461C500A4DC1D /* UIViewControllerExtension.swift */,
 				A6947C0F27F45D9000A4DC1D /* UICollectionView+Extension.swift */,
-				A6947B9A27F43ABB00A4DC1D /* MSFileManager.h */,
 				A6947C1127F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift */,
 				A6947BFB27F4567400A4DC1D /* UIBarButtonItem+Badge.h */,
 				A6947BFC27F4567400A4DC1D /* UIBarButtonItem+Badge.m */,
@@ -484,7 +485,6 @@
 				A6947BF427F4405900A4DC1D /* UITableView+ReloadAnimation.m */,
 				A6B5B11A27F52E860011BFA3 /* UIApplication+Common.h */,
 				A6B5B11B27F52E860011BFA3 /* UIApplication+Common.m */,
-				A6947B9B27F43ABB00A4DC1D /* MSFileManager.m */,
 				A6947C0927F4599900A4DC1D /* UINavigationControllerExtension.swift */,
 				A6947B2127F4377D00A4DC1D /* UIScreen+Helper.h */,
 				A6947BFF27F456CD00A4DC1D /* UIViewController+Common.h */,
@@ -540,7 +540,6 @@
 				A6947B8927F4378000A4DC1D /* UIDevice+IOSDevice.h in Headers */,
 				A6947B6F27F4378000A4DC1D /* UITextField+Extended.h in Headers */,
 				A6947B9527F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.h in Headers */,
-				A6947B9C27F43ABB00A4DC1D /* MSFileManager.h in Headers */,
 				A6947B7B27F4378000A4DC1D /* UIColor+HexString.h in Headers */,
 				A6947B9127F4378000A4DC1D /* UIButton+MSTouch.h in Headers */,
 				A6B5B12F27F52EE80011BFA3 /* NSString+BoolJudge.h in Headers */,
@@ -549,6 +548,7 @@
 				A6947BE527F43B0B00A4DC1D /* NSObject+MSCHelper.h in Headers */,
 				A6947C0127F456CD00A4DC1D /* UIViewController+Common.h in Headers */,
 				A6947B6327F4378000A4DC1D /* UIWindow+Extension.h in Headers */,
+				A6B5B14C27F530420011BFA3 /* NSFileManager+Common.h in Headers */,
 				A6947B9227F4378000A4DC1D /* UIScrollView+isScrollable.h in Headers */,
 				A6947BD027F43B0B00A4DC1D /* NSObject+MSCNameTag.h in Headers */,
 				A6B5B13327F52EE80011BFA3 /* NSString+Emoji.h in Headers */,
@@ -696,7 +696,6 @@
 				A6947B8E27F4378000A4DC1D /* NSLayoutConstraint+ViewHierarchy.m in Sources */,
 				A6B5B13527F52EE80011BFA3 /* NSString+BoolJudge.m in Sources */,
 				A6947B6527F4378000A4DC1D /* UIScreen+Helper.m in Sources */,
-				A6947B9D27F43ABB00A4DC1D /* MSFileManager.m in Sources */,
 				A6947B7127F4378000A4DC1D /* UIViewController+Tracking.m in Sources */,
 				A6947BE727F43B0B00A4DC1D /* NSObject+MSCDescription.m in Sources */,
 				A6947B9727F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.m in Sources */,
@@ -759,6 +758,7 @@
 				A6947C1627F461C500A4DC1D /* UIViewControllerExtension.swift in Sources */,
 				A6947BC727F43B0B00A4DC1D /* UIScrollView+MSCGesture.m in Sources */,
 				A6B5B12D27F52EE80011BFA3 /* NSString+BaseEncode.m in Sources */,
+				A6B5B14D27F530420011BFA3 /* NSFileManager+Common.m in Sources */,
 				A6B5B14427F52F640011BFA3 /* NSDate+BoolJudge.m in Sources */,
 				A6947C0227F456CD00A4DC1D /* UIViewController+Common.m in Sources */,
 				A6B5B11227F52C8D0011BFA3 /* CIImage+Common.m in Sources */,
