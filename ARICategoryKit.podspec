@@ -13,6 +13,8 @@ Pod::Spec.new do |s|
 
 
   s.source_files = 'ARICategoryKit/Source/**/*.{swift,h,m}'
+
+  s.swift_version = '5.0'
   
 
   s.frameworks = 'UIKit', 'Foundation'
