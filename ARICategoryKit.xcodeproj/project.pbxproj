@@ -105,6 +105,12 @@
 		A6947C1227F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C1127F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift */; };
 		A6947C1427F45FED00A4DC1D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C1327F45FED00A4DC1D /* UIButton+Extension.swift */; };
 		A6947C1627F461C500A4DC1D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6947C1527F461C500A4DC1D /* UIViewControllerExtension.swift */; };
+		A6B5B10027F528790011BFA3 /* UINavigationItem+Margin.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B0FA27F528780011BFA3 /* UINavigationItem+Margin.h */; };
+		A6B5B10127F528790011BFA3 /* UINavigationController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B0FB27F528780011BFA3 /* UINavigationController+Common.m */; };
+		A6B5B10227F528790011BFA3 /* UINavigationItem+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B0FC27F528780011BFA3 /* UINavigationItem+Common.h */; };
+		A6B5B10327F528790011BFA3 /* UINavigationController+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B0FD27F528780011BFA3 /* UINavigationController+Common.h */; };
+		A6B5B10427F528790011BFA3 /* UINavigationItem+Margin.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B0FE27F528780011BFA3 /* UINavigationItem+Margin.m */; };
+		A6B5B10527F528790011BFA3 /* UINavigationItem+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B0FF27F528780011BFA3 /* UINavigationItem+Common.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,6 +223,12 @@
 		A6947C1127F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+TapAttributedTextInLabel.swift"; sourceTree = "<group>"; };
 		A6947C1327F45FED00A4DC1D /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		A6947C1527F461C500A4DC1D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		A6B5B0FA27F528780011BFA3 /* UINavigationItem+Margin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+Margin.h"; sourceTree = "<group>"; };
+		A6B5B0FB27F528780011BFA3 /* UINavigationController+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Common.m"; sourceTree = "<group>"; };
+		A6B5B0FC27F528780011BFA3 /* UINavigationItem+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+Common.h"; sourceTree = "<group>"; };
+		A6B5B0FD27F528780011BFA3 /* UINavigationController+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Common.h"; sourceTree = "<group>"; };
+		A6B5B0FE27F528780011BFA3 /* UINavigationItem+Margin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Margin.m"; sourceTree = "<group>"; };
+		A6B5B0FF27F528780011BFA3 /* UINavigationItem+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Common.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +351,12 @@
 				A6947B4727F4377F00A4DC1D /* NSString+SubstringSearch.h */,
 				A6947B5B27F4378000A4DC1D /* NSString+SubstringSearch.m */,
 				A6947B5227F4378000A4DC1D /* UIButton+MSRuntime.h */,
+				A6B5B0FD27F528780011BFA3 /* UINavigationController+Common.h */,
+				A6B5B0FB27F528780011BFA3 /* UINavigationController+Common.m */,
+				A6B5B0FC27F528780011BFA3 /* UINavigationItem+Common.h */,
+				A6B5B0FF27F528780011BFA3 /* UINavigationItem+Common.m */,
+				A6B5B0FA27F528780011BFA3 /* UINavigationItem+Margin.h */,
+				A6B5B0FE27F528780011BFA3 /* UINavigationItem+Margin.m */,
 				A6947B5727F4378000A4DC1D /* UIButton+MSRuntime.m */,
 				A6947B5427F4378000A4DC1D /* UIButton+MSTouch.h */,
 				A6947B3027F4377E00A4DC1D /* UIButton+MSTouch.m */,
@@ -408,6 +426,7 @@
 			files = (
 				A6947B5E27F4378000A4DC1D /* UIScreen+Helper.h in Headers */,
 				A6947B7C27F4378000A4DC1D /* UILabel+VerticalAlignment.h in Headers */,
+				A6B5B10327F528790011BFA3 /* UINavigationController+Common.h in Headers */,
 				A6947BD227F43B0B00A4DC1D /* NSString+Additions.h in Headers */,
 				A6947BCB27F43B0B00A4DC1D /* NSDictionary+JSON.h in Headers */,
 				A6947BCE27F43B0B00A4DC1D /* NSObject+Associate.h in Headers */,
@@ -441,6 +460,8 @@
 				A6947BD727F43B0B00A4DC1D /* NSString+Hashing.h in Headers */,
 				A6947BD627F43B0B00A4DC1D /* UIScrollView+MSCGesture.h in Headers */,
 				A6947B6427F4378000A4DC1D /* UIViewController+SmallScreen.h in Headers */,
+				A6B5B10027F528790011BFA3 /* UINavigationItem+Margin.h in Headers */,
+				A6B5B10227F528790011BFA3 /* UINavigationItem+Common.h in Headers */,
 				A6947B6027F4378000A4DC1D /* UIView+Extension.h in Headers */,
 				A6947B8F27F4378000A4DC1D /* UIButton+MSRuntime.h in Headers */,
 				A6947BEA27F43B0B00A4DC1D /* NSObject+MSCDescription.h in Headers */,
@@ -580,11 +601,14 @@
 				A6947BE227F43B0B00A4DC1D /* NSObject+MSCNameTag.m in Sources */,
 				A6947BE127F43B0B00A4DC1D /* NSObject+MSCHelper.m in Sources */,
 				A6947B8527F4378000A4DC1D /* UIView+Extension.m in Sources */,
+				A6B5B10127F528790011BFA3 /* UINavigationController+Common.m in Sources */,
 				A6947B6827F4378000A4DC1D /* UILabel+VerticalAlignment.m in Sources */,
 				A6947BD127F43B0B00A4DC1D /* NSData+Conversion.m in Sources */,
+				A6B5B10427F528790011BFA3 /* UINavigationItem+Margin.m in Sources */,
 				A6947BC927F43B0B00A4DC1D /* NSString+Additions.m in Sources */,
 				A6947B8D27F4378000A4DC1D /* UIImage+Extension.m in Sources */,
 				A6947B9027F4378000A4DC1D /* UIViewController+SmallScreen.m in Sources */,
+				A6B5B10527F528790011BFA3 /* UINavigationItem+Common.m in Sources */,
 				A6947BD827F43B0B00A4DC1D /* NSString+MSEmoji.m in Sources */,
 				A6947BE927F43B0B00A4DC1D /* NSUserDefaults+Timing.m in Sources */,
 				A6947B6D27F4378000A4DC1D /* UIButton+MSTouch.m in Sources */,
