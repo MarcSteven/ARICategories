@@ -155,6 +155,7 @@
 		A6B5B15F27F5314C0011BFA3 /* UILabel+TapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B15B27F5314C0011BFA3 /* UILabel+TapAction.m */; };
 		A6B5B16027F5314C0011BFA3 /* UILabel+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B15C27F5314C0011BFA3 /* UILabel+Common.m */; };
 		A6B5B16127F5314C0011BFA3 /* UILabel+TapAction.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B15D27F5314C0011BFA3 /* UILabel+TapAction.h */; };
+		A6B5B16327F53DFF0011BFA3 /* UIViewController+HideKeyboardOnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B16227F53DFF0011BFA3 /* UIViewController+HideKeyboardOnTap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -317,6 +318,7 @@
 		A6B5B15B27F5314C0011BFA3 /* UILabel+TapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+TapAction.m"; sourceTree = "<group>"; };
 		A6B5B15C27F5314C0011BFA3 /* UILabel+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Common.m"; sourceTree = "<group>"; };
 		A6B5B15D27F5314C0011BFA3 /* UILabel+TapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TapAction.h"; sourceTree = "<group>"; };
+		A6B5B16227F53DFF0011BFA3 /* UIViewController+HideKeyboardOnTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboardOnTap.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,6 +503,7 @@
 				A6B5B10E27F52C8D0011BFA3 /* CIImage+Common.m */,
 				A6B5B11027F52C8D0011BFA3 /* UIImage+Common.h */,
 				A6B5B11127F52C8D0011BFA3 /* UIImage+Common.m */,
+				A6B5B16227F53DFF0011BFA3 /* UIViewController+HideKeyboardOnTap.swift */,
 				A6B5B10A27F52BB00011BFA3 /* UIImageView+Common.h */,
 				A6B5B10B27F52BB00011BFA3 /* UIImageView+Common.m */,
 				A6947B2B27F4377D00A4DC1D /* UILabel+VerticalAlignment.m */,
@@ -792,6 +795,7 @@
 				A6B5B11827F52E160011BFA3 /* UIDevice+Common.m in Sources */,
 				A6947B7427F4378000A4DC1D /* UIScrollView+isScrollable.m in Sources */,
 				A6947B9427F4378000A4DC1D /* UIButton+MSRuntime.m in Sources */,
+				A6B5B16327F53DFF0011BFA3 /* UIViewController+HideKeyboardOnTap.swift in Sources */,
 				A6B5B11D27F52E860011BFA3 /* UIApplication+Common.m in Sources */,
 				A6947BED27F43B0B00A4DC1D /* NSObject+Associate.m in Sources */,
 				A6947BE327F43B0B00A4DC1D /* UIViewController+MSCLifecycleMonitor.m in Sources */,
