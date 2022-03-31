@@ -113,6 +113,8 @@
 		A6B5B10527F528790011BFA3 /* UINavigationItem+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B0FF27F528780011BFA3 /* UINavigationItem+Common.m */; };
 		A6B5B10827F529D60011BFA3 /* UIScrollView+PanBack.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B10627F529D60011BFA3 /* UIScrollView+PanBack.m */; };
 		A6B5B10927F529D60011BFA3 /* UIScrollView+PanBack.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B10727F529D60011BFA3 /* UIScrollView+PanBack.h */; };
+		A6B5B10C27F52BB00011BFA3 /* UIImageView+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B10A27F52BB00011BFA3 /* UIImageView+Common.h */; };
+		A6B5B10D27F52BB00011BFA3 /* UIImageView+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B10B27F52BB00011BFA3 /* UIImageView+Common.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +235,8 @@
 		A6B5B0FF27F528780011BFA3 /* UINavigationItem+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Common.m"; sourceTree = "<group>"; };
 		A6B5B10627F529D60011BFA3 /* UIScrollView+PanBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+PanBack.m"; sourceTree = "<group>"; };
 		A6B5B10727F529D60011BFA3 /* UIScrollView+PanBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+PanBack.h"; sourceTree = "<group>"; };
+		A6B5B10A27F52BB00011BFA3 /* UIImageView+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Common.h"; sourceTree = "<group>"; };
+		A6B5B10B27F52BB00011BFA3 /* UIImageView+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Common.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +381,8 @@
 				A6947B3B27F4377E00A4DC1D /* NSLayoutConstraint+ListConstraint.h */,
 				A6947B5927F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.m */,
 				A6947B3F27F4377E00A4DC1D /* UILabel+VerticalAlignment.h */,
+				A6B5B10A27F52BB00011BFA3 /* UIImageView+Common.h */,
+				A6B5B10B27F52BB00011BFA3 /* UIImageView+Common.m */,
 				A6947B2B27F4377D00A4DC1D /* UILabel+VerticalAlignment.m */,
 				A6947B5827F4378000A4DC1D /* NSLayoutConstraint+MSCConstraintMatching.h */,
 				A6947C1527F461C500A4DC1D /* UIViewControllerExtension.swift */,
@@ -445,6 +451,7 @@
 				A6947B9C27F43ABB00A4DC1D /* MSFileManager.h in Headers */,
 				A6947B7B27F4378000A4DC1D /* UIColor+HexString.h in Headers */,
 				A6947B9127F4378000A4DC1D /* UIButton+MSTouch.h in Headers */,
+				A6B5B10C27F52BB00011BFA3 /* UIImageView+Common.h in Headers */,
 				A6947BE527F43B0B00A4DC1D /* NSObject+MSCHelper.h in Headers */,
 				A6947C0127F456CD00A4DC1D /* UIViewController+Common.h in Headers */,
 				A6947B6327F4378000A4DC1D /* UIWindow+Extension.h in Headers */,
@@ -604,6 +611,7 @@
 				A6947BFE27F4567400A4DC1D /* UIBarButtonItem+Badge.m in Sources */,
 				A6947C0827F4593D00A4DC1D /* UIWindowExtension.swift in Sources */,
 				A6947B9627F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.m in Sources */,
+				A6B5B10D27F52BB00011BFA3 /* UIImageView+Common.m in Sources */,
 				A6947C0427F458F400A4DC1D /* UIStackView+Extension.swift in Sources */,
 				A6947BE227F43B0B00A4DC1D /* NSObject+MSCNameTag.m in Sources */,
 				A6947BE127F43B0B00A4DC1D /* NSObject+MSCHelper.m in Sources */,
