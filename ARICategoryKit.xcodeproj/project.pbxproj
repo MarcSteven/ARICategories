@@ -151,6 +151,10 @@
 		A6B5B15727F530CA0011BFA3 /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B15127F530CA0011BFA3 /* NSObject+Common.m */; };
 		A6B5B15827F530CA0011BFA3 /* NSObject+GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B15227F530CA0011BFA3 /* NSObject+GCD.m */; };
 		A6B5B15927F530CA0011BFA3 /* NSObject+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B15327F530CA0011BFA3 /* NSObject+Common.h */; };
+		A6B5B15E27F5314C0011BFA3 /* UILabel+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B15A27F5314C0011BFA3 /* UILabel+Common.h */; };
+		A6B5B15F27F5314C0011BFA3 /* UILabel+TapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B15B27F5314C0011BFA3 /* UILabel+TapAction.m */; };
+		A6B5B16027F5314C0011BFA3 /* UILabel+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B15C27F5314C0011BFA3 /* UILabel+Common.m */; };
+		A6B5B16127F5314C0011BFA3 /* UILabel+TapAction.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B15D27F5314C0011BFA3 /* UILabel+TapAction.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +313,10 @@
 		A6B5B15127F530CA0011BFA3 /* NSObject+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Common.m"; sourceTree = "<group>"; };
 		A6B5B15227F530CA0011BFA3 /* NSObject+GCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GCD.m"; sourceTree = "<group>"; };
 		A6B5B15327F530CA0011BFA3 /* NSObject+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Common.h"; sourceTree = "<group>"; };
+		A6B5B15A27F5314C0011BFA3 /* UILabel+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Common.h"; sourceTree = "<group>"; };
+		A6B5B15B27F5314C0011BFA3 /* UILabel+TapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+TapAction.m"; sourceTree = "<group>"; };
+		A6B5B15C27F5314C0011BFA3 /* UILabel+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Common.m"; sourceTree = "<group>"; };
+		A6B5B15D27F5314C0011BFA3 /* UILabel+TapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TapAction.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -404,6 +412,10 @@
 				A6B5B13727F52F030011BFA3 /* NSData+Common.m */,
 				A6B5B13827F52F030011BFA3 /* NSData+Encrypt.h */,
 				A6B5B13927F52F030011BFA3 /* NSData+Encrypt.m */,
+				A6B5B15A27F5314C0011BFA3 /* UILabel+Common.h */,
+				A6B5B15C27F5314C0011BFA3 /* UILabel+Common.m */,
+				A6B5B15D27F5314C0011BFA3 /* UILabel+TapAction.h */,
+				A6B5B15B27F5314C0011BFA3 /* UILabel+TapAction.m */,
 				A6947BA527F43B0A00A4DC1D /* NSDate+MSTransform.m */,
 				A6947BA327F43B0A00A4DC1D /* NSDictionary+JSON.h */,
 				A6947BB327F43B0B00A4DC1D /* NSDictionary+JSON.m */,
@@ -548,6 +560,7 @@
 				A6947B7C27F4378000A4DC1D /* UILabel+VerticalAlignment.h in Headers */,
 				A6B5B15427F530CA0011BFA3 /* NSObject+GCD.h in Headers */,
 				A6B5B10327F528790011BFA3 /* UINavigationController+Common.h in Headers */,
+				A6B5B15E27F5314C0011BFA3 /* UILabel+Common.h in Headers */,
 				A6947BD227F43B0B00A4DC1D /* NSString+Additions.h in Headers */,
 				A6B5B11C27F52E860011BFA3 /* UIApplication+Common.h in Headers */,
 				A6947BCB27F43B0B00A4DC1D /* NSDictionary+JSON.h in Headers */,
@@ -609,6 +622,7 @@
 				A6947BDF27F43B0B00A4DC1D /* NSData+Conversion.h in Headers */,
 				A6947BCC27F43B0B00A4DC1D /* UIViewController+MSCLifecycleMonitor.h in Headers */,
 				A6947BE427F43B0B00A4DC1D /* NSArray+Exception.h in Headers */,
+				A6B5B16127F5314C0011BFA3 /* UILabel+TapAction.h in Headers */,
 				A6B5B10927F529D60011BFA3 /* UIScrollView+PanBack.h in Headers */,
 				A6B5B15927F530CA0011BFA3 /* NSObject+Common.h in Headers */,
 			);
@@ -726,6 +740,7 @@
 				A6B5B12A27F52EE80011BFA3 /* NSString+Common.m in Sources */,
 				A6B5B14327F52F640011BFA3 /* NSDate+Common.m in Sources */,
 				A6947BEB27F43B0B00A4DC1D /* NSArray+Exception.m in Sources */,
+				A6B5B15F27F5314C0011BFA3 /* UILabel+TapAction.m in Sources */,
 				A6B5B13027F52EE80011BFA3 /* NSString+Encrypt.m in Sources */,
 				A6947C0C27F45A8F00A4DC1D /* UIApplicationExtension.swift in Sources */,
 				A6947C1227F45EEB00A4DC1D /* UITapGestureRecognizer+TapAttributedTextInLabel.swift in Sources */,
@@ -752,6 +767,7 @@
 				A6B5B13D27F52F030011BFA3 /* NSData+Encrypt.m in Sources */,
 				A6947B8527F4378000A4DC1D /* UIView+Extension.m in Sources */,
 				A6B5B10127F528790011BFA3 /* UINavigationController+Common.m in Sources */,
+				A6B5B16027F5314C0011BFA3 /* UILabel+Common.m in Sources */,
 				A6947B6827F4378000A4DC1D /* UILabel+VerticalAlignment.m in Sources */,
 				A6947BD127F43B0B00A4DC1D /* NSData+Conversion.m in Sources */,
 				A6B5B10427F528790011BFA3 /* UINavigationItem+Margin.m in Sources */,
