@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
 
 
-  s.source_files = 'ARICategoryKit/Source/**/*.{h,m}'
+  s.source_files = 'ARICategoryKit/Source/**/*.{swift,h,m}'
   
 
   s.frameworks = 'UIKit', 'Foundation'
