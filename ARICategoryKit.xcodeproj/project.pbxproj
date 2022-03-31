@@ -157,6 +157,8 @@
 		A6B5B16127F5314C0011BFA3 /* UILabel+TapAction.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B15D27F5314C0011BFA3 /* UILabel+TapAction.h */; };
 		A6B5B16327F53DFF0011BFA3 /* UIViewController+HideKeyboardOnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B16227F53DFF0011BFA3 /* UIViewController+HideKeyboardOnTap.swift */; };
 		A6B5B16527F53EB40011BFA3 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B16427F53EB40011BFA3 /* UIAlertControllerExtension.swift */; };
+		A6B5B16727F540020011BFA3 /* UIGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B16627F540020011BFA3 /* UIGestureRecognizer+Extension.swift */; };
+		A6B5B16927F5400F0011BFA3 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B16827F5400F0011BFA3 /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -321,6 +323,8 @@
 		A6B5B15D27F5314C0011BFA3 /* UILabel+TapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TapAction.h"; sourceTree = "<group>"; };
 		A6B5B16227F53DFF0011BFA3 /* UIViewController+HideKeyboardOnTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboardOnTap.swift"; sourceTree = "<group>"; };
 		A6B5B16427F53EB40011BFA3 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		A6B5B16627F540020011BFA3 /* UIGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
+		A6B5B16827F5400F0011BFA3 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -504,8 +508,10 @@
 				A6B5B10F27F52C8D0011BFA3 /* CIImage+Common.h */,
 				A6B5B10E27F52C8D0011BFA3 /* CIImage+Common.m */,
 				A6B5B11027F52C8D0011BFA3 /* UIImage+Common.h */,
+				A6B5B16827F5400F0011BFA3 /* UIImage+Extension.swift */,
 				A6B5B11127F52C8D0011BFA3 /* UIImage+Common.m */,
 				A6B5B16227F53DFF0011BFA3 /* UIViewController+HideKeyboardOnTap.swift */,
+				A6B5B16627F540020011BFA3 /* UIGestureRecognizer+Extension.swift */,
 				A6B5B10A27F52BB00011BFA3 /* UIImageView+Common.h */,
 				A6B5B16427F53EB40011BFA3 /* UIAlertControllerExtension.swift */,
 				A6B5B10B27F52BB00011BFA3 /* UIImageView+Common.m */,
@@ -780,9 +786,11 @@
 				A6B5B10427F528790011BFA3 /* UINavigationItem+Margin.m in Sources */,
 				A6947BC927F43B0B00A4DC1D /* NSString+Additions.m in Sources */,
 				A6947B8D27F4378000A4DC1D /* UIImage+Extension.m in Sources */,
+				A6B5B16927F5400F0011BFA3 /* UIImage+Extension.swift in Sources */,
 				A6B5B13B27F52F030011BFA3 /* NSData+Common.m in Sources */,
 				A6947B9027F4378000A4DC1D /* UIViewController+SmallScreen.m in Sources */,
 				A6B5B10827F529D60011BFA3 /* UIScrollView+PanBack.m in Sources */,
+				A6B5B16727F540020011BFA3 /* UIGestureRecognizer+Extension.swift in Sources */,
 				A6B5B10527F528790011BFA3 /* UINavigationItem+Common.m in Sources */,
 				A6B5B11527F52C8D0011BFA3 /* UIImage+Common.m in Sources */,
 				A6947BD827F43B0B00A4DC1D /* NSString+MSEmoji.m in Sources */,
