@@ -121,6 +121,8 @@
 		A6B5B11527F52C8D0011BFA3 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B11127F52C8D0011BFA3 /* UIImage+Common.m */; };
 		A6B5B11827F52E160011BFA3 /* UIDevice+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B11627F52E160011BFA3 /* UIDevice+Common.m */; };
 		A6B5B11927F52E160011BFA3 /* UIDevice+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B11727F52E160011BFA3 /* UIDevice+Common.h */; };
+		A6B5B11C27F52E860011BFA3 /* UIApplication+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B11A27F52E860011BFA3 /* UIApplication+Common.h */; };
+		A6B5B11D27F52E860011BFA3 /* UIApplication+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B11B27F52E860011BFA3 /* UIApplication+Common.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +251,8 @@
 		A6B5B11127F52C8D0011BFA3 /* UIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
 		A6B5B11627F52E160011BFA3 /* UIDevice+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Common.m"; sourceTree = "<group>"; };
 		A6B5B11727F52E160011BFA3 /* UIDevice+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Common.h"; sourceTree = "<group>"; };
+		A6B5B11A27F52E860011BFA3 /* UIApplication+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Common.h"; sourceTree = "<group>"; };
+		A6B5B11B27F52E860011BFA3 /* UIApplication+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Common.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -412,6 +416,8 @@
 				A6947C0B27F45A8F00A4DC1D /* UIApplicationExtension.swift */,
 				A6947BF327F4405900A4DC1D /* UITableView+ReloadAnimation.h */,
 				A6947BF427F4405900A4DC1D /* UITableView+ReloadAnimation.m */,
+				A6B5B11A27F52E860011BFA3 /* UIApplication+Common.h */,
+				A6B5B11B27F52E860011BFA3 /* UIApplication+Common.m */,
 				A6947B9B27F43ABB00A4DC1D /* MSFileManager.m */,
 				A6947C0927F4599900A4DC1D /* UINavigationControllerExtension.swift */,
 				A6947B2127F4377D00A4DC1D /* UIScreen+Helper.h */,
@@ -458,6 +464,7 @@
 				A6947B7C27F4378000A4DC1D /* UILabel+VerticalAlignment.h in Headers */,
 				A6B5B10327F528790011BFA3 /* UINavigationController+Common.h in Headers */,
 				A6947BD227F43B0B00A4DC1D /* NSString+Additions.h in Headers */,
+				A6B5B11C27F52E860011BFA3 /* UIApplication+Common.h in Headers */,
 				A6947BCB27F43B0B00A4DC1D /* NSDictionary+JSON.h in Headers */,
 				A6947BCE27F43B0B00A4DC1D /* NSObject+Associate.h in Headers */,
 				A6947BE027F43B0B00A4DC1D /* UIView+Border.h in Headers */,
@@ -660,6 +667,7 @@
 				A6B5B11827F52E160011BFA3 /* UIDevice+Common.m in Sources */,
 				A6947B7427F4378000A4DC1D /* UIScrollView+isScrollable.m in Sources */,
 				A6947B9427F4378000A4DC1D /* UIButton+MSRuntime.m in Sources */,
+				A6B5B11D27F52E860011BFA3 /* UIApplication+Common.m in Sources */,
 				A6947BED27F43B0B00A4DC1D /* NSObject+Associate.m in Sources */,
 				A6947BE327F43B0B00A4DC1D /* UIViewController+MSCLifecycleMonitor.m in Sources */,
 				A6947C1627F461C500A4DC1D /* UIViewControllerExtension.swift in Sources */,
