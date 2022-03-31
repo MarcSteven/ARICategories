@@ -119,6 +119,8 @@
 		A6B5B11327F52C8D0011BFA3 /* CIImage+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B10F27F52C8D0011BFA3 /* CIImage+Common.h */; };
 		A6B5B11427F52C8D0011BFA3 /* UIImage+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B11027F52C8D0011BFA3 /* UIImage+Common.h */; };
 		A6B5B11527F52C8D0011BFA3 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B11127F52C8D0011BFA3 /* UIImage+Common.m */; };
+		A6B5B11827F52E160011BFA3 /* UIDevice+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B11627F52E160011BFA3 /* UIDevice+Common.m */; };
+		A6B5B11927F52E160011BFA3 /* UIDevice+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B11727F52E160011BFA3 /* UIDevice+Common.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,6 +247,8 @@
 		A6B5B10F27F52C8D0011BFA3 /* CIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIImage+Common.h"; sourceTree = "<group>"; };
 		A6B5B11027F52C8D0011BFA3 /* UIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
 		A6B5B11127F52C8D0011BFA3 /* UIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
+		A6B5B11627F52E160011BFA3 /* UIDevice+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Common.m"; sourceTree = "<group>"; };
+		A6B5B11727F52E160011BFA3 /* UIDevice+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Common.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +390,8 @@
 				A6947B5027F4377F00A4DC1D /* UIImage+Extension.m */,
 				A6947B4A27F4377F00A4DC1D /* MSCPopoverBackgroundView.h */,
 				A6947B3127F4377E00A4DC1D /* MSCPopoverBackgroundView.m */,
+				A6B5B11727F52E160011BFA3 /* UIDevice+Common.h */,
+				A6B5B11627F52E160011BFA3 /* UIDevice+Common.m */,
 				A6947B3B27F4377E00A4DC1D /* NSLayoutConstraint+ListConstraint.h */,
 				A6947B5927F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.m */,
 				A6947B3F27F4377E00A4DC1D /* UILabel+VerticalAlignment.h */,
@@ -477,6 +483,7 @@
 				A6947B8B27F4378000A4DC1D /* UIViewController+Tracking.h in Headers */,
 				A6947BDA27F43B0B00A4DC1D /* NSString+MSSize.h in Headers */,
 				A6947B8427F4378000A4DC1D /* NSString+SubstringSearch.h in Headers */,
+				A6B5B11927F52E160011BFA3 /* UIDevice+Common.h in Headers */,
 				A6947BD527F43B0B00A4DC1D /* NSUserDefaults+Timing.h in Headers */,
 				A6947BD427F43B0B00A4DC1D /* NSDictionary+Safe.h in Headers */,
 				A6947BDC27F43B0B00A4DC1D /* NSDate+MSTransform.h in Headers */,
@@ -650,6 +657,7 @@
 				A6947B7D27F4378000A4DC1D /* UIColor+HexString.m in Sources */,
 				A6947B8C27F4378000A4DC1D /* UIWindow+Extension.m in Sources */,
 				A6947BF627F4405900A4DC1D /* UITableView+ReloadAnimation.m in Sources */,
+				A6B5B11827F52E160011BFA3 /* UIDevice+Common.m in Sources */,
 				A6947B7427F4378000A4DC1D /* UIScrollView+isScrollable.m in Sources */,
 				A6947B9427F4378000A4DC1D /* UIButton+MSRuntime.m in Sources */,
 				A6947BED27F43B0B00A4DC1D /* NSObject+Associate.m in Sources */,
