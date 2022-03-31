@@ -143,6 +143,8 @@
 		A6B5B14327F52F640011BFA3 /* NSDate+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B13F27F52F640011BFA3 /* NSDate+Common.m */; };
 		A6B5B14427F52F640011BFA3 /* NSDate+BoolJudge.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B14027F52F640011BFA3 /* NSDate+BoolJudge.m */; };
 		A6B5B14527F52F640011BFA3 /* NSDate+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B14127F52F640011BFA3 /* NSDate+Common.h */; };
+		A6B5B14827F52FF40011BFA3 /* NSAttributedString+Common.h in Headers */ = {isa = PBXBuildFile; fileRef = A6B5B14627F52FF40011BFA3 /* NSAttributedString+Common.h */; };
+		A6B5B14927F52FF40011BFA3 /* NSAttributedString+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5B14727F52FF40011BFA3 /* NSAttributedString+Common.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -293,6 +295,8 @@
 		A6B5B13F27F52F640011BFA3 /* NSDate+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Common.m"; sourceTree = "<group>"; };
 		A6B5B14027F52F640011BFA3 /* NSDate+BoolJudge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BoolJudge.m"; sourceTree = "<group>"; };
 		A6B5B14127F52F640011BFA3 /* NSDate+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Common.h"; sourceTree = "<group>"; };
+		A6B5B14627F52FF40011BFA3 /* NSAttributedString+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Common.h"; sourceTree = "<group>"; };
+		A6B5B14727F52FF40011BFA3 /* NSAttributedString+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Common.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +379,8 @@
 				A6B5B14027F52F640011BFA3 /* NSDate+BoolJudge.m */,
 				A6B5B14127F52F640011BFA3 /* NSDate+Common.h */,
 				A6B5B13F27F52F640011BFA3 /* NSDate+Common.m */,
+				A6B5B14627F52FF40011BFA3 /* NSAttributedString+Common.h */,
+				A6B5B14727F52FF40011BFA3 /* NSAttributedString+Common.m */,
 				A6B5B13727F52F030011BFA3 /* NSData+Common.m */,
 				A6B5B13827F52F030011BFA3 /* NSData+Encrypt.h */,
 				A6B5B13927F52F030011BFA3 /* NSData+Encrypt.m */,
@@ -573,6 +579,7 @@
 				A6947B8F27F4378000A4DC1D /* UIButton+MSRuntime.h in Headers */,
 				A6B5B11327F52C8D0011BFA3 /* CIImage+Common.h in Headers */,
 				A6B5B11427F52C8D0011BFA3 /* UIImage+Common.h in Headers */,
+				A6B5B14827F52FF40011BFA3 /* NSAttributedString+Common.h in Headers */,
 				A6947BEA27F43B0B00A4DC1D /* NSObject+MSCDescription.h in Headers */,
 				A6947BFD27F4567400A4DC1D /* UIBarButtonItem+Badge.h in Headers */,
 				A6947B7827F4378000A4DC1D /* NSLayoutConstraint+ListConstraint.h in Headers */,
@@ -710,6 +717,7 @@
 				A6947C0627F4590D00A4DC1D /* UITableView+Extension.swift in Sources */,
 				A6947BDE27F43B0B00A4DC1D /* NSURL+Exception.m in Sources */,
 				A6947C1427F45FED00A4DC1D /* UIButton+Extension.swift in Sources */,
+				A6B5B14927F52FF40011BFA3 /* NSAttributedString+Common.m in Sources */,
 				A6947BD927F43B0B00A4DC1D /* NSString+Hashing.m in Sources */,
 				A6947BFE27F4567400A4DC1D /* UIBarButtonItem+Badge.m in Sources */,
 				A6947C0827F4593D00A4DC1D /* UIWindowExtension.swift in Sources */,
