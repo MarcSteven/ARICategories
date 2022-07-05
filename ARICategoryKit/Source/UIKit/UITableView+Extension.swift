@@ -21,6 +21,7 @@ public extension UITableView {
     }
     
     
+    
 }
 
 public extension UITableView {
@@ -221,5 +222,12 @@ public extension UITableView {
     }
     func configureFooterView() {
         self.tableFooterView = UIView(frame: .zero)
+    }
+}
+
+
+public extension UITableView {
+    func disableCellSelect() {
+        self.allowsSelection = false
     }
 }

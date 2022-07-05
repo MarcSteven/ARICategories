@@ -16,6 +16,20 @@ public extension UIApplication {
     }
 }
 
+public extension UIApplication  {
+var mainKeyWindow: UIWindow? {
+        get {
+            if #available(iOS 13, *) {
+                return connectedScenes
+                    .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+                    .first { $0.isKeyWindow }
+            } else {
+                return keyWindow
+            }
+        }
+    }
+}
+
 
 public extension UIApplication {
     static var sharedOrNil:UIApplication? {
@@ -37,7 +51,7 @@ public extension UIApplication {
         return false
         
     }
-        
+@available(iOS 13.0 ,*)
 func topViewController(_ base:UIViewController? = UIApplication.sharedOrNil?.keyWindow?.rootViewController) ->UIViewController? {
         if let nav = base as? UINavigationController {
             return topViewController(nav.visibleViewController)
@@ -53,25 +67,15 @@ func topViewController(_ base:UIViewController? = UIApplication.sharedOrNil?.key
         return base
     }
     var isKeyboardPresented:Bool {
+        
         if let keyboardWindowClass = NSClassFromString("UIRemoteKeyboardWindow"),
+       
             self.windows.contains(where: {$0.isKind(of: keyboardWindowClass)}) {
             return true
         } else {
             return false
         }
     }
-
-func showNetworkActivity() {
-        DispatchQueue.main.async {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        }
-    }
-func hideNetworkActivity() {
-        DispatchQueue.main.async {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false 
-        }
-    }
-
 }
 // MARK: TopViewController
 
@@ -100,9 +104,39 @@ extension UIApplication {
     /// - Returns: Returns an optional window object based on visibility.
     /// - Complexity: O(_n_), where _n_ is the length of the `windows` array.
     open var visibleWindow: UIWindow? {
+        
         windows.reversed().first { !$0.isHidden }
-    }
+        }
+    
 }
-
-
-
+    
+//MARK: - UIApplication notification properties 
+public extension UIApplication {
+    static var didEnterbackground:NSNotification.Name {
+        return UIApplication.didEnterBackgroundNotification
+    }
+    static var willEnterForeground:NSNotification.Name {
+        return UIApplication.willEnterForegroundNotification
+    }
+    static var didBecomeActive:NSNotification.Name {
+        return UIApplication.didBecomeActiveNotification
+    }
+    static var didReceiveMemoryWarning:NSNotification.Name {
+        return UIApplication.didReceiveMemoryWarningNotification
+    }
+    static var willResignActive:NSNotification.Name {
+        return UIApplication.willResignActiveNotification
+    }
+    static var willTerminate:NSNotification.Name {
+        return UIApplication.willTerminateNotification
+        
+    }
+    static var significantTimeChange:NSNotification.Name {
+        return UIApplication.significantTimeChangeNotification
+        
+    }
+    static var userDidTakeScreenshot:NSNotification.Name {
+        return UIApplication.userDidTakeScreenshotNotification
+    }
+    
+}

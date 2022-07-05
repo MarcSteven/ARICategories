@@ -12,21 +12,29 @@ import UIKit
 
 extension CGSize :ExpressibleByFloatLiteral{
     public typealias FloatLiteralType = Double
-    public init(size:Double) {
+     init(size:Double) {
         self.init(width: size, height: size)
     }
+    
+    /// init method
+    /// - Parameter value: float  literal
     public init(floatLiteral value:FloatLiteralType) {
         self.init(size: value)
     }
-    var aspectRatio:CGFloat {
+    
+    /// aspect ratio
+    public var aspectRatio:CGFloat {
         return width / height
     }
-    func sizeByDelta(dw:CGFloat,
+    
+    /// size By delta
+    /// - Parameters:
+    ///   - dw: d width
+    ///   - dh: d height
+    /// - Returns: return delta size 
+    public func sizeByDelta(dw:CGFloat,
                      dh:CGFloat) ->CGSize {
-        return CGSize(self.width + dw,self.height + dh)
+        return CGSize(width: self.width + dw,height: self.height + dh)
     }
-    init(_ width:CGFloat,
-         _ height:CGFloat) {
-        self.init(width, height)
-    }
+  
 }

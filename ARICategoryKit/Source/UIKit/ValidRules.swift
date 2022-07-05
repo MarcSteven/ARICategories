@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+// 规则验证
 
 public struct ValidationRule<Input> {
     private let block: (Input) -> Bool
@@ -61,7 +61,4 @@ extension ValidationRule: ExpressibleByUnicodeScalarLiteral where Input == Strin
         self.init(pattern: value)
     }
 }
-
-
-
 

@@ -8,8 +8,11 @@
 
 import Foundation
 //Remove multiple indexes from Array
-extension Array {
-    public mutating func remove(at indexs:Set<Int>) {
+public extension Array {
+    
+    /// remove the element via index
+    /// - Parameter indexs: index of the element 
+     mutating func remove(at indexs:Set<Int>) {
         for i in Array<Int>(indexs).sorted(by: >) {
             self.remove(at: i)
         }
@@ -17,7 +20,7 @@ extension Array {
     
     //Array方法扩展，支持根据索引数组删除
     
-    public mutating func removeAtIndexes(indexs: [Int]) {
+     mutating func removeAtIndexes(indexs: [Int]) {
         let sorted = indexs.sorted(by: { $1 < $0 })
         for index in sorted {
             self.remove(at: index)
@@ -25,6 +28,7 @@ extension Array {
     }
 }
 public extension Array {
+//    subscript method to get the element
     subscript(guarded index:Int) ->Element? {
         guard (startIndex..<endIndex).contains(index) else {
             return nil
@@ -35,12 +39,12 @@ public extension Array {
 
 
 
-extension Array {
+public extension Array {
     /// Returns a random subarray of given length.
     ///
     /// - Parameter count: Number of random elements to return.
     /// - Returns: Random subarray of length n.
-    public func randomElements(count: Int = 1) -> Self {
+     func randomElements(count: Int = 1) -> Self {
         let size = count
         let count = self.count
 
@@ -53,7 +57,7 @@ extension Array {
     }
 
     /// Returns a random element from `self`.
-    public func randomElement() -> Element {
+     func randomElement() -> Element {
         let randomIndex = Int(arc4random()) % count
         return self[randomIndex]
     }
@@ -66,14 +70,14 @@ extension Array {
     /// print(chunks) // [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12]]
     /// ```
     /// - seealso: https://gist.github.com/ericdke/fa262bdece59ff786fcb
-    public func splitBy(_ subSize: Int) -> [[Element]] {
+     func splitBy(_ subSize: Int) -> [[Element]] {
         return stride(from: 0, to: count, by: subSize).map { startIndex in
             let endIndex = index(startIndex, offsetBy: subSize, limitedBy: count) ?? startIndex + (count - startIndex)
             return Array(self[startIndex..<endIndex])
         }
     }
 
-    public func firstElement<T>(type: T.Type) -> T? {
+     func firstElement<T>(type: T.Type) -> T? {
         for element in self {
             if let element = element as? T {
                 return element
@@ -83,7 +87,7 @@ extension Array {
         return nil
     }
 
-    public func lastElement<T>(type: T.Type) -> T? {
+     func lastElement<T>(type: T.Type) -> T? {
         for element in reversed() {
             if let element = element as? T {
                 return element
@@ -94,7 +98,7 @@ extension Array {
     }
 }
 
-extension Array where Element: NSObjectProtocol {
+public extension Array where Element: NSObjectProtocol {
     /// Returns the first index where the specified value appears in the
     /// collection.
     ///
@@ -112,7 +116,7 @@ extension Array where Element: NSObjectProtocol {
     /// - Parameter elementType: An element type to search for in the collection.
     /// - Returns: The first index where `element` is found. If `element` is not
     ///   found in the collection, returns `nil`.
-    public func firstIndex(of elementType: Element.Type) -> Int? {
+     func firstIndex(of elementType: Element.Type) -> Int? {
         firstIndex { $0.isKind(of: elementType) }
     }
 
@@ -133,7 +137,7 @@ extension Array where Element: NSObjectProtocol {
     /// - Parameter elementType: An element type to search for in the collection.
     /// - Returns: The last index where `element` is found. If `element` is not
     ///   found in the collection, returns `nil`.
-    public func lastIndex(of elementType: Element.Type) -> Int? {
+    func lastIndex(of elementType: Element.Type) -> Int? {
         lastIndex { $0.isKind(of: elementType) }
     }
 
@@ -149,7 +153,7 @@ extension Array where Element: NSObjectProtocol {
     ///
     /// - Parameter any: An array of element types to search for in the collection.
     /// - Returns: `true` if the sequence contains an element; otherwise, `false`.
-    public func contains(any elementTypes: [Element.Type]) -> Bool {
+    func contains(any elementTypes: [Element.Type]) -> Bool {
         for element in self {
             if elementTypes.contains(where: { element.isKind(of: $0) }) {
                 return true
@@ -160,7 +164,7 @@ extension Array where Element: NSObjectProtocol {
     }
 }
 
-extension Array where Element: Equatable {
+public extension Array where Element: Equatable {
     /// Sorts the collection in place, using the given preferred order as the comparison between elements.
     ///
     /// ```swift
@@ -172,7 +176,7 @@ extension Array where Element: Equatable {
     /// ```
     ///
     /// - Parameter preferredOrder: The ordered elements, which will be used to sort the sequence’s elements.
-    public mutating func sort(by preferredOrder: Self) {
+     mutating func sort(by preferredOrder: Self) {
         sort { (a, b) -> Bool in
             guard
                 let first = preferredOrder.firstIndex(of: a),
@@ -200,7 +204,7 @@ extension Array where Element: Equatable {
     ///
     /// - Parameter preferredOrder: The ordered elements, which will be used to sort the sequence’s elements.
     /// - Returns: A sorted array of the sequence’s elements.
-    public func sorted(by preferredOrder: Self) -> Self {
+     func sorted(by preferredOrder: Self) -> Self {
         sorted { (a, b) -> Bool in
             guard
                 let first = preferredOrder.firstIndex(of: a),
@@ -214,9 +218,83 @@ extension Array where Element: Equatable {
     }
 }
 
-extension Array where Element: RawRepresentable {
+public extension Array where Element: RawRepresentable {
     /// Return an array containing all corresponding `rawValue`s of `self`.
-    public var rawValues: [Element.RawValue] {
+     var rawValues: [Element.RawValue] {
         map { $0.rawValue }
+    }
+}
+
+
+public extension Array {
+    
+    /// binary search
+    /// - Parameters:
+    ///   - target: target
+    ///   - transform: transform
+    ///   - comparison: comparisipon
+    /// - Returns: return the data
+     func binarySearch<T>(target: T, transform: (Element) -> T, _ comparison: (T, T) -> ComparisonResult) -> Int? {
+        var localRange = 0..<count
+
+        while localRange.startIndex < localRange.endIndex {
+            // Find the middle point in the array within the given range
+            let midIndex: Int = localRange.startIndex + (localRange.endIndex - localRange.startIndex) / 2
+            let comparableObject = transform(self[midIndex])
+            let result = comparison(comparableObject, target)
+            switch result {
+                case .orderedSame:
+                    // If we found our search key, return the index
+                    return midIndex
+                case .orderedAscending:
+                    // If the middle value is less than the target, look at the right half
+                    localRange = (midIndex + 1)..<localRange.endIndex
+                case .orderedDescending:
+                    // If the midle value is greater than the target, look at the left half
+                    localRange = localRange.startIndex..<midIndex
+            }
+        }
+        return nil
+    }
+}
+
+
+public extension Array where Element  == UInt8 {
+    
+    /// data
+    var data:Data {
+        return Data(self)
+    }
+}
+
+public extension Array where Element == UInt8 {
+    
+    /// convert bytes to hex
+    /// - Parameter spacing: space
+    /// - Returns: return hex string
+ func bytesToHex(spacing: String) -> String {
+   var hexString: String = ""
+   var count = self.count
+   for byte in self
+   {
+       hexString.append(String(format:"%02X", byte))
+       count = count - 1
+       if count > 0
+       {
+           hexString.append(spacing)
+       }
+   }
+   return hexString
+}
+
+}
+
+//https://stackoverflow.com/questions/29727618/find-duplicate-elements-in-array-using-swift
+public extension Array where Element: Hashable {
+    func duplicates() -> Array {
+        let groups = Dictionary(grouping: self, by: {$0})
+        let duplicateGroups = groups.filter {$1.count > 1}
+        let duplicates = Array(duplicateGroups.keys)
+        return duplicates
     }
 }

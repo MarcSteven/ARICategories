@@ -9,22 +9,34 @@
 import QuartzCore
 import UIKit
 
-extension CATransaction {
-    public static func animation(_ animations:() ->Void,completinonHandler:(() ->Void)?) {
+public extension CATransaction {
+    
+    /// animation
+    /// - Parameters:
+    ///   - animations: animations
+    ///   - completinonHandler: completionHandler
+     static func animation(_ animations:() ->Void,completinonHandler:(() ->Void)?) {
         CATransaction.begin()
         CATransaction.setCompletionBlock(completinonHandler)
         animations()
         CATransaction.commit()
         
     }
-    public static func performWithoutAnimation(_ actionsWithouAnimation:()->Void) {
+    
+    /// perform without animation
+    /// - Parameter actionsWithouAnimation: actionsWithoutAnimation
+     static func performWithoutAnimation(_ actionsWithouAnimation:()->Void) {
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         actionsWithouAnimation()
         CATransaction.commit()
     }
 }
-extension CATransitionType {
-    public static let none = CATransitionType(rawValue: "")
+public extension CATransitionType {
+    
+    /// none
+     static let none = CATransitionType(rawValue: "")
+    
+    
     
 }

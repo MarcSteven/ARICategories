@@ -1,17 +1,40 @@
 //
 //  UIWindowExtension.swift
-//  MemoryChainKit
+//  ARICategoryKit
 //
-//  Created by Marc Steven on 2020/3/17.
-//  Copyright © 2020 Marc Steven(https://github.com/MarcSteven). All rights reserved.
+//  Created by marc zhao on 2022/4/12.
 //
 
-import UIKit
+import Foundation
+import  UIKit
+
+public extension UIWindow {
+    static var key: UIWindow? {
+            if #available(iOS 13, *) {
+                
+                if #available(iOS 15, *) {
+                    return UIApplication
+                        .shared
+                        .connectedScenes
+                        .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+                        .first { $0.isKeyWindow }
+                }else {
+                
+                
+                return UIApplication.shared.windows.first { $0.isKeyWindow }
+                }
+                }
+       
+        else {
+                return UIApplication.shared.keyWindow
+            }
+        }
+}
 
 public extension UIWindow {
     
     /// get the top view controller in the UIWindow
-    /// - Returns: return the top view controller 
+    /// - Returns: return the top view controller
     func topViewController()->UIViewController? {
         var top = self.rootViewController
         while true {
@@ -36,7 +59,21 @@ public extension UIWindow {
 
         var rootVC = rootViewController
         if rootVC == nil {
-            rootVC = UIApplication.shared.keyWindow?.rootViewController
+            if #available(iOS 15.0, *) {
+                let keyWindow =  UIApplication.shared.connectedScenes
+                // Keep only active scenes, onscreen and visible to the user
+                .filter { $0.activationState == .foregroundActive }
+                // Keep only the first `UIWindowScene`
+                .first(where: { $0 is UIWindowScene })
+                // Get its associated windows
+                .flatMap({ $0 as? UIWindowScene })?.windows
+                // Finally, keep only the key window
+                .first(where: \.isKeyWindow)
+                rootVC = keyWindow?.rootViewController
+            } else {
+                rootVC = UIApplication.shared.keyWindow?.rootViewController
+            }
+           
         }
 
         if rootVC?.presentedViewController == nil {
@@ -60,3 +97,54 @@ public extension UIWindow {
     }
 }
 
+
+
+
+public extension UIWindow {
+    
+    static var isLandscape: Bool {
+           if #available(iOS 13.0, *) {
+               
+               if #available(iOS 15.0, *) {
+                   let scenes = UIApplication.shared.connectedScenes
+                   let windowScene = scenes.first as? UIWindowScene
+                   let window = windowScene?.windows.first
+                   
+                   return window?.windowScene?.interfaceOrientation.isLandscape ?? false
+                   
+                   
+                   
+               }else {
+               return UIApplication.shared.windows
+                   .first?
+                   .windowScene?
+                   .interfaceOrientation
+                   .isLandscape ?? false
+           }
+           }
+        else {
+               return UIApplication.shared.statusBarOrientation.isLandscape
+           }
+       }
+    static var isPortrait:Bool {
+        if #available(iOS 13.0, *) {
+            if #available(iOS 15.0, *) {
+                let scenes = UIApplication.shared.connectedScenes
+                let windowScene = scenes.first as? UIWindowScene
+                let window = windowScene?.windows.first
+                
+                
+                return window?.windowScene?.interfaceOrientation.isPortrait ?? false
+            }else {
+                return UIApplication.shared.windows
+                    .first?
+                    .windowScene?
+                    .interfaceOrientation
+                    .isPortrait ?? false
+            }
+        }
+        else {
+            return UIApplication.shared.statusBarOrientation.isPortrait
+        }
+    }
+}

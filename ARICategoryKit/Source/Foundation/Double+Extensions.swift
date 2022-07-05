@@ -25,3 +25,10 @@ public extension Double {
         return self / 3.28084
     }
 }
+
+
+public extension Double {
+    func toString() -> String {
+        return String(format: "%.1f",self)
+    }
+}

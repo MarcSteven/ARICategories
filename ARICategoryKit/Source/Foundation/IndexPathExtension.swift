@@ -18,8 +18,8 @@ extension IndexPath {
     }
 }
 
-extension IndexPath {
-    public func previous() -> IndexPath? {
+public extension IndexPath {
+  func previous() -> IndexPath? {
         guard item > 0 else {
             return nil
         }
@@ -27,7 +27,7 @@ extension IndexPath {
         return IndexPath(row: item - 1, section: section)
     }
 
-    public func next(in collectionView: UICollectionView) -> IndexPath? {
+     func next(in collectionView: UICollectionView) -> IndexPath? {
         let itemsInSection = collectionView.numberOfItems(inSection: section)
 
         guard item + 1 < itemsInSection else {
@@ -37,7 +37,7 @@ extension IndexPath {
         return IndexPath(row: item + 1, section: section)
     }
 
-    public func next(in tableView: UITableView) -> IndexPath? {
+     func next(in tableView: UITableView) -> IndexPath? {
         let rowsInSection = tableView.numberOfRows(inSection: section)
 
         guard row + 1 < rowsInSection else {

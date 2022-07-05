@@ -8,6 +8,39 @@
 import UIKit
 
 public extension UIView {
+    func subviews<T:UIView>(ofType whatType:T.Type,
+                            recursing:Bool = true) ->[T] {
+        var result = self.subviews.compactMap{$0 as? T}
+        guard recursing else {
+            return result
+        }
+        for sub in self.subviews {
+            result.append(contentsOf:sub.subviews(ofType: whatType))
+        }
+        return result
+    }
+    
+    
+}
+public extension UIView {
+    func constraint(withIdentifier id:String) ->NSLayoutConstraint? {
+        return self.constraints.first {$0.identifier == id } ?? self.superview?.constraint(withIdentifier: id)
+    }
+}
+
+@objc extension UIView {
+   public  func reportAmbiguity(filter:Bool = false) {
+        let has = self.hasAmbiguousLayout
+        if has || !filter {
+            print(self,has)
+        }
+        for sub in self.subviews {
+            sub.reportAmbiguity(filter: filter)
+        }
+    }
+}
+
+public extension UIView {
     func parentView<T:UIView>(of type:T.Type) ->T? {
         guard let view = superview else {
             return nil
@@ -15,6 +48,42 @@ public extension UIView {
         return (view as? T) ?? view.parentView(of: T.self)
     }
 
+}
+
+/// MARK: - window frame
+
+public extension UIView {
+    var windowFrame:CGRect? {
+        return superview?.convert(frame, to: nil)
+    }
+}
+//MARK: - add constraints
+public extension UIView {
+    func addConstraints(format: String, options: NSLayoutConstraint.FormatOptions = [], metrics: [String: AnyObject]? = nil, views: [String: UIView]) {
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: options, metrics: metrics, views: views))
+    }
+    
+    func addUniversalConstraints(format: String, options: NSLayoutConstraint.FormatOptions = [], metrics: [String: AnyObject]? = nil, views: [String: UIView]) {
+        addConstraints(format: "H:\(format)", options: options, metrics: metrics, views: views)
+        addConstraints(format: "V:\(format)", options: options, metrics: metrics, views: views)
+    }
+}
+
+public extension UIView {
+    func setCorner(_ radius:CGFloat) {
+        layer.cornerRadius = radius
+        clipsToBounds = true
+    }
+    
+    func setCircleCorner() {
+        superview?.layoutIfNeeded()
+        setCorner(frame.height / 2)
+    }
+    func setBorder(width:CGFloat,color:UIColor) {
+        layer.borderColor = color.cgColor
+        layer.borderWidth = width
+    }
+    
 }
 //MARK: - blur
 extension UIView {
@@ -342,3 +411,330 @@ private func debugSubviews(_ count: Int = 0) {
     }
 }
 }
+
+ // add shadow
+public extension UIView {
+    
+    func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float)
+        {
+            layer.masksToBounds = false
+            layer.shadowOffset = offset
+            layer.shadowColor = color.cgColor
+            layer.shadowRadius = radius
+            layer.shadowOpacity = opacity
+
+            let backgroundCGColor = backgroundColor?.cgColor
+            backgroundColor = nil
+            layer.backgroundColor =  backgroundCGColor
+        }
+    
+    
+}
+
+//add rounder corner shadow
+public extension UIView {
+    
+    func addRoundedCorner(_ targetView:UIView?) {
+        
+        
+            targetView!.layer.cornerRadius = 5.0;
+            targetView!.layer.masksToBounds = true
+
+            //UIView Set up boarder
+            targetView!.layer.borderColor = UIColor.yellow.cgColor;
+            targetView!.layer.borderWidth = 3.0;
+
+            //UIView Drop shadow
+            targetView!.layer.shadowColor = UIColor.darkGray.cgColor;
+            targetView!.layer.shadowOffset = CGSize(width: 2, height: 2)
+            targetView!.layer.shadowOpacity = 1.0
+    }
+    
+}
+// add gradient background for UIView
+public extension UIView {
+    func applyGradient(colours: [UIColor])  {
+        self.applyGradient(colours: colours, locations: nil)
+    }
+    
+    func applyGradient(colours: [UIColor], locations: [NSNumber]?) {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = colours.map { $0.cgColor }
+        gradient.locations = locations
+        self.layer.addSublayer(gradient)
+    }
+}
+
+// corner radius
+public extension UIView {
+    var cornerRadius:CGFloat {
+           get {
+               return layer.cornerRadius
+           }
+           set {
+               layer.cornerRadius = newValue
+               layer.masksToBounds  = newValue > 0
+           }
+       }
+}
+
+// Conform to `Animatable` protocol to animate views.
+public protocol Animatable: AnyObject {}
+
+// MARK: - Default implementation for UIView.
+public extension Animatable where Self: UIView {
+    
+    /// Fade in view.
+    ///
+    /// - Parameters:
+    ///   - duration: animation duration in seconds _(default is 1.0 second)_.
+    ///   - delay: animation delay in seconds _(default is 0.0 second)_.
+    ///   - completion: optional completion handler to run with animation finishes _(default is nil)_.
+    func fadeIn(withDuration duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: duration, delay: delay, options: [], animations: { [unowned self] in
+            self.alpha = 1.0
+            }, completion: completion)
+        
+        
+    }
+    
+    /// Fade out view.
+    ///
+    /// - Parameters:
+    ///   - duration: animation duration in seconds _(default is 1.0 second)_.
+    ///   - delay: animation delay in seconds _(default is 0.0 second)_.
+    ///   - completion: optional completion handler to run with animation finishes _(default is nil)_.
+    func fadeOut(withDuration duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: duration, delay: delay, options: [], animations: { [unowned self] in
+            self.alpha = 0.0
+            }, completion: completion)
+    }
+    
+    /// Pop in view.
+    ///
+    /// - Parameters:
+    ///   - duration: animation duration in seconds _(default is 0.25 second)_.
+    ///   - delay: animation delay in seconds _(default is 0.0 second)_.
+    ///   - completion: optional completion handler to run with animation finishes _(default is nil)_.
+    func popIn(withDuration duration: TimeInterval = 0.25, delay: TimeInterval = 0.0, completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: duration, delay: delay, options: [], animations: { [unowned self] in
+            self.transform = .init(scaleX: 0.95, y: 0.95)
+            }, completion: completion)
+    }
+    
+    /// Pop out view.
+    ///
+    /// - Parameters:
+    ///   - duration: animation duration in seconds _(default is 0.25 second)_.
+    ///   - delay: animation delay in seconds _(default is 0.0 second)_.
+    ///   - completion: optional completion handler to run with animation finishes _(default is nil)_.
+    func popOut(withDuration duration: TimeInterval = 0.25, delay: TimeInterval = 0.0, completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: duration, delay: delay, options: [], animations: { [unowned self] in
+            self.transform = .identity
+            }, completion: completion)
+    }
+    
+    /// Shake view.
+    ///
+    /// - Parameters:
+    ///   - duration: animation duration in seconds _(default is 1.0 second)_.
+    ///   - delay: animation delay in seconds _(default is 0.0 second)_.
+    ///   - completion: optional completion handler to run with animation finishes _(default is nil)_.
+    func shake(withDuration duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: (() -> Void)? = nil) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [unowned self] in
+            CATransaction.begin()
+            let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+            animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+            CATransaction.setCompletionBlock(completion)
+            animation.duration = duration
+            animation.values = [-15.0, 15.0, -12.0, 12.0, -8.0, 8.0, -3.0, 3.0, 0.0]
+            self.layer.add(animation, forKey: "shake")
+            CATransaction.commit()
+        }
+    }
+    
+}
+
+public protocol ZoomIn {}
+
+extension ZoomIn where Self:UIView {
+    /**
+     Simply zooming in of a view: set view scale to 0 and zoom to Identity on 'duration' time interval.
+     - parameter duration: animation duration
+     */
+     func zoomIn(duration: TimeInterval = 0.2) {
+         self.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+         UIView.animate(withDuration: duration, delay: 0.0, options: [.curveLinear], animations: { () -> Void in
+             self.transform = CGAffineTransform.identity
+            }) { (animationCompleted: Bool) -> Void in
+        }
+    }
+    /**
+     Zoom in any view with specified offset magnification.
+     - parameter duration:     animation duration.
+     - parameter easingOffset: easing offset.
+     */
+     func zoomInWithEasing( duration: TimeInterval = 0.2, easingOffset: CGFloat = 0.2) {
+        let easeScale = 1.0 + easingOffset
+        let easingDuration = TimeInterval(easingOffset) * duration / TimeInterval(easeScale)
+        let scalingDuration = duration - easingDuration
+     UIView.animate(withDuration: scalingDuration, delay: 0.0, options: .curveEaseIn, animations: { () -> Void in
+         self.transform = CGAffineTransform(scaleX: easeScale, y: easeScale)
+            }, completion: { (completed: Bool) -> Void in
+             UIView.animate(withDuration: easingDuration, delay: 0.0, options: .curveEaseOut, animations: { () -> Void in
+                 self.transform = CGAffineTransform.identity
+                    }, completion: { (completed: Bool) -> Void in
+                })
+        })
+    }
+
+
+
+}
+
+public protocol ZoomOut {}
+
+
+extension ZoomOut where Self:UIView {
+    /**
+     Simply zooming out of a view: set view scale to Identity and zoom out to 0 on 'duration' time interval.
+     - parameter duration: animation duration
+     */
+     func zoomOut(duration: TimeInterval = 0.2) {
+     self.transform = CGAffineTransform.identity
+     UIView.animate(withDuration: duration, delay: 0.0, options: [.curveLinear], animations: { () -> Void in
+         self.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+            }) { (animationCompleted: Bool) -> Void in
+        }
+    }
+
+    
+    /**
+     Zoom out any view with specified offset magnification.
+     - parameter duration:     animation duration.
+     - parameter easingOffset: easing offset.
+     */
+    func zoomOutWithEasing( duration: TimeInterval = 0.2, easingOffset: CGFloat = 0.2) {
+        let easeScale = 1.0 + easingOffset
+        let easingDuration = TimeInterval(easingOffset) * duration / TimeInterval(easeScale)
+        let scalingDuration = duration - easingDuration
+     UIView.animate(withDuration: easingDuration, delay: 0.0, options: .curveEaseOut, animations: { () -> Void in
+         self.transform = CGAffineTransform(scaleX: easeScale, y: easeScale)
+            }, completion: { (completed: Bool) -> Void in
+             UIView.animate(withDuration: scalingDuration, delay: 0.0, options: .curveEaseOut, animations: { () -> Void in
+                 self.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+                    }, completion: { (completed: Bool) -> Void in
+                })
+        })
+    }
+
+}
+
+
+
+public extension UIView {
+    
+    func centerHorizontally(parent: UIView) {
+           let center = parent.convert(parent.center, from: parent.superview)
+           self.center = CGPoint(x: center.x, y: self.center.y)
+       }
+       
+       func centerVertically(parent: UIView) {
+           let center = parent.convert(parent.center, from: parent.superview)
+           self.center = CGPoint(x: self.center.x, y: center.y)
+       }
+}
+
+
+/// Conform to `Shadowable` protocol to set shadow related propertoes for views.
+public protocol Shadowable: AnyObject {}
+
+// MARK: - Default implementation for UIView.
+public extension Shadowable where Self: UIView {
+    
+    /// Shadow color of view.
+    var shadowColor: UIColor? {
+        get {
+            guard let color = layer.shadowColor else { return nil }
+            return UIColor(cgColor: color)
+        }
+        set {
+            layer.masksToBounds = false
+            layer.shadowColor = newValue?.cgColor
+            layer.shouldRasterize = true
+            layer.rasterizationScale = UIScreen.main.scale
+        }
+    }
+    
+    /// Shadow offset of view.
+     var shadowOffset: CGSize {
+        get {
+            return layer.shadowOffset
+        }
+        set {
+            layer.masksToBounds = false
+            layer.shadowOffset = newValue
+            layer.shouldRasterize = true
+            layer.rasterizationScale = UIScreen.main.scale
+        }
+    }
+    
+    /// Shadow opacity of view.
+     var shadowOpacity: Float {
+        get {
+            return layer.shadowOpacity
+        }
+        set {
+            layer.masksToBounds = false
+            layer.shadowOpacity = newValue
+            layer.shouldRasterize = true
+            layer.rasterizationScale = UIScreen.main.scale
+        }
+    }
+    
+    /// Shadow radius of view.
+     var shadowRadius: CGFloat {
+        get {
+            return layer.shadowRadius
+        }
+        set {
+            layer.masksToBounds = false
+            layer.shadowRadius = newValue
+            layer.shouldRasterize = true
+            layer.rasterizationScale = UIScreen.main.scale
+        }
+    }
+    
+    /// Set view's shadow
+    ///
+    /// - Parameters:
+    ///   - color: Shadow color of view.
+    ///   - offset: Shadow offset of view.
+    ///   - opacity: Shadow opacity of view.
+    ///   - radius: Shadow radius of view.
+     func setShadow(color: UIColor?, offset: CGSize, opacity: Float, radius: CGFloat) {
+        shadowColor = color
+        shadowOffset = offset
+        shadowOpacity = opacity
+        shadowRadius = radius
+    }
+    
+}
+
+//MARK: - add method to draw dotted line for UIView
+public extension UIView {
+    func drawDottedLine(width: CGFloat, color: CGColor) {
+          let caShapeLayer = CAShapeLayer()
+          caShapeLayer.strokeColor = color
+          caShapeLayer.lineWidth = width
+          caShapeLayer.lineDashPattern = [2,3]
+          let cgPath = CGMutablePath()
+          let cgPoint = [CGPoint(x: 0, y: 0), CGPoint(x: self.frame.width, y: 0)]
+          cgPath.addLines(between: cgPoint)
+          caShapeLayer.path = cgPath
+          layer.addSublayer(caShapeLayer)
+       }
+}
+
+

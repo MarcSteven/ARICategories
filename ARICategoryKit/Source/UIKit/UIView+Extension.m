@@ -7,7 +7,7 @@
 //
 
 #import "UIView+Extension.h"
-#import "NSObject+MSCNameTag.h"
+#import "NSObject+Common.h"
 #import "MSCCommon.h"
 
 

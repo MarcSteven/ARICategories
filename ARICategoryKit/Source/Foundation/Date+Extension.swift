@@ -211,14 +211,14 @@ extension Date {
     }
     
     func noteDate(unixTime: Int64) -> String {
-        let date = Date.init(timeIntervalSince1970: TimeInterval(unixTime))
+        let date = Date(timeIntervalSince1970: TimeInterval(unixTime))
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy年MM月dd日 HH:mm"
         return dateFormat.string(from: date)
     }
     
     func getNoteDate(unixTime: Int64) -> String {
-        let date = Date.init(timeIntervalSince1970: TimeInterval(unixTime))
+        let date = Date(timeIntervalSince1970: TimeInterval(unixTime))
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy/MM/dd"
         return dateFormat.string(from: date)

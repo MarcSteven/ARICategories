@@ -23,15 +23,6 @@
 #define VIEW_CLASS UIView
 #define COLOR_CLASS UIColor
 #define IMAGE_CLASS UIImage
-#import "NSObject+MSCNameTag.h"
-// Constraint Matching, Retrieval
-
-
-
-// Constraint Description for Debugging
-#import "NSObject+MSCDescription.h"
-
-
 
 #pragma mark - Testing Constraint Elements
 
@@ -45,16 +36,7 @@
 
 #define IS_HORIZONTAL_ALIGNMENT(ALIGNMENT) [@[@(NSLayoutFormatAlignAllLeft), @(NSLayoutFormatAlignAllRight), @(NSLayoutFormatAlignAllLeading), @(NSLayoutFormatAlignAllTrailing), @(NSLayoutFormatAlignAllCenterX), ] containsObject:@(ALIGNMENT)]
 #define IS_VERTICAL_ALIGNMENT(ALIGNMENT) [@[@(NSLayoutFormatAlignAllTop), @(NSLayoutFormatAlignAllBottom), @(NSLayoutFormatAlignAllCenterY), @(NSLayoutFormatAlignAllBaseline), ] containsObject:@(ALIGNMENT)]
-// Custom Colors for my own use
-#if TARGET_OS_IPHONE
-    #define ORANGE_COLOR    [UIColor colorWithRed:1.0f green:0.6f blue:0.0f alpha:1.0f]
-    #define AQUA_COLOR      [UIColor colorWithRed:0.0f green:.6745 blue:.8039 alpha:1.0f]
-    #define COOKBOOK_PURPLE_COLOR [UIColor colorWithRed:0.20392f green:0.19607f blue:0.61176f alpha:1.0f]
-#elif TARGET_OS_MAC
-    #define ORANGE_COLOR    [NSColor colorWithDeviceRed:1 green:0.6 blue:0 alpha:1]
-    #define AQUA_COLOR    [NSColor colorWithDeviceRed:0 green:0.6745 blue:0.8039 alpha:1]
-    #define COOKBOOK_PURPLE_COLOR [NSColor colorWithDeviceRed:0.20392f green:0.19607f blue:0.61176f alpha:1.0f]
-#endif
+
 
 #define RECTCENTER(_rect_) CGPointMake(CGRectGetMidX(_rect_), CGRectGetMidY(_rect_))
 
@@ -64,8 +46,6 @@
     #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     #define BARBUTTON(TITLE, SELECTOR) [[UIBarButtonItem alloc] initWithTitle:TITLE style:UIBarButtonItemStylePlain target:self action:SELECTOR]
 #elif TARGET_OS_MAC
-
-#define MSCDeviceVersion [[UIDevice currentDevice] systemVersion] floatValue];
 
 #define MSC_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define MSC_SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
@@ -77,17 +57,6 @@
 #define MSC_TABBAR_HEIGHT (MSC_IS_iPhoneX ? 83.0f :49.0f)
 #endif
 
-#define MSC_IS_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ?\
-(\
-CGSizeEqualToSize(CGSizeMake(375, 812),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(812, 375),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(414, 896),[UIScreen mainScreen].bounds.size)\
-||\
-CGSizeEqualToSize(CGSizeMake(896, 414),[UIScreen mainScreen].bounds.size))\
-:\
-NO)
 typedef NS_ENUM(NSUInteger,MSCNavigationBarBackStyle) {
     MSCNavigationBarBackStyleNone,
     MSCNavigationBarBackStyleBlack,
@@ -96,17 +65,20 @@ typedef NS_ENUM(NSUInteger,MSCNavigationBarBackStyle) {
 static inline void msc_swizzled_method(Class oldclass,
                                        NSString *oldSelector,
                                        Class newClass) {
-//    NSString *newSelector = [NSString stringWithFormat:@"msc_ %@",oldSelector];
-//    SEL originalSelector = NSSelectorFromString(oldSelector);
-//    SEL swizzledSelector = NSSelectorFromString(newSelector);
-//    Method originalMethod = class_getInstanceMethod(oldClass,NSSelectorFromString(oldSelector));
-//    Method SwizzledMethod = class_getInstanceMethod(newClass,NSSelectorFromString(newSelector));
-//    BOOL isAdd = class_AddMethod(oldClass,originalSelector,method_getImplementation(swizzledMethod),method_getTypeEncoding(swizzledMethod));
-//    if (isAdd) {
-//        class_replaceMethod(newClass,swizzledSelector,method_getImplementation(originalMethod),method_getTypeEncoding(originalMethod));
-//    }else {
-//        method_exchangeImplementations(originalMethod,swizzledMethod);
-//    }
+    
+    
+    NSString *newSelector = [NSString stringWithFormat:@"msc_ %@",oldSelector];
+    SEL originalSelector = NSSelectorFromString(oldSelector);
+    SEL swizzledSelector = NSSelectorFromString(newSelector);
+    Method originalMethod = class_getInstanceMethod(oldclass, NSSelectorFromString(oldSelector));
+    Method swizzledMethod = class_getInstanceMethod(newClass, NSSelectorFromString(newSelector));
+    BOOL isAdd = class_addMethod(oldclass, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
+    if (isAdd) {
+        class_replaceMethod(newClass, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+    }else {
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+
 }
 #pragma mark - Position X & Y (not leading & Y)
 #define CONSTRAINT_POSITIONING_X(VIEW, X) [NSLayoutConstraint constraintWithItem: VIEW attribute: NSLayoutAttributeLeft relatedBy: NSLayoutRelationEqual toItem: [VIEW superview] attribute: NSLayoutAttributeLeft multiplier: 1.0f constant: X]
@@ -294,10 +266,6 @@ static inline void msc_swizzled_method(Class oldclass,
 #define LAYOUT_H(VIEW1, OFFSET, VIEW2) INSTALL_CONSTRAINTS(DEFAULT_LAYOUT_PRIORITY, @"Create Row", CONSTRAINT_STACKING_H(VIEW1, VIEW2, OFFSET), CONSTRAINT_ALIGNING_PAIR_CENTERY(VIEW1, VIEW2, 0))
 #define LAYOUT_V(VIEW1, OFFSET, VIEW2) INSTALL_CONSTRAINTS(DEFAULT_LAYOUT_PRIORITY, @"Create Column", CONSTRAINT_STACKING_V(VIEW1, VIEW2, OFFSET), CONSTRAINT_ALIGNING_PAIR_CENTERX(VIEW1, VIEW2, 0))
 
-#pragma mark - Content Size Layout
-
-
-
 #pragma mark iOS
 
 // Content Hugging
@@ -316,12 +284,6 @@ static inline CGFloat DegreesToRadians(CGFloat degrees)
 }
 
 #define checkNull(__X__)        (__X__) == [NSNull null] || (__X__) == nil ? @"" : [NSString stringWithFormat:@"%@", (__X__)]
-
-#pragma mark OS X
-
-
-
-
 
 #define weakify(...) \\
     autoreleasepool {} \\
@@ -362,7 +324,6 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define POINTERIZE(x) ((__typeof__(x) []){ x })
 #define NSVALUE(x) [NSValue valueWithBytes: POINTERIZE(x) objCType: @encode(__typeof__(x))]
 
-#pragma mark -
 #pragma mark Blocks
 
 #define BLOCK_SAFE_RUN(block, ...) block ? block(__VA_ARGS__) : nil
@@ -390,25 +351,18 @@ static inline NSDictionary *DictionaryWithIDArray(id *array, NSUInteger count) {
 #define NUM_FLOAT(float) [NSNumber numberWithFloat:float]
 #define NUM_BOOL(bool) [NSNumber numberWithBool:bool]
 
-#pragma mark -
+
 #pragma mark Frame Geometry
 
 #define CENTER_VERTICALLY(parent,child) floor((parent.frame.size.height - child.frame.size.height) / 2)
 #define CENTER_HORIZONTALLY(parent,child) floor((parent.frame.size.width - child.frame.size.width) / 2)
 
-// example: [[UIView alloc] initWithFrame:(CGRect){CENTER_IN_PARENT(parentView,500,500),CGSizeMake(500,500)}];
+
 #define CENTER_IN_PARENT(parent,childWidth,childHeight) CGPointMake(floor((parent.frame.size.width - childWidth) / 2),floor((parent.frame.size.height - childHeight) / 2))
 #define CENTER_IN_PARENT_X(parent,childWidth) floor((parent.frame.size.width - childWidth) / 2)
 #define CENTER_IN_PARENT_Y(parent,childHeight) floor((parent.frame.size.height - childHeight) / 2)
 
-#define WIDTH(view) view.frame.size.width
-#define HEIGHT(view) view.frame.size.height
-#define X(view) view.frame.origin.x
-#define Y(view) view.frame.origin.y
-#define LEFT(view) view.frame.origin.x
-#define TOP(view) view.frame.origin.y
-#define BOTTOM(view) (view.frame.origin.y + view.frame.size.height) 
-#define RIGHT(view) (view.frame.origin.x + view.frame.size.width) 
+
 
 #define MSAssertTrue(condition) do {\ if (condition) {\
 NSLog(@"passed: " @ #condition);\ } else {\
@@ -416,7 +370,8 @@ NSLog(@"failed: " @ #condition);\ }\
 } while(0)
 
 
-
+#define isValidKey(key) ((key) != nil && ![key isKindOfClass:[NSNull class]])
+#define isValidValue(value) ((value) !=nil && ![value isKindOfClass:[NSNull class]])
 
 
 //#endif /* MSCCommon_h */

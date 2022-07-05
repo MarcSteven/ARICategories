@@ -139,20 +139,41 @@ public extension UIButton {
        @IBInspectable
         var textImageSpacing: CGFloat {
            get {
-               let (left, right) = (imageEdgeInsets.left, imageEdgeInsets.right)
-
-               if left + right == 0 {
-                   return right * 2
-               } else {
+               if #available(iOS 15.0, *) {
+                   
+                   let (left,right) = ( self.configuration!.contentInsets.leading,self.configuration!.contentInsets.trailing)
+                   if left + right == 0 {
+                       return right * 2
+                   }else  {
+                   
                    return 0
+                   }
+                   
+               }else {
+                   let (left, right) = (imageEdgeInsets.left, imageEdgeInsets.right)
+
+                   if left + right == 0 {
+                       return right * 2
+                   } else {
+                       return 0
+                   }
+                   
                }
+              
+               
            }
+               
+           
            set {
                let insetAmount = newValue / 2
+               if #available(iOS 15.0, *) {
+                   
+               }else {
                imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
                titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
                contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
-           }
+               }
+               }
        }
 
      
@@ -342,10 +363,14 @@ public extension UIButton {
     /// - Parameter spacing: spacing between UIButton title text and UIButton Image.
     func centerImageAndText(spacing: CGFloat) {
         let insetAmount = spacing / 2
+        if #available(iOS 15.0, *) {
+            
+        }else  {
         imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
         titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
         contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
-    }
+        }
+        }
     
     
     static func navBackBtn() -> UIButton {
@@ -354,7 +379,12 @@ public extension UIButton {
         backBtn.setImage(UIImage(named:"Arrow"), for: .normal)
         backBtn.titleLabel?.isHidden=true
         backBtn.contentHorizontalAlignment = .left
-        backBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: -10,bottom: 0,right: 0)
+        if #available(iOS 15.0, *) {
+            
+        } else {
+            backBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: -10,bottom: 0,right: 0)
+        }
+        
         let btnW: CGFloat = UIScreen.main.bounds.size.width > 375.0 ? 60 : 44
         backBtn.frame = CGRect(x: 0, y: 0, width: btnW, height: 40)
         return backBtn
@@ -365,8 +395,13 @@ public extension UIButton {
         let imageSize = imageView?.intrinsicContentSize
         let titleSize = titleLabel?.intrinsicContentSize
         let totalHeight = (imageSize?.height ?? 0.0) + (titleSize?.height ?? 0.0) + spacing
-        imageEdgeInsets = UIEdgeInsets(top: -(totalHeight - (imageSize?.height ?? 0.0)), left: 0.0, bottom: 0.0, right: -(titleSize?.width ?? 0.0))
-        titleEdgeInsets = UIEdgeInsets(top: 0.0, left: -(imageSize?.width ?? 0.0), bottom: -(totalHeight - (titleSize?.height ?? 0.0)), right: 0.0)
+        if #available(iOS 15.0, *) {
+            
+        } else {
+            imageEdgeInsets = UIEdgeInsets(top: -(totalHeight - (imageSize?.height ?? 0.0)), left: 0.0, bottom: 0.0, right: -(titleSize?.width ?? 0.0))
+            titleEdgeInsets = UIEdgeInsets(top: 0.0, left: -(imageSize?.width ?? 0.0), bottom: -(totalHeight - (titleSize?.height ?? 0.0)), right: 0.0)
+        }
+        
 }
 }
 
@@ -413,7 +448,7 @@ public extension UIButton {
     }
 }
     
-    
+//  MARK: - 设定button点击的时间间隔，防止用户不停点击button
  extension UIButton {
     private struct AssociatedKeys {
            static var eventInterval = "eventInterval"
@@ -473,18 +508,11 @@ public extension UIButton {
            }
        }
    }
-    
+   
+
 
 
 #endif
-
-
-
-
-
-
-
-
 public extension UIButton {
     func loadingIndicator(_ show: Bool) {
         let tag = 808404
@@ -509,4 +537,157 @@ public extension UIButton {
     }
 }
 
+// give the button to add title /image/etc
+
+
+public extension UIButton {
+    
+    func selectedButton(title:String,backgroundColors:UIColor, iconName: String, widthConstraints: NSLayoutConstraint){
+       self.backgroundColor = backgroundColors
+       self.setTitle(title, for: .normal)
+       self.setTitle(title, for: .highlighted)
+       self.setTitleColor(UIColor.white, for: .normal)
+       self.setTitleColor(UIColor.white, for: .highlighted)
+       self.setImage(UIImage(named: iconName), for: .normal)
+       self.setImage(UIImage(named: iconName), for: .highlighted)
+       let imageWidth = self.imageView!.frame.width
+       let textWidth = (title as NSString).size(withAttributes:[NSAttributedString.Key.font:self.titleLabel!.font!]).width
+       let width = textWidth + imageWidth + 24
+       //24 - the sum of your insets from left and right
+       widthConstraints.constant = width
+       self.layoutIfNeeded()
+       }
+
+    
+}
 #endif
+
+public protocol Flashing {}
+
+extension Flashing where Self:UIButton {
+    //闪烁的动画
+    func flash() {
+        
+        let flash = CABasicAnimation(keyPath: "opacity")
+        flash.duration = 0.2
+        flash.fromValue = 1
+        flash.toValue = 0.1
+        flash.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        flash.autoreverses = true
+        flash.repeatCount = 3
+        
+        layer.add(flash, forKey: nil)
+    }
+
+}
+
+
+public extension UIButton {
+
+  func leftImage(image: UIImage, renderMode: UIImage.RenderingMode) {
+       self.setImage(image.withRenderingMode(renderMode), for: .normal)
+       self.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+       self.titleEdgeInsets.left = (self.frame.width/2) - (self.titleLabel?.frame.width ?? 0)
+       self.contentHorizontalAlignment = .left
+       self.imageView?.contentMode = .scaleAspectFit
+   }
+    
+    func rightImage(image: UIImage, renderMode: UIImage.RenderingMode){
+        self.setImage(image.withRenderingMode(renderMode), for: .normal)
+        self.imageEdgeInsets = UIEdgeInsets(top: 0, left:image.size.width / 2, bottom: 0, right: 0)
+        self.contentHorizontalAlignment = .right
+        self.imageView?.contentMode = .scaleAspectFit
+    }
+}
+
+
+
+
+public extension UIButton {
+    
+        func addRightIcon(image: UIImage) {
+            let imageView = UIImageView(image: image)
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+
+            addSubview(imageView)
+
+            let length = CGFloat(15)
+            if #available(iOS 15.0, *) {
+            
+            } else {
+            titleEdgeInsets.right += length
+            }
+            NSLayoutConstraint.activate([
+                imageView.leadingAnchor.constraint(equalTo: self.titleLabel!.trailingAnchor, constant: 10),
+                imageView.centerYAnchor.constraint(equalTo: self.titleLabel!.centerYAnchor, constant: 0),
+                imageView.widthAnchor.constraint(equalToConstant: length),
+                imageView.heightAnchor.constraint(equalToConstant: length)
+            ])
+        }
+    func addLeftImage(image:UIImage) {
+        let imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(imageView)
+        
+        
+        let length = CGFloat(15)
+        if #available(iOS 15.0, *) {
+            titleEdgeInsets.left += length
+            
+        }else {
+            titleEdgeInsets.left += length
+        }
+        
+        
+        NSLayoutConstraint.activate([
+            imageView.trailingAnchor.constraint(equalTo: self.titleLabel!.leadingAnchor, constant: 10),
+            imageView.centerYAnchor.constraint(equalTo: self.titleLabel!.centerYAnchor, constant: 0),
+            imageView.widthAnchor.constraint(equalToConstant: length),
+            imageView.heightAnchor.constraint(equalToConstant: length)
+        ])
+    }
+    
+}
+//https://stackoverflow.com/questions/4201959/label-under-image-in-uibutton
+public extension UIButton {
+    
+        
+        func centerVertically(padding: CGFloat = 6.0) {
+            guard
+                let imageViewSize = self.imageView?.frame.size,
+                let titleLabelSize = self.titleLabel?.frame.size else {
+                return
+            }
+            
+            let totalHeight = imageViewSize.height + titleLabelSize.height + padding
+            
+            self.imageEdgeInsets = UIEdgeInsets(
+                top: -(totalHeight - imageViewSize.height),
+                left: 0.0,
+                bottom: 0.0,
+                right: -titleLabelSize.width
+            )
+            
+            self.titleEdgeInsets = UIEdgeInsets(
+                top: 0.0,
+                left: -imageViewSize.width,
+                bottom: -(totalHeight - titleLabelSize.height),
+                right: 0.0
+            )
+            
+            self.contentEdgeInsets = UIEdgeInsets(
+                top: 0.0,
+                left: 0.0,
+                bottom: titleLabelSize.height,
+                right: 0.0
+            )
+        }
+        
+    }
+//MARK:- disable selected highlight
+public extension UIButton {
+    func disableSelectedHighlight() {
+        self.adjustsImageWhenHighlighted = false
+    }
+}

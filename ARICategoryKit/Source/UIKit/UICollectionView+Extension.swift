@@ -30,14 +30,14 @@ public extension UICollectionView {
     }
 }
 
-public extension UICollectionView {
+extension UICollectionView {
     /// Returns all the cells of the collection view in the given visible section.
     ///
     /// - Parameter section: The index of the section for which you want a count of the items.
     /// - Returns: The cell objects at the corresponding section or nil if the section is not visible or indexPath is out of range.
     ///
     /// - Note: Only the visible cells are returned.
-  func cells(inSection section: Int) -> [UICollectionViewCell] {
+    open func cells(inSection section: Int) -> [UICollectionViewCell] {
         guard section < numberOfSections else {
             return []
         }
@@ -74,7 +74,7 @@ public extension UICollectionView {
     ///   or `nil` if there is no cell that satisfies `predicate`.
     ///
     /// - Note: Only the visible cells are queried.
-     func cell(where predicate: (UICollectionViewCell) -> Bool) -> UICollectionViewCell? {
+    open func cell(where predicate: (UICollectionViewCell) -> Bool) -> UICollectionViewCell? {
         for section in 0..<numberOfSections {
             for item in 0..<numberOfItems(inSection: section) {
                 guard let cell = cellForItem(at: IndexPath(item: item, section: section)) else {
@@ -102,10 +102,51 @@ public extension UICollectionView {
     /// - Parameter kind: The kind of cell to find.
     /// - Returns: The first cell of the collection view that satisfies the given,
     ///   type or `nil` if there is no cell that satisfies the type `T`.
-    func cell<T: UICollectionViewCell>(kind: T.Type) -> T? {
+    open func cell<T: UICollectionViewCell>(kind: T.Type) -> T? {
         cell { $0.isKind(of: kind) } as? T
     }
 }
+
+@objc public extension UICollectionView {
+    
+   
+
+    func drawLineFrom(
+           from: NSIndexPath,
+           to: NSIndexPath,
+           lineWidth: CGFloat = 2,
+           strokeColor: UIColor = UIColor.blue
+       ) {
+           guard
+            let fromPoint = cellForItem(at: from as IndexPath)?.center,
+            let toPoint = cellForItem(at: to as IndexPath)?.center
+           else {
+               return
+           }
+
+           let path = UIBezierPath()
+
+           path.move(to: convert(fromPoint, to: self))
+           path.addLine(to: convert(toPoint, to: self))
+
+           let layer = CAShapeLayer()
+
+           layer.path = path.cgPath
+           layer.lineWidth = lineWidth
+           layer.strokeColor = strokeColor.cgColor
+
+           self.layer.addSublayer(layer)
+       }
+    }
+    
+
+public extension UICollectionView {
+    func disableCellSelect() {
+        self.allowsSelection = false
+    }
+}
+
+
 public extension UICollectionView {
 
     /// VisibleCells in the order they are displayed on screen.

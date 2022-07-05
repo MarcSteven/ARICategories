@@ -5,10 +5,24 @@
 //  Created by marc zhao on 2022/3/30.
 //
 
-
-
-
 import UIKit
+import SafariServices
+
+
+
+
+public extension UIViewController {
+    static var supportedURLSchemes = ["http","https"]
+    func goTo(url:URL) {
+        if let scheme = url.scheme?.lowercased(), UIViewController.supportedURLSchemes.contains(scheme) {
+            let controller = SFSafariViewController(url: url)
+            controller.modalPresentationStyle = .overFullScreen
+            self.present(controller, animated:true)
+        } else  {
+            
+        }
+    }
+}
 
 // http://stackoverflow.com/questions/2777438/how-to-tell-if-uiviewcontrollers-view-is-visible
 public  extension UIViewController {
@@ -96,14 +110,7 @@ public extension  UIViewController {
         }
     }
 
-    /// Only `true` iff `isDeviceLandscape` and `isInterfaceLandscape` both are `true`; Otherwise, `false`.
-     var isLandscape: Bool {
-        isDeviceLandscape && isInterfaceLandscape
-    }
-
-     var isInterfaceLandscape: Bool {
-        UIApplication.sharedOrNil?.statusBarOrientation.isLandscape ?? false
-    }
+ 
 
     /// Returns the physical orientation of the device.
      var isDeviceLandscape: Bool {
@@ -122,7 +129,21 @@ public extension  UIViewController {
     
     
 }
+//MARK: - hide navigation Bar
+public extension UIViewController {
+//    https://stackoverflow.com/questions/29209453/how-to-hide-a-navigation-bar-from-first-viewcontroller-in-swift
+    func hideNavigationBar(animated: Bool){
+        // Hide the navigation bar on the this view controller
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
 
+    }
+
+    func showNavigationBar(animated: Bool) {
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
+}
 public extension UIViewController {
     func hideNavigationBarOnTap() {
         if self.navigationController?.navigationBar.isHidden == true  {
@@ -263,3 +284,317 @@ public extension UIViewController {
     }
 }
 
+
+public extension UIViewController {
+    func openSettings() {
+        if let url = URL.init(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+}
+// Get the top from UIViewController  https://stackoverflow.com/questions/11637709/get-the-current-displaying-uiviewcontroller-on-the-screen-in-appdelegate-m
+public extension UIViewController {
+    var top: UIViewController? {
+        if let controller = self as? UINavigationController {
+            return controller.topViewController?.top
+        }
+        if let controller = self as? UISplitViewController {
+            return controller.viewControllers.last?.top
+        }
+        if let controller = self as? UITabBarController {
+            return controller.selectedViewController?.top
+        }
+        if let controller = presentedViewController {
+            return controller.top
+        }
+        return self
+    }
+}
+
+
+/// Conform to `AlertPresenting` protocol to present alerts from a view controller.
+public protocol AlertPresenting: AnyObject {
+    
+    /// Present alert.
+    ///
+    /// - Parameters:
+    ///   - title: alert title.
+    ///   - message: alert message.
+    ///   - preferredStyle: alert preferred style.
+    ///   - tintColor: alert tint color.
+    ///   - actions: alert actions array.
+    ///   - animated: set to true to animate alert presentation.
+    ///   - completion: optional completion handler is called after the alert is presented.
+    /// - Returns: presented alert.
+    @discardableResult func presentAlert(
+        title: String?,
+        message: String?,
+        preferredStyle: UIAlertController.Style,
+        tintColor: UIColor?,
+        actions: [UIAlertAction],
+        animated: Bool,
+        completion: (() -> Void)?) -> UIAlertController
+    
+    /// Present alert from an error.
+    ///
+    /// - Parameters:
+    ///   - title: alert title.
+    ///   - error: error.
+    ///   - preferredStyle: alert preferred style.
+    ///   - tintColor: alert tint color.
+    ///   - actions: alert actions array.
+    ///   - animated: set to true to animate alert presentation.
+    ///   - completion: optional completion handler is called after the alert is presented.
+    /// - Returns: presented alert.
+    @discardableResult func presentAlert(
+        title: String?,
+        error: Error,
+        preferredStyle: UIAlertController.Style,
+        tintColor: UIColor?,
+        actions: [UIAlertAction],
+        animated: Bool,
+        completion: (() -> Void)?) -> UIAlertController
+    
+}
+
+// MARK: - Default implementation for UIViewController.
+public extension AlertPresenting where Self: UIViewController {
+    
+    /// Present alert.
+    ///
+    /// - Parameters:
+    ///   - title: alert title.
+    ///   - message: alert message.
+    ///   - preferredStyle: alert preferred style _(default is .alert)_.
+    ///   - tintColor: alert tint color _(default is nil)_.
+    ///   - actions: alert actions array _(default is empty)_.
+    ///   - animated: set to true to animate alert presentation _(defalt is true)_.
+    ///   - completion: optional completion handler is called after the alert is presented _(default is nil)_.
+    /// - Returns: presented alert.
+    @discardableResult func presentAlert(
+        title: String?,
+        message: String?,
+        preferredStyle: UIAlertController.Style = .alert,
+        tintColor: UIColor? = nil,
+        actions: [UIAlertAction] = [],
+        animated: Bool = true,
+        completion: (() -> Void)? = nil) -> UIAlertController {
+        
+        let alert = self.alert(title: title, message: message, preferredStyle: preferredStyle, actions: actions, animated: animated)
+        
+        if let color = tintColor {
+            alert.view.tintColor = color
+        }
+        
+        present(alert, animated: animated, completion: completion)
+        
+        if let color = tintColor {
+            alert.view.tintColor = color
+        }
+        
+        return alert
+    }
+    
+    /// Present alert from an error.
+    ///
+    /// - Parameters:
+    ///   - title: alert title.
+    ///   - error: error.
+    ///   - preferredStyle: alert preferred style _(default is .alert)_.
+    ///   - tintColor: alert tint color _(default is nil)_.
+    ///   - actions: alert actions array _(default is empty)_.
+    ///   - animated: set to true to animate alert presentation _(defalt is true)_.
+    ///   - completion: optional completion handler is called after the alert is presented _(default is nil)_.
+    /// - Returns: presented alert.
+    @discardableResult func presentAlert(
+        title: String?,
+        error: Error,
+        preferredStyle: UIAlertController.Style = .alert,
+        tintColor: UIColor? = nil,
+        actions: [UIAlertAction] = [],
+        animated: Bool = true,
+        completion: (() -> Void)? = nil) -> UIAlertController {
+        
+        let alert = self.alert(title: title, message: error.localizedDescription, preferredStyle: preferredStyle, actions: actions, animated: animated)
+        
+        if let color = tintColor {
+            alert.view.tintColor = color
+        }
+        
+        present(alert, animated: animated, completion: completion)
+        
+        if let color = tintColor {
+            alert.view.tintColor = color
+        }
+        
+        return alert
+    }
+    
+}
+
+// MARK: - Private UIViewController extension to show alerts.
+public extension UIViewController {
+    
+    /// Creates an alert.
+    ///
+    /// - Parameters:
+    ///   - title: alert title.
+    ///   - message: alert message.
+    ///   - preferredStyle: alert preferred style _(default is .alert)_.
+    ///   - actions: alert actions array _(default is empty)_.
+    ///   - animated: wether presentation is animated or not _(default is true)_.
+    /// - Returns: UIAlertController instance.
+    @discardableResult func alert(
+        title: String? = nil,
+        message: String? = nil,
+        preferredStyle: UIAlertController.Style = .alert,
+        actions: [UIAlertAction] = [],
+        animated: Bool = true) -> UIAlertController {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
+        
+        if actions.isEmpty {
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+        }
+        
+        for action in actions {
+            alert.addAction(action)
+        }
+        
+        return alert
+    }
+    
+}
+
+
+public extension UIViewController {
+    
+        /// Loads a `UIViewController` of type `T` with storyboard. Assumes that the storyboards Storyboard ID has the same name as the storyboard and that the storyboard has been marked as Is Initial View Controller.
+        /// - Parameter storyboardName: Name of the storyboard without .xib/nib suffix.
+        static func loadFromStoryboard<T: UIViewController>(_ storyboardName: String) -> T? {
+            let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: storyboardName) as? T {
+                vc.loadViewIfNeeded() // ensures vc.view is loaded before returning
+                return vc
+            }
+            return nil
+        }
+}
+
+
+public extension UIViewController {
+    
+        func openAppSystemSettingsAlert(title: String, message: String) {
+               let alertController = UIAlertController (title: title, message: message, preferredStyle: .alert)
+               let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+                   guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+                   if UIApplication.shared.canOpenURL(settingsUrl) {
+                       UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                           #if DEBUG
+                           print("Settings opened: \(success)") // Prints true
+                           #endif
+                       })
+                   }
+               }
+               alertController.addAction(settingsAction)
+               let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+               alertController.addAction(cancelAction)
+               present(alertController, animated: true, completion: nil)
+           }
+    func openBluetoothSettingAlert(title:String,message:String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let bluetoothAction = UIAlertAction(title: "Enable Bluetooth", style: .default) { (_) in
+            guard let bluetoothURL = URL(string: AppPrefs.bluetooth.rawValue) else {
+                return
+            }
+            if UIApplication.shared.canOpenURL(bluetoothURL) {
+                UIApplication.shared.open(bluetoothURL,completionHandler: {(success) in
+                    #if DEBUG
+                    print("Bluetooth opened: \(success)") // Print true
+                    #endif
+                })
+            }
+        }
+        alertController.addAction(bluetoothAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+        
+    }
+        
+       }
+
+public extension UIViewController {
+    /// Call this once to dismiss open keyboards by tapping anywhere in the view controller
+    func hideKeyboardWhenTap() {
+        self.view.addGestureRecognizer(self.endEditingRecognizer())
+        self.navigationController?.navigationBar.addGestureRecognizer(self.endEditingRecognizer())
+    }
+    
+
+}
+//Usage : called this method of hideKeyboardOnTap in viewDidLoad()
+
+public extension UIViewController {
+    
+    func addNavigationBarButton(imageName:String,direction:direction){
+        var image = UIImage(named: imageName)
+        image = image?.withRenderingMode(.alwaysOriginal)
+        switch direction {
+        case .left:
+           self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style:.plain, target: nil, action: #selector(goBack))
+        case .right:
+           self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style:.plain, target: nil, action: #selector(goBack))
+        }
+    }
+
+    @objc func goBack() {
+        navigationController?.popViewController(animated: true)
+    }
+
+    enum direction {
+        case right
+        case left
+    }
+}
+extension UIViewController {
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.view.endEditing(true)
+    }
+}
+
+
+public enum AppPrefs:String {
+    case wifi = "App-Prefs:root=WIFI"
+    case bluetooth = "App-Prefs:root=Bluetooth"
+    case mobileDataSetting = "App-Prefs:root=MOBILE_DATA_SETTINGS_ID"
+    case internetTethering = "App-Prefs:root=INTERNET_TETHERING"
+    case carries = "App-Prefs:root=Carrier"
+    case notificationID = "App-Prefs:root=NOTIFICATIONS_ID"
+    case generals = "App-Prefs:root=General"
+    case generalAbout = "App-Prefs:root=General&path=About"
+    case keyboard = "App-Prefs:root=General&path=Keyboard"
+    case accesssiblitys = "App-Prefs:root=General&path=ACCESSIBILITY"
+}
+/**
+ 
+ 
+ 
+ App-Prefs:root=General&path=About
+ 通用-键盘    App-Prefs:root=General&path=Keyboard
+ 通用-辅助功能    App-Prefs:root=General&path=ACCESSIBILITY
+ 通用-语言与地区    App-Prefs:root=General&path=INTERNATIONAL
+ 通用-还原    App-Prefs:root=Reset
+ 墙纸    App-Prefs:root=Wallpaper
+ Siri    App-Prefs:root=SIRI
+ 隐私    App-Prefs:root=Privacy
+ Safari    App-Prefs:root=SAFARI
+ 音乐    App-Prefs:root=MUSIC
+ 音乐-均衡器    App-Prefs:root=MUSIC&path=com.apple.Music:EQ
+ 照片与相机    App-Prefs:root=Photos
+ FaceTime    App-Prefs:root=FACETIME
+
+ 
+ */

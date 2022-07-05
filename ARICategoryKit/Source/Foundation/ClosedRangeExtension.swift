@@ -9,6 +9,9 @@
 import Foundation
 
 extension ClosedRange where Bound:FloatingPoint {
+    
+    /// generate random bound
+    /// - Returns: return random bound
     public func random() ->Bound {
         let range = upperBound - lowerBound
         return (Bound(UInt32.random(in: 0..<UInt32.max)) / Bound(UInt32.max)) * range + lowerBound

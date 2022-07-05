@@ -9,8 +9,10 @@
 import UIKit
 import QuartzCore
 
-extension CGColor {
-    public var uiColor:UIColor {
+public extension CGColor {
+    
+    /// convert cgcolor to UIColor 
+     var uiColor:UIColor {
         return UIColor(cgColor: self)
     }
 }

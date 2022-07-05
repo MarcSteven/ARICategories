@@ -27,6 +27,20 @@
 - (BOOL)isUnary {
     return self.secondItem == nil;
 }
+- (UIView *)likelyOwner {
+    if (self.isUnary) {
+        return self.firstView;
+    }
+    return  self.firstView;
+}
+//- (NSArray *)supervies {
+//    NSMutableArray *array = [NSMutableArray array];
+//    
+//}
+//- (NSArray *)superviews {
+//    NSMutableArray *array = [NSMutableArray array];
+//   // UIView *view = select(<#int#>, <#fd_set *restrict#>, <#fd_set *restrict#>, <#fd_set *restrict#>, <#struct timeval *restrict#>)
+//}
 //- (UIView *)likelyOwner {
 //    if (self.isUnary) {
 //        return self.firstView;

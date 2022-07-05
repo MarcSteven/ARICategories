@@ -5,6 +5,7 @@
 //
 
 #import "NSObject+Common.h"
+#import <objc/runtime.h>
 
 @implementation NSObject (Common)
 
@@ -92,6 +93,265 @@
     }
     
     return result;
+}
+
+@end
+
+
+@implementation NSObject (Copy)
+
+- (BOOL)po_copyForShallow:(NSObject *)object {
+    Class currentClass = [self class];
+    Class instanceClass = [object class];
+    
+    if (self == object) {
+        //相同实例
+        return NO;
+    }
+    
+    if (![object isMemberOfClass:currentClass] ) {
+        //不是当前类的实例
+        return NO;
+    }
+    
+    while (instanceClass != [NSObject class]) {
+        unsigned int propertyListCount = 0;
+        objc_property_t *propertyList = class_copyPropertyList(currentClass, &propertyListCount);
+        for (int i = 0; i < propertyListCount; i++) {
+            objc_property_t property = propertyList[i];
+            const char *property_name = property_getName(property);
+            NSString *propertyName = [NSString stringWithCString:property_name encoding:NSUTF8StringEncoding];
+            
+            // check if property is dynamic and readwrite
+            char *dynamic = property_copyAttributeValue(property, "D");
+            char *readonly = property_copyAttributeValue(property, "R");
+            if (propertyName && !readonly) {
+                id propertyValue = [object valueForKey:propertyName];
+                [self setValue:propertyValue forKey:propertyName];
+            }
+            free(dynamic);
+            free(readonly);
+        }
+        free(propertyList);
+        instanceClass = class_getSuperclass(instanceClass);
+    }
+    
+    return YES;
+}
+
+#pragma mark -
+
+- (BOOL)po_copyForDeep:(NSObject *)object {
+    Class currentClass = [self class];
+    Class instanceClass = [object class];
+    
+    if (self == object) {
+        //相同实例
+        return NO;
+    }
+    
+    if (![object isMemberOfClass:currentClass] ) {
+        //不是当前类的实例
+        return NO;
+    }
+    
+    while (instanceClass != [NSObject class]) {
+        unsigned int propertyListCount = 0;
+        objc_property_t *propertyList = class_copyPropertyList(currentClass, &propertyListCount);
+        for (int i = 0; i < propertyListCount; i++) {
+            objc_property_t property = propertyList[i];
+            const char *property_name = property_getName(property);
+            NSString *propertyName = [NSString stringWithCString:property_name encoding:NSUTF8StringEncoding];
+            
+            // check if property is dynamic and readwrite
+            char *dynamic = property_copyAttributeValue(property, "D");
+            char *readonly = property_copyAttributeValue(property, "R");
+            if (propertyName && !readonly) {
+                id propertyValue = [object valueForKey:propertyName];
+                Class propertyValueClass = [propertyValue class];
+                BOOL flag = [NSObject po_isNSObjectClass:propertyValueClass];
+                if (flag) {
+                    if ([propertyValue conformsToProtocol:@protocol(NSCopying)]) {
+                        NSObject *copyValue = [propertyValue copy];
+                        [self setValue:copyValue forKey:propertyName];
+                    }
+                    else {
+                        NSObject *copyValue = [[[propertyValue class]alloc]init];
+                        [copyValue po_copyForDeep:propertyValue];
+                        [self setValue:copyValue forKey:propertyName];
+                    }
+                }
+                else {
+                    [self setValue:propertyValue forKey:propertyName];
+                }
+            }
+            free(dynamic);
+            free(readonly);
+        }
+        free(propertyList);
+        instanceClass = class_getSuperclass(instanceClass);
+    }
+    
+    return YES;
+}
+
++ (BOOL)po_isNSObjectClass:(Class)clazz {
+    
+    BOOL flag = class_conformsToProtocol(clazz, @protocol(NSObject));
+    if (flag) {
+        return flag;
+    }
+    else {
+        Class superClass = class_getSuperclass(clazz);
+        if (!superClass) {
+            return NO;
+        }
+        else {
+            return  [NSObject po_isNSObjectClass:superClass];
+        }
+    }
+}
+
+@end
+@implementation NSObject (MSCHelper)
+- (NSString *)msc_className {
+    return NSStringFromClass([self class]);
+    
+
+}
+
+@end
+
+@implementation NSObject (MSCDescription)
+- (NSString *)objectIdentifier {
+    return [NSString stringWithFormat:@"%@:0x%0x",self.class.description,(int)self];
+}
+- (NSString *)objectName {
+    if (self.nameTag) {
+        return [NSString stringWithFormat:@"%@:0x%0x",self.nameTag,(int)self];
+    }
+    return [NSString stringWithFormat:@"%@",self.objectIdentifier];
+}
+NSString *consoleString(NSString *string,NSInteger maxLength,NSInteger indent) {
+    //Build spacer
+
+    NSMutableString *spacer = [NSMutableString stringWithString:@"\n"];
+    for (int i = 0; i < indent; i++)
+        [spacer appendString:@" "];
+    
+    // Decompose into space-separated items
+    NSArray *wordArray = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+    NSInteger wordCount = wordArray.count;
+    NSInteger index = 0;
+    NSInteger lengthOfNextWord = 0;
+    
+    // Perform decomposition
+    NSMutableArray *array = [NSMutableArray array];
+    while (index < wordCount)
+    {
+        NSMutableString *line = [NSMutableString string];
+        while (((line.length + lengthOfNextWord + 1) <= maxLength) &&
+               (index < wordCount))
+        {
+            lengthOfNextWord = [wordArray[index] length];
+            [line appendString:wordArray[index]];
+            if (++index < wordCount)
+                [line appendString:@" "];
+        }
+        [array addObject:line];
+    }
+    
+    return [array componentsJoinedByString:spacer];
+
+}
+//wrapped description
+- (NSString *)consoleDesription {
+    return consoleString(self.description, 80, 8);
+    
+}
+@end
+
+
+
+#import <objc/runtime.h>
+static const char nametag_key;
+
+
+@implementation NSObject (MSCNameTag)
+
+- (void)setNameTag:(NSString *)nameTag {
+    objc_setAssociatedObject(self, (void *)&nametag_key, nameTag, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (id)nameTag {
+    return objc_getAssociatedObject(self, (void *)&nametag_key);
+}
+@end
+
+
+@implementation NSObject (Associate)
+@dynamic associatedObject;
+- (void)setAssociatedObject:(id)object {
+    objc_setAssociatedObject(self, @selector(associatedObject),object , OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (id)associatedObject {
+    return objc_getAssociatedObject(self, @selector(associatedObject));
+}
+@end
+
+
+@implementation NSObject (GCD)
+
++ (void)po_syncInMainThreadBlock:(void(^)(void))aInMainBlock {
+    
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        
+        aInMainBlock();
+    });
+}
+
++ (void)po_syncInThreadBlock:(void(^)(void))aInThreadBlock {
+    
+    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        aInThreadBlock();
+    });
+}
+
++ (void)po_performInMainThreadBlock:(void(^)(void))aInMainBlock {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        aInMainBlock();
+    });
+}
+
++ (void)po_performInThreadBlock:(void(^)(void))aInThreadBlock {
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        aInThreadBlock();
+    });
+}
+
++ (void)po_performInMainThreadBlock:(void(^)(void))aInMainBlock afterSecond:(NSTimeInterval)delay {
+    
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t) (delay * NSEC_PER_SEC));
+    
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        aInMainBlock();
+    });
+}
+
++ (void)po_performInThreadBlock:(void(^)(void))aInThreadBlock afterSecond:(NSTimeInterval)delay {
+    
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t) (delay * NSEC_PER_SEC));
+    
+    dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        
+        aInThreadBlock();
+    });
 }
 
 @end

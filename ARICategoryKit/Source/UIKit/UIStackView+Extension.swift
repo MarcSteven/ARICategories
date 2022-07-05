@@ -42,26 +42,22 @@ public extension UIStackView {
         self.alignment = alignment
         self.spacing = spacing
     }
-         
-       
+}
 
-    }
-
-
-    extension UIStackView {
+   public extension UIStackView {
         /// Adds the list of views to the end of the `arrangedSubviews` array.
         ///
         /// - Parameter subviews: The views to be added to the array of views arranged
         ///                       by the stack view.
-        public func addArrangedSubviews(_ subviews: [UIView]) {
+         func addArrangedSubviews(_ subviews: [UIView]) {
             subviews.forEach {
                 addArrangedSubview($0)
             }
         }
     }
 
-    extension UIStackView {
-        public func removeAllArrangedSubviews() {
+    public extension UIStackView {
+         func removeAllArrangedSubviews() {
             arrangedSubviews.forEach {
                 $0.removeFromSuperview()
             }
@@ -80,3 +76,49 @@ public extension UIStackView {
 
 #endif
 #endif
+
+
+
+private let stackViewBackgroundViewTag: Int = 1
+
+
+public extension UIStackView {
+
+    func ari_addArrangedSubviewsToStackView() -> (([UIView], UIStackView) -> UIStackView) {
+      return { subviews, stackView in
+        subviews.forEach(stackView.addArrangedSubview)
+
+        return stackView
+      }
+    }
+
+    @available(iOS 11.0, *)
+     func ari_setCustomSpacing(_ spacing: CGFloat) -> ((UIView, UIStackView) -> UIStackView) {
+      return { view, stackView in
+        stackView.setCustomSpacing(spacing, after: view)
+
+        return stackView
+      }
+    }
+
+     func ari_setBackgroundColor(_ color: UIColor) -> ((UIStackView) -> (UIStackView)) {
+      return { stackView in
+        if let firstSubview = stackView.subviews.first, firstSubview.tag == stackViewBackgroundViewTag {
+          firstSubview.backgroundColor = color
+
+          return stackView
+        }
+
+        let backgroundView = UIView(frame: stackView.bounds)
+        backgroundView.tag = stackViewBackgroundViewTag
+        backgroundView.backgroundColor = color
+        backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        stackView.insertSubview(backgroundView, at: 0)
+
+        return stackView
+      }
+    }
+
+
+}
+

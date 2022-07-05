@@ -114,3 +114,12 @@ extension RandomAccessCollection where Index == Int {
         range.lowerBound >= startIndex && range.upperBound <= endIndex
     }
 }
+
+
+public extension Collection {
+    
+    /// non empty 
+    var nonEmpty:Self? {
+        return isEmpty ? nil :self
+    }
+}

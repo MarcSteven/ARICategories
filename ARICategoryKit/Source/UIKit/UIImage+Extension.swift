@@ -9,6 +9,7 @@
 import UIKit
 import CoreGraphics
 import Photos
+import Accelerate
 public extension UIImage {
     
     convenience init(bundleName:String) {
@@ -27,9 +28,133 @@ public extension UIImage {
     ///  UIImage with .alwaysTemplate rendering mode.
     var template: UIImage {
         return withRenderingMode(.alwaysTemplate)
+        
+        
+       
+    }
+    var automatic:UIImage {
+        return withRenderingMode(.automatic)
     }
     
 }
+public extension UIImage {
+    var pixelWidth:Int {
+        return cgImage?.width ?? 0
+    }
+    var pixelHeight:Int {
+        return cgImage?.height ?? 0
+    }
+    func pixelColor(x:Int,y:Int) ->UIColor {
+        assert(
+                   0..<pixelWidth ~= x && 0..<pixelHeight ~= y,
+                   "Pixel coordinates are out of bounds")
+
+               guard
+                   let cgImage = cgImage,
+                   let data = cgImage.dataProvider?.data,
+                   let dataPtr = CFDataGetBytePtr(data),
+                   let colorSpaceModel = cgImage.colorSpace?.model,
+                   let componentLayout = cgImage.bitmapInfo.componentLayout
+               else {
+                   assertionFailure("Could not get a pixel of an image")
+                   return .clear
+               }
+
+               assert(
+                   colorSpaceModel == .rgb,
+                   "The only supported color space model is RGB")
+               assert(
+                   cgImage.bitsPerPixel == 32 || cgImage.bitsPerPixel == 24,
+                   "A pixel is expected to be either 4 or 3 bytes in size")
+
+               let bytesPerRow = cgImage.bytesPerRow
+               let bytesPerPixel = cgImage.bitsPerPixel/8
+               let pixelOffset = y*bytesPerRow + x*bytesPerPixel
+
+               if componentLayout.count == 4 {
+                   let components = (
+                       dataPtr[pixelOffset + 0],
+                       dataPtr[pixelOffset + 1],
+                       dataPtr[pixelOffset + 2],
+                       dataPtr[pixelOffset + 3]
+                   )
+
+                   var alpha: UInt8 = 0
+                   var red: UInt8 = 0
+                   var green: UInt8 = 0
+                   var blue: UInt8 = 0
+
+                   switch componentLayout {
+                   case .bgra:
+                       alpha = components.3
+                       red = components.2
+                       green = components.1
+                       blue = components.0
+                   case .abgr:
+                       alpha = components.0
+                       red = components.3
+                       green = components.2
+                       blue = components.1
+                   case .argb:
+                       alpha = components.0
+                       red = components.1
+                       green = components.2
+                       blue = components.3
+                   case .rgba:
+                       alpha = components.3
+                       red = components.0
+                       green = components.1
+                       blue = components.2
+                   default:
+                       return .clear
+                   }
+
+                   // If chroma components are premultiplied by alpha and the alpha is `0`,
+                   // keep the chroma components to their current values.
+                   if cgImage.bitmapInfo.chromaIsPremultipliedByAlpha && alpha != 0 {
+                       let invUnitAlpha = 255/CGFloat(alpha)
+                       red = UInt8((CGFloat(red)*invUnitAlpha).rounded())
+                       green = UInt8((CGFloat(green)*invUnitAlpha).rounded())
+                       blue = UInt8((CGFloat(blue)*invUnitAlpha).rounded())
+                   }
+
+                   return .init(red: red, green: green, blue: blue, alpha: alpha)
+
+               } else if componentLayout.count == 3 {
+                   let components = (
+                       dataPtr[pixelOffset + 0],
+                       dataPtr[pixelOffset + 1],
+                       dataPtr[pixelOffset + 2]
+                   )
+
+                   var red: UInt8 = 0
+                   var green: UInt8 = 0
+                   var blue: UInt8 = 0
+
+                   switch componentLayout {
+                   case .bgr:
+                       red = components.2
+                       green = components.1
+                       blue = components.0
+                   case .rgb:
+                       red = components.0
+                       green = components.1
+                       blue = components.2
+                   default:
+                       return .clear
+                   }
+
+                   return .init(red: red, green: green, blue: blue, alpha: UInt8(255))
+
+               } else {
+                   assertionFailure("Unsupported number of pixel components")
+                   return .clear
+               }
+           }
+
+       }
+
+     
 
 // MARK: - Methods
 public extension UIImage {
@@ -355,3 +480,102 @@ public extension UIImage {
 #endif
 
 
+
+
+public extension UIImage {
+    static func screenshot(fromView view: UIView, size: CGSize) -> UIImage? {
+        
+        UIGraphicsBeginImageContext(size)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        
+        // -renderInContext: renders in the coordinate space of the layer,
+        
+        context.saveGState()
+        
+        // Center the context around the window's anchor point
+        context.translateBy(x: size.width/2, y: size.height/2)
+        
+        // Apply the window's transform about the anchor point
+        context.concatenate(view.transform)
+        
+        // Offset by the portion of the bounds left of and above the anchor point
+        context.translateBy(x: -view.bounds.size.width * view.layer.anchorPoint.x,
+                            y: -view.bounds.size.height * view.layer.anchorPoint.y)
+        
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: false)
+        
+        // Restore the context
+        context.restoreGState()
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+    
+    func blurred(withRadius radius: CGFloat) -> UIImage {
+        
+        //image must be nonzero size
+        guard floorf(Float(size.width)) * floorf(Float(size.height)) > 0 else { return self }
+        
+        //boxsize have to be an odd integer
+        var boxSize = UInt32(radius * self.scale)
+        if boxSize % 2 == 0 {
+            boxSize += 1
+        }
+        
+        //create image buffers
+        guard let imageRef = self.cgImage else { return self }
+        var buffer1 = vImage_Buffer()
+        var buffer2 = vImage_Buffer()
+        buffer1.width = vImagePixelCount(imageRef.width)
+        buffer2.width = vImagePixelCount(imageRef.width)
+        buffer1.height = vImagePixelCount(imageRef.height)
+        buffer2.height = vImagePixelCount(imageRef.height)
+        buffer1.rowBytes = imageRef.bytesPerRow
+        buffer2.rowBytes = imageRef.bytesPerRow
+        let bytes = buffer1.rowBytes * Int(buffer1.height)
+        buffer1.data = malloc(bytes)
+        buffer2.data = malloc(bytes)
+        
+        let tempBuffer = malloc(vImageBoxConvolve_ARGB8888(&buffer1, &buffer2, nil, 0, 0, boxSize, boxSize,
+                                                           nil, vImage_Flags(kvImageEdgeExtend + kvImageGetTempBufferSize)))
+        
+        //copy image data
+        let dataSource = imageRef.dataProvider?.data
+        memcpy(buffer1.data, CFDataGetBytePtr(dataSource), bytes)
+        
+        for _ in 0..<5 {
+            //perform blur
+            vImageBoxConvolve_ARGB8888(&buffer1, &buffer2, tempBuffer, 0, 0, boxSize, boxSize, nil, vImage_Flags(kvImageEdgeExtend));
+            
+            //swap buffers
+            let temp = buffer1.data
+            buffer1.data = buffer2.data
+            buffer2.data = temp
+        }
+        
+        //free buffers
+        free(buffer2.data)
+        free(tempBuffer)
+        
+        guard let colorSpace = (imageRef.colorSpace) else {
+            return self
+        }
+        //create image context from buffer
+        guard let ctx = CGContext(data: buffer1.data, width: Int(buffer1.width), height: Int(buffer1.height),
+                                  bitsPerComponent: 8, bytesPerRow: buffer1.rowBytes, space: colorSpace,
+                                  bitmapInfo: imageRef.bitmapInfo.rawValue) else {
+                                    return self
+        }
+        
+        guard let imageRef1 = ctx.makeImage() else {
+            return self
+        }
+        let image = UIImage(cgImage: imageRef1, scale: self.scale, orientation: self.imageOrientation)
+        
+        free(buffer1.data);
+        
+        return image
+    }
+}

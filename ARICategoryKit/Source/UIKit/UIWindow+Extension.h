@@ -14,7 +14,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIWindow (MSCSafeArea)
+
+/// layout insets
 - (UIEdgeInsets)msc_layoutInsets;
+
+/// navigation height
 - (CGFloat)msc_navigationHeight;
 @end
 

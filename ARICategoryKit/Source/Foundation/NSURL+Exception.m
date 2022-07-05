@@ -10,7 +10,6 @@
 #import <objc/runtime.h>
 @implementation NSURL (Exception)
 + (void)load {
-    //static dispatch_once_t onceToken;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class class = [self class];

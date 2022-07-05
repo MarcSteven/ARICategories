@@ -15,11 +15,38 @@ public extension UIAlertController {
         viewController.present(alert, animated: true)
     }
     
+    static func showCancelAlert(_ title:String,
+                                message:String,
+                                cancelTitle:String,
+                                viewController:UIViewController
+    ) {
+        let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: cancelTitle, style: .cancel, handler: nil))
+        viewController.present(alertViewController, animated: true, completion: nil)
+    }
+    
     //在根视图控制器上弹出普通消息提示框
     static func showAlert(message: String) {
-        if let vc = UIApplication.shared.keyWindow?.rootViewController {
-            showAlert(message: message, in: vc)
+        
+//        if #available(iOS 13.0, *) {
+//
+//        }
+        if #available(iOS 15.0, *) {
+            let keywindow = UIApplication
+                .shared
+                .connectedScenes
+                .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+                .first { $0.isKeyWindow }
+            if  let vc = keywindow?.rootViewController {
+                showAlert(message: message, in: vc)
+            }
+            
+        } else {
+            if let vc = UIApplication.shared.keyWindow?.rootViewController  {
+                showAlert(message: message, in: vc)
+            }
         }
+       
     }
     
     //在指定视图控制器上弹出确认框
@@ -33,9 +60,24 @@ public extension UIAlertController {
     
     //在根视图控制器上弹出确认框
     static func showConfirm(title: String, message: String, confirm: ((UIAlertAction)->Void)?) {
-        if let vc = UIApplication.shared.keyWindow?.rootViewController {
-            showConfirm(title: title, message: message, in: vc, confirm: confirm)
+        
+        if #available(iOS 15.0, *) {
+            let keywindow = UIApplication
+                .shared
+                .connectedScenes
+                .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+                .first { $0.isKeyWindow }
+            if let vc = keywindow?.rootViewController {
+                showConfirm(title: title, message: message,in: vc, confirm: confirm)
+            }
+            
+            
+        }else {
+            if let vc = UIApplication.shared.keyWindow?.rootViewController {
+                showConfirm(title: title, message: message, in: vc, confirm: confirm)
+            }
         }
+        
     }
     
     // 提示框弹出后，过段时间自动移除
@@ -139,6 +181,13 @@ public extension UIPopoverPresentationController {
 }
 public extension UIAlertController {
      func show(presentingViewController:UIViewController? = nil) {
+         
+         if #available(iOS 15.0, *) {
+             
+         } else {
+             
+         }
+         
         guard let presentingViewController = presentingViewController ?? UIApplication.sharedOrNil?.keyWindow?.topViewController() else {
             return
         }

@@ -70,22 +70,7 @@ public extension DispatchQueue {
         }
     }
 }
-public extension DispatchTime {
-    /// A convenience method to convert `TimeInterval` to `DispatchTime`.
-    ///
-    /// - Parameter interval: The time interval, in seconds.
-    /// - Returns: A new `DispatchTime` from specified seconds.
-     static func seconds(_ interval: TimeInterval) -> DispatchTime {
-        .now() + TimeInterval(Int64(interval * TimeInterval(NSEC_PER_SEC))) / TimeInterval(NSEC_PER_SEC)
-    }
-}
 
-public extension DispatchTime {
-     static func seconds(elapsedSince lastTime: UInt64) -> TimeInterval {
-        let currentTime = DispatchTime.now().uptimeNanoseconds
-        let oneSecondInNanoseconds = TimeInterval(1_000_000_000)
-        let secondsElapsed = TimeInterval(Int64(currentTime) - Int64(lastTime)) / oneSecondInNanoseconds
-        return secondsElapsed
-    }
-    
+fileprivate  func unsafeMutablePointer<T:AnyObject>(to object:T)->UnsafeMutableRawPointer {
+    return Unmanaged<T>.passUnretained(object).toOpaque()
 }

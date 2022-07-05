@@ -43,3 +43,52 @@ extension UIResponder {
         return nil
     }
 }
+
+//https://stackoverflow.com/questions/1372977/given-a-view-how-do-i-get-its-viewcontroller
+public extension UIResponder {
+   
+        func parentController<T: UIViewController>(of type: T.Type) -> T? {
+            guard let next = self.next else {
+                return nil
+            }
+            return (next as? T) ?? next.parentController(of: T.self)
+        }
+    
+
+}
+/** usage
+ 
+ class myView:UIView {
+ 
+    let parentViewController =  self.parentController(of:MyViewController.self)
+ 
+ }
+ 
+ 
+ 
+ */
+
+
+public extension UIResponder {
+   // Thanks to Phil M
+   // http://stackoverflow.com/questions/1340434/get-to-uiviewcontroller-from-uiview-on-iphone
+   
+   func firstAvailableViewController() -> UIViewController? {
+       // convenience function for casting and to "mask" the recursive function
+       return self.traverseResponderChainForFirstViewController()
+   }
+   
+   private func traverseResponderChainForFirstViewController() -> UIViewController? {
+       if let nextResponder = self.next {
+           if nextResponder is UIViewController {
+               return nextResponder as? UIViewController
+           } else if nextResponder is UIView {
+               return nextResponder.traverseResponderChainForFirstViewController()
+           } else {
+               return nil
+           }
+       }
+       return nil
+   }
+}
+

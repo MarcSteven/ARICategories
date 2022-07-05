@@ -9,6 +9,8 @@
 import Foundation
 
 public extension CharacterSet {
+    
+    /// urlQuery parametersAllowed 
     static var urlQueryParametersAllowed: CharacterSet {
         /// Does not include "?" or "/" due to RFC 3986 - Section 3.4
         let generalDelimitersToEncode = ":#[]@"
